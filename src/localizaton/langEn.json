@@ -1,0 +1,213 @@
+{
+    "header":{
+        "vacancies":"All Jobs",
+        "myCv":"My Cv",
+        "applied":"Applied",
+        "me":"Me",
+        "favourites":"Favourites",
+        "login":"Login",
+        "signUp":"Sign Up"
+    },
+
+
+    "vacancy": "Вакансия",
+    "vacancies":"Вакансии",
+    "addVacancy":"Добавить вакансию",
+    "listOfVacancies":"Список вакансий",
+    "vacancyInfo":"Информация о вакансии",
+    "payment":"Оплата",
+
+
+    "fullTimePermanent":"Постоянный полный рабочий день",
+    "partTimePermanent":"Постоянный неполный рабочий день",
+    "fullTimeSeasonal":"Сезонный полный рабочий день",
+    "partTimeSeasonal":"Сезонный неполный рабочий день",
+    "casual":"Кадимки",
+    "hourly":"по часам",
+    "daily":"каждый день",
+    "weekly":"раз в недели",
+    "biweekly":"раз в две недели",
+    "monthly":"раз в месяц",
+
+
+    "cv":"Резюме",
+    "addCv":"Добавить резюме",
+
+
+
+    "listOfApplications":"Список резюме",
+    "lookingforJob":"Ищу работу",
+    "notLookingForJob":"Не ищу работу",
+    "applicants":"Соискатели",
+
+    "countries":"Страны",
+    "country":"Страна",
+    "countryName":"Название страны",
+    "countryNameInRussian":"Название страны на русском",
+    "countryNameInKyrgyz":"Название страны на кыргызском",
+    "countryCode":"Код страны",
+    "addNewCountry":"Добавить новую страну",
+
+
+    "cities":"Города",
+    "city":"Город",
+    "nameOfCity":"Название города",
+    "addNewCity":"Добавить новый город",
+    "nameOfCityInKyrgyz":"Название города на кыргызском",
+    "nameOfCityInEnglish":"Название города на английском",
+    "nameOfCityInRussian":"Название города на русском",
+
+
+    "organizations":"Организации",
+    "organization":"Организации",
+    "organizationName":"Название организации",
+    "addOrganization":"Добавить организацию",
+    "listOfOrganizations":"Список организаций",
+
+    "users":"Пользователи",
+    "addUser":"Добавить пользователя",
+    "profile":"Профиль",
+    "listOfUsers":"Список пользователей",
+    "dataOfUser":"Данные о пользователе",
+    "createAccaunt":"Создать аккаунт",
+    "firstName":"Имя",
+    "fullname":"Имя пользователя",
+    "lastName":"Фамилия",
+    "password":"Пароль",
+    "username":"Аккаунт",
+    "email":"Электронный адрес",
+    "role":"Должность",
+
+    "currentPassword":"Текущий пароль",
+    "newPassword":"Новый пароль",
+    "confirmPassword":"Подверждение пароля",
+    "passwordsDontMatch":"Пароли не совпадают",
+    "changePassword":"Изменить пароль",
+
+
+    "list":"Список",
+    "settings":"Настройки",
+    "currency":"Валюта",    
+    "catalog":"Справочник",
+    "status":"Статус",
+
+
+    "logout":"Выйти",
+    "registration":"Регистрация",
+    "register":"Зарегистрируйтесь",
+    "signInToAccaunt":"Войти в свой аккаунт",
+    "signIn":"Войти",
+    "registerNow":"Зарегистрироваться сейчас",
+    "forgotPassword":"Забыли пароль?",
+    "returnToOriginalPosition":"Вернуть в исходное положение",
+    "resetPassword":"Сбросить пароль",
+    "messageForgotPassword":"Измените пароль, выполнив два простых шага",
+    "incorrectData":"Вы ввели неверные данные",
+    "doYouHaveAnAccaunt":"Нет аккаунта",
+    
+
+    "cancel":"Отмена",
+    "change":"Изменить",
+    "choose":"Выбрать",
+    "add":"Добавить",
+    "delete":"Удалить",
+    "changeDatas":"Изменить данные",
+    "submit":"Отправить",
+    "view":"Показать",
+    "rollUp":"Свернуть",
+    "showDetails":"Показать больше",
+    "search":"Поиск",
+    "pressEnterToAddTag":"Нажми enter, чтобы добавить тег",
+    "printCV":"Сохранить резюме",
+
+    
+    "sector":"Сектор",
+    "specialization":"Специализации",
+    "position":"Позиция",
+    "salary":"Зарплата",
+    "description":"Описание",
+    "paymentType":"Способ оплаты",
+    "startDate":"Начало работы",
+    "responsibilities":"Обязанности",
+    "requirements":"Требования",
+    "cash":"Наличными",
+    "byBankTransfer":"Банковским переводом",
+    "schedule":"Расписание",
+    "deadline":"Крайний срок подачи заявки",
+ 
+    "location":"Локация",
+    "company":"Компания",
+    "employmentType":"Вид работы",
+    "from":"от",
+    "to":"до",
+    "addSector":"Добавить сектор",
+    "listOfSectors":"Список секторов",
+    "specializations":"Специализации",
+    "addSpecialization":"Добавить специализацию",
+    "listOfSpecializations":"Список специальностей",
+    "addApplication":"Добавить резюме",
+    "updated":"Обновлено",
+    "age":"Возраст",
+    "gender":"Пол",
+    "livingAddress":"Адрес проживания",
+    "address":"Адрес",
+    "maritalStatus":"Семейное положение",
+    "phone":"Телефон",
+    "citizenship":"Гражданство",
+    "expectedSalary":"Ожид. зарплата",
+
+
+
+    "addApplicant":"Добавить нового соискателя",
+    "listOfApplicants":"Список соискателей",
+    "dateJoined":"Был зарегистрирован",
+    "lastLogin":"Последний раз был",
+
+    
+    "successfullyCreated":"Успешно создано",
+    "successfullyDeleted":"Успешно удалено",
+    "successfullyEdited":"Успешно изменено",
+    "enableToEdit":"Можете внести изменения",
+    "confirmToDelete":"Вы уверены, что хотите удалить",
+    "confirmToLogout":"Вы уверены, что хотите выйти",
+    "failedToDelete":"Не удалось удалить",
+    "failedToCreate":"Не удалось создать",
+    "failedToEdit":"Не удалось изменить",
+
+
+    "employmentAndPaymentTypes":"Виды работы и оплаты",
+    "paymentTypes":"Способы оплаты",
+    "employmentTypes":"Виды работы",
+    "addNewPaymentType":"Добавить способ оплаты",
+    "addNewEmploymentType":"Добавить вид работы",
+
+    "employmentTypeInRussian":"На русском",
+    "employmentTypeInEnglish":"На английском",
+    "employmentTypeInKyrgyz":"На кыргызском",
+
+    "paymentTypeInRussian":"На русском",
+    "paymentTypeInEnglish":"На английском",
+    "paymentTypeInKyrgyz":"На кыргызском",
+
+
+    "allVacancies":"все вакансии",
+    "vacanciesForPeriod":"вакансии за период",
+    "bySalary":"По зарплате",
+    "byLocation":"По местоположению",
+    "bySector":"По сектору",
+    "searchBy":"Поиск по",
+    "countriesAndCities":"Страны и города",
+    "minSalary":"Мин. зарплата",
+    "maxSalary":"Макс. зарплата",
+    "trytoChangeSearchFields":"Попробуйте изменить условия поиска",
+    "noItemsAfterSearch":"Поиск не дал результатов",
+
+    "operator":"Оператор",
+    "admin":"Администратор",
+    "employee":"Соискатель",
+    "recruiter":"Рекрутер",
+    "operators":"Операторы",
+    "admins":"Администраторы",
+    "recruiters":"Рекрутеры"
+
+} 

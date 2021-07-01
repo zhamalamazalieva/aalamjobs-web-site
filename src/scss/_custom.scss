@@ -1,0 +1,26 @@
+$theme-colors: (
+    "info": $color-darkGreen,
+    "danger": $color-dangerRed,
+    "success":$color-lightGreen,  
+    "primary":$color-white,
+);
+.bg-color-darkGreen{
+    background-color: $color-darkGreen;
+}
+a{
+    text-decoration: none;
+    &:hover{
+        text-decoration: none;
+        color: $color-white;
+
+    }
+}
+.text-capitalize{
+    text-transform: capitalize;
+}
+.cursor-pointer{
+    cursor: pointer;
+}
+.max-width{
+    max-width: 100%;
+}

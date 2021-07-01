@@ -1,0 +1,46 @@
+.header {
+	color: $color-white;
+	&__logo {
+		width: 4em;
+	}
+	&__link {
+		@include font($font-nuni, 0.666em, 600, 1.5);
+		color: $color-white;
+		margin-right: 1.3em;
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+	&__text {
+		@include font($font-nuni, 0.6em, 600, 1.5);
+		color: $color-white;
+		margin-left: 30px;
+		&:first-child {
+			margin-left: 0;
+		}
+	}
+	&__lang-select {
+		@include font($font-nuni, 0.6em, 600, 1.5);
+		outline: none !important;
+		background-color: transparent !important;
+		border: none !important;
+		&:focus {
+			border: none;
+		}
+		&::after {
+			display: none !important;
+		}
+	}
+	&__chevron {
+		width: 0.8em;
+		margin-left: 0.5em;
+	}
+	&__btn {
+		border-radius: 30px;
+		color: $color-darkGreen !important;
+	}
+}
+
+.active {
+	border-bottom: 1px solid $color-white;
+}

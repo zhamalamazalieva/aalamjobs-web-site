@@ -1,0 +1,12 @@
+@import "variables";
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import "~bootstrap/scss/bootstrap";
+body{
+    font-size: 30px;
+    font-family: $font-nuni ;
+    color:$color-darkGray;
+}
+@import "mixins";
+@import "custom";
+@import "components/header";
+
