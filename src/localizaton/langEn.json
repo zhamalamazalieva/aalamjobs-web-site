@@ -1,14 +1,23 @@
 {
     "header":{
         "vacancies":"All Jobs",
-        "myCv":"My Cv",
+        "myCv":"My CV",
         "applied":"Applied",
         "me":"Me",
         "favourites":"Favourites",
         "login":"Login",
         "signUp":"Sign Up"
     },
+    "footer":{
+        "aboutUs":"About us",
+        "termsAndConditions":"Terms and Conditions",
+        "privacyPolicy":"Privacy Policy",
+        "FAQ":"FAQ",
+        "contactUs":"Contact us",
+        "followUsOn":"Follow us on"
 
+    }
+,
 
     "vacancy": "Вакансия",
     "vacancies":"Вакансии",

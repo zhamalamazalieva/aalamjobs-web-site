@@ -1,0 +1,32 @@
+.footer{
+    &__copyright{
+        color: $color-white;
+    }
+    &__bottom{
+        background-color: $color-darkGreen;
+        width: 100%;
+        padding: 10px;
+    }
+    &__top{
+        background-color: $color-lightGray;
+        padding: 46px 0;
+    }
+    &__logo{
+        max-width: 150px;
+        height: 82px;
+    }
+    &__link{
+        margin-bottom: 10px;
+        cursor: pointer;
+        &:last-child{
+            margin-bottom:0;
+        }
+    }
+    &__social-links{
+        cursor: pointer;
+        margin-right: 20px;
+        &:last-child{
+            margin-right: 0;
+        }
+    }
+}

@@ -1,0 +1,14 @@
+.search{
+    &__wrapper{
+        background-color: rgba($color: $color-darkGreen, $alpha: .1);
+        padding: 1.1em 0.7em;
+        border-radius: 10px;
+    }
+    &__input{
+        height: 40px;
+        font-size: 0.7em;
+        padding: 0 15px;
+        border-radius: 10px;
+        border: none;
+    }
+}

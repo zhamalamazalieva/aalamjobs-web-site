@@ -1,12 +1,23 @@
+@import "reset";
 @import "variables";
 @import 'bootstrap/dist/css/bootstrap.min.css';
 @import "~bootstrap/scss/bootstrap";
 body{
-    font-size: 30px;
+    font-size: 25px;
     font-family: $font-nuni ;
     color:$color-darkGray;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 @import "mixins";
 @import "custom";
 @import "components/header";
+@import "components/searchBar";
+@import "components/footer";
+@import "components/login";
+@import "components/vacancies";
+
+
+
+
 

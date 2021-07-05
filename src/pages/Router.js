@@ -2,7 +2,7 @@ import React, {Suspense, lazy} from "react"
 import {Route, Switch, Redirect} from "react-router-dom"
 import FullSpinner from "../components/spinners/FullSpinner"
 
-// const LoginPage = lazy(() => import('./LoginPage'))
+const LoginPage = lazy(() => import('./LoginPage'))
 // const RegisterPage = lazy(() => import('./RegisterPage'))
 const Page404 = lazy(() => import('./Page404'))
 const HomePage = lazy(() => import('./HomePage'))
@@ -18,9 +18,9 @@ export default function Router(){
   return (
     <Suspense fallback={<FullSpinner/>}>
       <Switch>
-        {/* <Route exact path="/login">
+        <Route exact path="/login">
           <LoginPage/>
-        </Route> */}
+        </Route>
         {/* <Route exact path="/register">
           <RegisterPage/>
         </Route>

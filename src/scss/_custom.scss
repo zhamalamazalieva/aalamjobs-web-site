@@ -15,12 +15,79 @@ a{
 
     }
 }
+li{
+    list-style-type: none;
+    word-break: break-all;
+}
 .text-capitalize{
     text-transform: capitalize;
 }
 .cursor-pointer{
     cursor: pointer;
 }
+.color-white{
+    color: $color-white;
+}
+.myContainer{
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
 .max-width{
     max-width: 100%;
+}
+.myBtn{
+    padding: 5px 10px;
+    outline: none;
+    border: none;
+    border-radius: 30px;
+    background-color: $color-white;
+    color: $color-darkGreen;
+    @include font($font-nuni, 0.6em, 600, 1.5);
+}
+.myText--small{
+    @include font($font-nuni, 0.7em, 600, 1.5);
+    color: $color-text;
+    letter-spacing: 0.04em;
+}
+.myText--xsmall{
+    @include font($font-nuni, 0.6em, 400, 1.5);
+    color: $color-text;
+    letter-spacing: 0.04em;
+}
+.myText--xlarge{
+    @include font($font-nuni, 1em, 800, 1.5);
+    color: $color-text;
+    letter-spacing: 0.04em;
+}
+.myText--large{
+    @include font($font-nuni, 1em, 600, 1.5);
+    color: $color-text;
+    letter-spacing: 0.04em;
+}
+
+.myBorderRadius{
+    border-radius: 10px;
+}
+.d-center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.m-width{
+    width: 100%;
+}
+.react-select .react-select__control{
+    height: 40px;
+    font-size: 1em;
+    padding: 0 5px;
+    border-radius: 10px;
+    border: none;
+}
+.react-select__value-container{
+    font-size:0.7em;
+    height: 100%;
+}
+.react-select .react-select__indicators{
+    height: 100%;
 }

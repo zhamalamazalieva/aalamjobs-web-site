@@ -6,7 +6,7 @@ import { getCurrentLanguage } from "../../localizaton/localication"
 import * as Constants from "../../constants/index"
 import chevron from "../../assets/icons/chevron.svg"
 import { useTranslation } from 'react-i18next'
-
+import { Link } from 'react-router-dom'
 const HeaderRight = () => {
     const { t } = useTranslation()
 
@@ -41,12 +41,14 @@ const HeaderRight = () => {
 					</Dropdown.Item>
 				</Dropdown.Menu>
 			</Dropdown>
-			<div className="header__text cursor-pointer">
+			<Link to="/login" className="header__text cursor-pointer">
 				{t("header.login")}
-			</div>
-			<Button className="header__text ml-4 header__btn btn" variant="light">
+			</Link>
+			<Link to='/register'>
+			<button className="ml-4 header__btn myBtn">
 				{t("header.signUp")}
-			</Button>
+			</button>
+			</Link>
 		</Row>
 	)
 }
