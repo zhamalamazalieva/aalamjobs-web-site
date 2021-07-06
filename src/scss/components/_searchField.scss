@@ -1,0 +1,15 @@
+.searchField{
+    &__wrapper{
+        position: relative;
+    }
+    &__icon{
+        z-index: 2;
+        position: absolute;
+        left: 7%;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    &__input{
+        padding: 10px 10%;
+    }
+}

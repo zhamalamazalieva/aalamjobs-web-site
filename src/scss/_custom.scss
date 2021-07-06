@@ -28,6 +28,9 @@ li{
 .color-white{
     color: $color-white;
 }
+.color-lightGreen{
+    color:$color-lightGreen;
+}
 .myContainer{
     width: 100%;
     max-width: 1200px;
@@ -37,13 +40,16 @@ li{
     max-width: 100%;
 }
 .myBtn{
-    padding: 5px 10px;
+    padding: 5px 20px;
     outline: none;
     border: none;
     border-radius: 30px;
     background-color: $color-white;
     color: $color-darkGreen;
     @include font($font-nuni, 0.6em, 600, 1.5);
+}
+.myBtn-shadow{
+    box-shadow: 0px 0px 4px 1px #00000040;
 }
 .myText--small{
     @include font($font-nuni, 0.7em, 600, 1.5);
@@ -64,6 +70,10 @@ li{
     @include font($font-nuni, 1em, 600, 1.5);
     color: $color-text;
     letter-spacing: 0.04em;
+}
+.myText--bold{
+    @include font($font-nuni, .7em, 700, 1.5);
+    color: $color-text;
 }
 
 .myBorderRadius{
@@ -90,4 +100,9 @@ li{
 }
 .react-select .react-select__indicators{
     height: 100%;
+}
+.form-control:focus{
+    border-color: $color-lightGreen;
+    box-shadow: none;
+    
 }

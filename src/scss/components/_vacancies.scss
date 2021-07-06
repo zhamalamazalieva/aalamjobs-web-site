@@ -1,5 +1,17 @@
-.vacancies{
+.vacancy{
+    &__detail{
+        border: 1px solid #00754B;
+        border-radius: 10px;
 
+    }
+    &__logo{
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 1px solid red;
+        margin-right: 30px;
+    }
 }
 .cart{
     &__wrapper{

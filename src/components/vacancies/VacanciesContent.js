@@ -17,6 +17,7 @@ const VacanciesContent = () => {
                 <VacancyCart/>
                 </Col>
                 <Col>
+                <VacancyDetail/>
                 </Col>
             </Row>
         </div>

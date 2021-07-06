@@ -1,11 +1,14 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./scss/style.scss";
+import { Col, Row } from 'react-bootstrap'
 import Header from './components/header/Header'
 import Footer from './components/footer/Footer'
-
 import Router from './pages/Router'
 import SearchSideBar from './components/searchSideBar/SearchSideBar';
-import { Col, Row } from 'react-bootstrap'
+import SearchField from './components/searchField/SearchField';
+
+
+
 function App() {
   return (
     <>
@@ -17,6 +20,7 @@ function App() {
       <SearchSideBar/>
       </Col>
       <Col md="9" xs="12">
+      <SearchField/>
       <Router/>
       </Col>
     </Row>
