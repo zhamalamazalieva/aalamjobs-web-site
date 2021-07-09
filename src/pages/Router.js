@@ -10,8 +10,8 @@ const CvPage = lazy(() => import('./CvPage'))
 const MePage = lazy(() => import('./MePage'))
 const FavouritesPage = lazy(() => import('./FavouritesPage'))
 const AppliedPage = lazy(() => import('./AppliedPage'))
+const  SignUpPage = lazy(() => import ('./SignUpPage'))
 
-// const ForgotPasswordPage = lazy(() => import('./ForgotPasswordPage'))
 
 
 export default function Router(){
@@ -21,12 +21,9 @@ export default function Router(){
         <Route exact path="/login">
           <LoginPage/>
         </Route>
-        {/* <Route exact path="/register">
-          <RegisterPage/>
+        <Route exact path="/register">
+          <SignUpPage/>
         </Route>
-        <Route exact path="/forgotpassword">
-          <ForgotPasswordPage/>
-        </Route> */}
         <Route exact path="/">
           <HomePage/>
         </Route>

@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.12.1",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
@@ -29,6 +30,8 @@
     "react-tag-input": "^6.5.2",
     "react-toastify": "^7.0.4",
     "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0",
+    "swiper": "^6.7.5",
     "web-vitals": "^1.1.2"
   },
   "scripts": {

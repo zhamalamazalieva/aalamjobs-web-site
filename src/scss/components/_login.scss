@@ -2,4 +2,13 @@
     &__logo{
         max-width:10em;
     }
+    &__link{
+        @include font($font-nuni, 1em, 700, 1.5);
+        text-decoration:underline;
+        color:$color-text;
+        &:hover{
+            color: $color-text;
+            text-decoration: none;
+        }
+    }
 }

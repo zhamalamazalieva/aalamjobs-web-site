@@ -9,6 +9,24 @@
         "signUp":"Катталуу"
     },
 
+    "search":{
+        "city":"Шарр",
+        "industry":"Сектор",
+        "speciality":"Адисчилик",
+        "salary":"Айлык",
+        "employmentType":"Жумуш түрү"
+    },
+    "footer":{
+        "aboutUs":"Компания",
+        "termsAndConditions":"Terms and Conditions",
+        "privacyPolicy":"Privacy Policy",
+        "FAQ":"FAQ",
+        "contactUs":"Contact us",
+        "followUsOn":"Follow us on"
+    },
+    
+    "apply":"Aplly",
+
     "accaunt":"Аккаунт",
     
     
@@ -145,7 +163,7 @@
     "listOfApplications":"Резюмелердин тизмеси",
     "addApplication":"Жаны резюме кошуу",
     "updated":"Жаңыланды",
-    "search":"Издөө",
+  
     
     "vacancyInfo":"Вакансия тууралуу маалымат",
     "payment":"Төлөм",

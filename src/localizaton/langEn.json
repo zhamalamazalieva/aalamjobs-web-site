@@ -8,18 +8,51 @@
         "login":"Login",
         "signUp":"Sign Up"
     },
+
+    "search":{
+        "city":"City",
+        "industry":"Industry",
+        "speciality":"Speciality",
+        "salary":"Salary",
+        "employmentType":"Employment type",
+        "country":"Country"
+    },
+    "vacancy":{
+        "position":"Position",
+        "company":"Company",
+        "allVacancies":"All Vacancies"
+    },
+    "login":{
+        "password":"Password",
+        "emailOrUsername":"Email address or username",
+        "rememberMe":"Remember me",
+        "forgotPassword":"Forgot Your Password",
+        "login":"Log in",
+        "resetPassword":"Reset password",
+        "email":"email",
+        "checkEmail":"Pleace check your email",
+        "signUp":"Sign Up",
+        "createPassword":"Create Password"
+        
+    },
+
+
+    "apply":"Apply",
+    "share":"Share",
+    "sendCV":"send CV",
+
+
     "footer":{
         "aboutUs":"About us",
         "termsAndConditions":"Terms and Conditions",
         "privacyPolicy":"Privacy Policy",
         "FAQ":"FAQ",
         "contactUs":"Contact us",
-        "followUsOn":"Follow us on"
-
+        "followUsOn":"Follow us on",
+        "downloadApp":"Download the app now!"
     }
 ,
 
-    "vacancy": "Вакансия",
     "vacancies":"Вакансии",
     "addVacancy":"Добавить вакансию",
     "listOfVacancies":"Список вакансий",
@@ -125,7 +158,6 @@
     "view":"Показать",
     "rollUp":"Свернуть",
     "showDetails":"Показать больше",
-    "search":"Поиск",
     "pressEnterToAddTag":"Нажми enter, чтобы добавить тег",
     "printCV":"Сохранить резюме",
 

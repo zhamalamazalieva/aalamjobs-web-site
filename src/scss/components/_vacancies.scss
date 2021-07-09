@@ -9,8 +9,11 @@
         height: 80px;
         border-radius: 50%;
         object-fit: cover;
-        border: 1px solid red;
+        border: 1px solid $color-middleGray;
         margin-right: 30px;
+    }
+    &__nologo{
+        width: 100%;
     }
 }
 .cart{
@@ -28,6 +31,10 @@
         color: $color-orange;
         text-transform: capitalize;
 
+    }
+    &__fav{
+        cursor: pointer;
+        stroke: $color-orange;
     }
  
 }

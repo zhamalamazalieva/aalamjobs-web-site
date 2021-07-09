@@ -31,16 +31,27 @@ li{
 .color-lightGreen{
     color:$color-lightGreen;
 }
+.color-text{
+    color:$color-text;
+}
+.row{
+    margin-right: 0;
+    margin-left: 0;
+}
+.m-minus{
+    margin: 0 -30px;
+}
+
 .myContainer{
     width: 100%;
-    max-width: 1200px;
+    max-width: 1300px;
     margin: 0 auto;
 }
 .max-width{
     max-width: 100%;
 }
 .myBtn{
-    padding: 5px 20px;
+    padding: 3px 20px;
     outline: none;
     border: none;
     border-radius: 30px;
@@ -48,32 +59,40 @@ li{
     color: $color-darkGreen;
     @include font($font-nuni, 0.6em, 600, 1.5);
 }
+.myBtn--green{
+    padding: 5px 60px;
+    outline: none;
+    border: none;
+    border-radius: 30px;
+    background-color: $color-lightGreen;
+    color: $color-white;
+    @include font($font-nuni, 0.6em, 600, 1.5);
+}
 .myBtn-shadow{
     box-shadow: 0px 0px 4px 1px #00000040;
 }
 .myText--small{
     @include font($font-nuni, 0.7em, 600, 1.5);
-    color: $color-text;
     letter-spacing: 0.04em;
 }
 .myText--xsmall{
     @include font($font-nuni, 0.6em, 400, 1.5);
-    color: $color-text;
     letter-spacing: 0.04em;
 }
 .myText--xlarge{
     @include font($font-nuni, 1em, 800, 1.5);
-    color: $color-text;
     letter-spacing: 0.04em;
 }
 .myText--large{
     @include font($font-nuni, 1em, 600, 1.5);
-    color: $color-text;
     letter-spacing: 0.04em;
 }
 .myText--bold{
     @include font($font-nuni, .7em, 700, 1.5);
-    color: $color-text;
+}
+.myBorder--secondary{
+    border: 0.5px solid #9F9F9F;
+    border-radius: 10px;
 }
 
 .myBorderRadius{
@@ -86,6 +105,11 @@ li{
 }
 .m-width{
     width: 100%;
+}
+.logo-stub{
+    font-weight: 600;
+    font-size: 0.8em;
+    color: rgba($color: $color-middleGray, $alpha: .4);
 }
 .react-select .react-select__control{
     height: 40px;
@@ -101,8 +125,10 @@ li{
 .react-select .react-select__indicators{
     height: 100%;
 }
+// .form-control{
+//     box-shadow: 0px 0px 4px 0px #00000040;
+// }
 .form-control:focus{
     border-color: $color-lightGreen;
     box-shadow: none;
-    
 }

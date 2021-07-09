@@ -6,7 +6,7 @@ import ForgotPasswordModal from './ForgotPasswordModal'
 import { Link } from 'react-router-dom'
 
 
-const LoginPage = () => {
+const SignUpPage = () => {
 	const {t} = useTranslation()
 
 
@@ -25,27 +25,23 @@ const LoginPage = () => {
 					<Image src={logo} alt="logo" size="sm" className="login__logo" />
 				</Col>
                 <Col className="mb-5">
-                    <span className="myText--large d-center color-text text-center">To continue, Login to AalamJobs</span>
+                    <span className="myText--large d-center color-text text-center">For more experience, Sign Up for AalamJobs </span>
                 </Col>
-				<Col >
-				<Form>
+				<Col  className="md-6" >
+				<Form className="flex-column">
 					<Form.Group controlId="formBasicEmail">
 						<Form.Control type="email" placeholder={t("login.emailOrUsername")} />
 					</Form.Group>
 
 					<Form.Group controlId="formBasicPassword">
-						<Form.Control type="password" placeholder={t("login.password")} />
+						<Form.Control type="password" placeholder={t("login.createPassword")} />
 					</Form.Group>
-					<div className="d-flex justify-content-between align-items-center">
-					<Form.Group controlId="formBasicCheckbox color-lightGreen">
-						<Form.Check type="checkbox" label={t("login.rememberMe")} className="myText--small"/>
-					</Form.Group>
-					<Button variant="success" className="myBtn myBtn--green myText--large" type="submit">
-						{t("login.login")}
-					</Button>
-					</div>
-					<span className="myText--large color-lightGreen d-center mt-5" onClick={openModal}>{t("login.forgotPassword")}</span>
-					<span  className="myText--small color-text d-center mt-5">Don’t have account?<Link to="/register" className="login__link"> Sign up</Link></span>
+				
+                <Col className="d-center">
+					<Button variant="success" className="myBtn myBtn--green myText--large text-center" type="submit">
+						{t("login.signUp")}
+					</Button></Col>
+					<span  className="myText--small color-text d-center mt-5">Already a member?<Link className="login__link" to="/login">Login</Link> </span>
 					</Form>
 				</Col>
 			</Row>
@@ -60,4 +56,4 @@ const LoginPage = () => {
 	)
 }
 
-export default LoginPage
+export default SignUpPage

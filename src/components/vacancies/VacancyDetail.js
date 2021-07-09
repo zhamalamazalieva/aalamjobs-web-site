@@ -6,13 +6,18 @@ const VacancyDetail = () => {
 	const { t } = useTranslation()
 	return (
 		<div className="p-4 d-flex flex-column vacancy__detail">
-			<span className="myText--xsmall mb-5 d-flex justify-content-end">
+			<span className="myText--xsmall mb-2 d-flex justify-content-end">
 				24.01.2020
 			</span>
 			<div className="d-flex mb-3">
-				<div className="vacancy__logo">
-					<img src="" alt="" />
-				</div>
+			<div className="vacancy__logo">
+			<svg className="vacancy__nologo" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<circle cx="40" cy="40" r="39" stroke="#ABAABD" stroke-width="2"/>
+				<circle cx="56" cy="50.6667" r="8" fill="#ABAABD"/>
+				<path d="M40 0V35.3333H22.9231V53H3" stroke="#ABAABD" stroke-width="2" stroke-linejoin="round"/>
+				</svg>
+			</div>
+
 				<div>
 					<h5 className="cart__title">HR Manager</h5>
 					<span className="cart__location myText--xsmall">Bishkek</span>
@@ -24,13 +29,13 @@ const VacancyDetail = () => {
 			<span className="myText--xsmall">Telecommunications Company</span>
 			<div className="d-flex mt-3 mb-3">
 				<Button variant="success" className="mr-2 myBtn-shadow">
-					{t("vacancy.sendCV")}
+					{t("sendCV")}
 				</Button>
 				<Button
 					variant="outline-light"
 					className="myBtn-shadow color-lightGreen"
 				>
-					{t("vacancy.share")}
+					{t("share")}
 				</Button>
 			</div>
 			<span className="myText--bold">Full-time (09:00-18:00), 5/2 </span>

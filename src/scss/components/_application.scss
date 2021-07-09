@@ -1,0 +1,23 @@
+
+
+.swiper-container{
+    padding: 5% 0 !important;
+}
+.swiper-slide{
+    width: 100%;
+}
+.swiper-pagination{
+    top: -10px;
+    bottom: 90% !important;
+}
+.swiper-pagination-bullet{
+    background-color:#111 !important;
+    width: 15px !important;
+    height: 15px !important;
+    padding: 0;
+    
+}
+.swiper-pagination-bullet-active {
+    background-color:#B8B8BB !important;
+
+}

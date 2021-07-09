@@ -3,7 +3,7 @@ import { Button, FormControl } from "react-bootstrap"
 
 const SearchField = () => {
 	return (
-		<div className="d-flex mb-5 ">
+		<div className="d-flex mb-5 align-items-center">
 			<div className="searchField__wrapper col">
 				<FormControl
 					className="searchField__input"

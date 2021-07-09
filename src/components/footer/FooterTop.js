@@ -111,7 +111,7 @@ const FooterTop = () => {
                 <div className="col">
 					<ul>
 						<li className="myText--small footer__link">
-							{t("footer.followUsOn")}
+							{t("footer.downloadApp")}!
 						</li>
 						<li className="myText--small footer__link">
 							<img src={googlePlay} alt="google play"/>
