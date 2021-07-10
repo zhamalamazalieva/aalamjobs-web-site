@@ -1,10 +1,17 @@
-
+.application{
+    &__radio-btn{
+        border: 1px solid rgba($color: #000000, $alpha: .2);
+        border-radius: 4px;
+        height: 40px;
+    }
+}
 
 .swiper-container{
     padding: 5% 0 !important;
 }
 .swiper-slide{
-    width: 100%;
+    width: 100% !important;
+    padding: 5px;
 }
 .swiper-pagination{
     top: -10px;

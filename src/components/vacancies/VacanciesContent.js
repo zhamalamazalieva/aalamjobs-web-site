@@ -16,7 +16,7 @@ const VacanciesContent = () => {
 	
 	return (
 		<div className="vacancy__wrapper">
-			<h1 className="myText--large text-center mb-3 text-uppercase">
+			<h1 className="myText--large color-blueGray text-center mb-3 text-uppercase">
 				{t("vacancy.allVacancies")}
 			</h1>
 			<Row className="m-minus">

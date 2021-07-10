@@ -8,7 +8,7 @@ import Footer from "../components/footer/Footer"
 const HomePage = () => {
 	return (
 		<>
-			<div className="bg-color-darkGreen">
+			<div className="bg-color--darkGreen">
 				<Header />
 			</div>
 			<Row className="myContainer mt-5 mb-5">

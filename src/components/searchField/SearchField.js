@@ -10,8 +10,8 @@ const SearchField = () => {
 					placeholder="Product Designer"
 				/>
 				<svg
-					width="20"
-					height="20"
+					width="15"
+					height="15"
 					className="searchField__icon"
 					viewBox="0 0 24 24"
 					fill="none"
@@ -45,8 +45,8 @@ const SearchField = () => {
 				/>
 				<svg
 					className="searchField__icon"
-					width="15"
-					height="20"
+					width="12"
+					height="17"
 					viewBox="0 0 18 24"
 					fill="none"
 					xmlns="http://www.w3.org/2000/svg"
@@ -59,8 +59,8 @@ const SearchField = () => {
 			</div>
 			<Button variant="success">
 				<svg
-					width="20"
-					height="20"
+					width="15"
+					height="15"
 					viewBox="0 0 30 30"
 					fill="none"
 					xmlns="http://www.w3.org/2000/svg"

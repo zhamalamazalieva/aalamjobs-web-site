@@ -18,7 +18,7 @@ const SearchSideBar = () => {
 	return (
 		<div>
 			<Form className="search__wrapper">
-				<span className="myText--small d-center">Advanced Search</span>
+				<span className="myText--small d-center color-blueGray">Advanced Search</span>
 				<Form.Group controlId="exampleForm.ControlInput1">
 					<Form.Label className="search__label myText--small">
 						{t("search.country")}

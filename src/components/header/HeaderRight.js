@@ -19,7 +19,7 @@ const HeaderRight = () => {
 		setSelectedLanguage(lang)
 	}
 	return (
-		<Row className="bg-color-darkGreen d-flex justify-content-end align-items-center max-width">
+		<Row className="bg-color--darkGreen d-flex justify-content-end align-items-center max-width">
 			<Dropdown>
 				<Dropdown.Toggle
 					type="text"
@@ -45,7 +45,7 @@ const HeaderRight = () => {
 				{t("header.login")}
 			</Link>
 			<Link to='/register'>
-			<button className="ml-4 header__btn myBtn">
+			<button className="ml-4 header__btn myBtn--white">
 				{t("header.signUp")}
 			</button>
 			</Link>

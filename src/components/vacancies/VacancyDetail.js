@@ -38,13 +38,13 @@ const VacancyDetail = () => {
 					{t("share")}
 				</Button>
 			</div>
-			<span className="myText--bold">Full-time (09:00-18:00), 5/2 </span>
-			<span className="myText--bold">Permanent contract</span>
-			<span className="myText--bold">IT Industry</span>
-			<span className="myText--bold">Start date: ASAP</span>
-			<span className="myText--bold">Deadline: NO (10.Jul.2021)</span>
+			<span className="myText--large">Full-time (09:00-18:00), 5/2 </span>
+			<span className="myText--large ">Permanent contract</span>
+			<span className="myText--large ">IT Industry</span>
+			<span className="myText--large ">Start date: ASAP</span>
+			<span className="myText--large ">Deadline: NO (10.Jul.2021)</span>
 			<div className="vacancy__section section mt-3">
-				<span className="section__title myText--bold">About us</span>
+				<span className="section__titlemy Text--large">About us</span>
 				<p className="myText--xsmall">
 					About Us: We’re an exciting new start-up; an innovative digital
 					platform, with the goal of becoming the number one destination for

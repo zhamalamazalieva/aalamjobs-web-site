@@ -1,7 +1,4 @@
 import React from 'react'
-import { Col, Row, Image, Container} from 'react-bootstrap'
-import logo from '../../assets/img/logo-white.png'
-import FooterTop from './FooterTop'
 
 
 const FooterBottom= () => {

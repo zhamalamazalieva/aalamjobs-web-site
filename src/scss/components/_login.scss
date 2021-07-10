@@ -5,9 +5,9 @@
     &__link{
         @include font($font-nuni, 1em, 700, 1.5);
         text-decoration:underline;
-        color:$color-text;
+        color:$color-darkGray;
         &:hover{
-            color: $color-text;
+            color: $color-darkGray;
             text-decoration: none;
         }
     }
