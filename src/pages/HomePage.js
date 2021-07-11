@@ -16,7 +16,7 @@ const HomePage = () => {
 					<SearchSideBar />
 				</Col>
 				<Col md="9" xs="12">
-					<SearchField />
+					<SearchField/>
 					<VacanciesContent />
 				</Col>
 			</Row>

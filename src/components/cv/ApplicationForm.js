@@ -24,6 +24,7 @@ import FormControl from "@material-ui/core/FormControl"
 import PersonalInfo from './PersonalInfo'
 import ContactInfo from './ContactInfo'
 import EducationInfo from './EducationInfo'
+import LanguagesInfo from './LanguagesInfo'
 
 SwiperCore.use([Navigation, Pagination, Mousewheel, Keyboard])
 
@@ -50,7 +51,7 @@ const ApplicationForm = () => {
 				</SwiperSlide>
 				<SwiperSlide><ContactInfo/></SwiperSlide>
 				<SwiperSlide><EducationInfo/></SwiperSlide>
-				<SwiperSlide>Slide 4</SwiperSlide>
+				<SwiperSlide><LanguagesInfo/></SwiperSlide>
 				<div className="">
 					<Button variant="outline-secondary" className="prev pl-4 pr-4  mr-1">
 						Prev

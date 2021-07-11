@@ -1,8 +1,8 @@
 import React, { useCallback, useEffect, useState } from "react"
 import TextField from "@material-ui/core/TextField"
 import { useTranslation } from "react-i18next"
-import FormLabel from "@material-ui/core/FormLabel"
-import { Col, Row, Form, FormControl } from "react-bootstrap"
+// import FormLabel from "@material-ui/core/FormLabel"
+import { Col, Row, Form, FormControl, FormGroup,FormLabel,  } from "react-bootstrap"
 import { makeStyles } from "@material-ui/core/styles"
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
@@ -15,27 +15,27 @@ const useStyles = makeStyles((theme) => ({
 		},
 	},
 }))
-const AddEducation = ({ education, setEducation }) => {
+const AddLanguages = ({ other_languages, setOther_languages }) => {
 	const { t } = useTranslation()
 	const classes = useStyles()
 
-	const onEducationInputsChange = useCallback(
+	const onother_languagesInputsChange = useCallback(
 		(idx, e) => {
-			const add = { ...education[idx], [e.target.name]: e.target.value }
-			const before = education.filter((a, i) => i < idx)
-			const after = education.filter((a, i) => i > idx)
+			const add = { ...other_languages[idx], [e.target.name]: e.target.value }
+			const before = other_languages.filter((a, i) => i < idx)
+			const after = other_languages.filter((a, i) => i > idx)
 
 			const temp = [...before, add, ...after]
 
-			setEducation(temp)
+			setOther_languages(temp)
 		},
-		[education]
+		[other_languages]
 	)
 
-	const onNewEducation = useCallback(
+	const onNewother_languages = useCallback(
 		(e) => {
 			e.preventDefault()
-			const add = [...education]
+			const add = [...other_languages]
 			add.push({
 				institution: "",
 				specialization: "",
@@ -44,14 +44,14 @@ const AddEducation = ({ education, setEducation }) => {
 				date_from: "",
 				date_to: "",
 			})
-			setEducation(add)
+			setOther_languages(add)
 		},
-		[education]
+		[other_languages]
 	)
 
 	useEffect(() => {
-		setEducation(
-			education.map((a) => ({
+		setOther_languages(
+			other_languages.map((a) => ({
 				name: a.institution,
 				specialization: a.specialization,
 				country: a.country,
@@ -65,25 +65,33 @@ const AddEducation = ({ education, setEducation }) => {
 
 	return (
 		<>
-			<Form onSubmit={onNewEducation} className="m-width">
-				{education.map((a, index) => {
+			<Form onSubmit={onNewother_languages} className="m-width">
+				{other_languages.map((a, index) => {
 					return (
 						<div
 							key={index}
 							className="myBorder--secondary my-2 mb-3 p-2"
 							style={{ borderRadius: 5, position: "relative" }}
 						>
+
+<Form.Group row>
+      <Form.Label>State</Form.Label>
+      <Form.Control as="select" defaultValue="Choose...">
+        <option>Choose...</option>
+        <option>...</option>
+      </Form.Control>
+    </Form.Group>
 							<TextField
 								className="m-width mb-2"
 								variant="outlined"
 								size="small"
 								type="text"
 								label={t("firstName")}
-								id={`education-institution-${index}`}
+								id={`other_languages-institution-${index}`}
 								name={`institution`}
-								autoComplete="education-institution"
-								value={education[index].institution}
-								onChange={(e) => onEducationInputsChange(index, e)}
+								autoComplete="other_languages-institution"
+								value={other_languages[index].institution}
+								onChange={(e) => onother_languagesInputsChange(index, e)}
 							/>
                             <TextField
 								className="m-width mb-2"
@@ -91,11 +99,11 @@ const AddEducation = ({ education, setEducation }) => {
 								size="small"
 								type="text"
 								label={t("specialization")}
-								id={`education-specialization-${index}`}
+								id={`other_languages-specialization-${index}`}
 								name={`specialization`}
-								autoComplete="education-specialization"
-								value={education[index].specialization}
-								onChange={(e) => onEducationInputsChange(index, e)}
+								autoComplete="other_languages-specialization"
+								value={other_languages[index].specialization}
+								onChange={(e) => onother_languagesInputsChange(index, e)}
 							/>
                             <TextField
 								className="m-width mb-2"
@@ -103,11 +111,11 @@ const AddEducation = ({ education, setEducation }) => {
 								size="small"
 								type="text"
 								label={t("country")}
-								id={`education-country-${index}`}
+								id={`other_languages-country-${index}`}
 								name={`country`}
-								autoComplete="education-country"
-								value={education[index].country}
-								onChange={(e) => onEducationInputsChange(index, e)}
+								autoComplete="other_languages-country"
+								value={other_languages[index].country}
+								onChange={(e) => onother_languagesInputsChange(index, e)}
 							/>
                              <TextField
 								className="m-width mb-2"
@@ -115,11 +123,11 @@ const AddEducation = ({ education, setEducation }) => {
 								size="small"
 								type="text"
 								label={t("city")}
-								id={`education-city-${index}`}
+								id={`other_languages-city-${index}`}
 								name={`city`}
-								autoComplete="education-city"
-								value={education[index].city}
-								onChange={(e) => onEducationInputsChange(index, e)}
+								autoComplete="other_languages-city"
+								value={other_languages[index].city}
+								onChange={(e) => onother_languagesInputsChange(index, e)}
 							/>
                             <div className="mb-2 d-flex"> 
                             <div  className="d-flex flex-column col "><FormLabel>{t("dateFrom")}</FormLabel>
@@ -128,10 +136,10 @@ const AddEducation = ({ education, setEducation }) => {
 								variant="outlined"
 								size="small"
 								type="date"
-								id={`education-date_from-${index}`}
+								id={`other_languages-date_from-${index}`}
 								name={`date_from`}
-								value={education[index].date_from}
-								onChange={(e) => onEducationInputsChange(index, e)}
+								value={other_languages[index].date_from}
+								onChange={(e) => onother_languagesInputsChange(index, e)}
 							/></div> 
                             <div className="d-flex flex-column col">
 
@@ -142,10 +150,10 @@ const AddEducation = ({ education, setEducation }) => {
 								variant="outlined"
 								size="small"
 								type="date"
-								id={`education-date_to-${index}`}
+								id={`other_languages-date_to-${index}`}
 								name={`date_to`}
-								value={education[index].date_to}
-								onChange={(e) => onEducationInputsChange(index, e)}
+								value={other_languages[index].date_to}
+								onChange={(e) => onother_languagesInputsChange(index, e)}
 							/>
                                 </div>
 							
@@ -155,11 +163,11 @@ const AddEducation = ({ education, setEducation }) => {
 								variant="outlined"
 								size="small"
 								type="file"
-								id={`education-file-${index}`}
+								id={`other_languages-file-${index}`}
 								name={`file`}
-								autoComplete="education-file"
-								value={education[index].file}
-								onChange={(e) => onEducationInputsChange(index, e)}
+								autoComplete="other_languages-file"
+								value={other_languages[index].file}
+								onChange={(e) => onother_languagesInputsChange(index, e)}
 							/>
 						</div>
 					)
@@ -177,4 +185,4 @@ const AddEducation = ({ education, setEducation }) => {
 	)
 }
 
-export default AddEducation
+export default AddLanguages

@@ -71,7 +71,7 @@ const PersonalInfo = () => {
 							variant="outlined"
 							className="mb-4"
 						/>
-						<FormLabel component="legend">Gender</FormLabel>
+						<FormLabel component="legend">{t("gender")}</FormLabel>
 						<RadioGroup
 							aria-label="gender"
 							name="gender1"
@@ -84,7 +84,7 @@ const PersonalInfo = () => {
 									value="female"
 									labelPlacement="start"
 									control={<Radio />}
-									label="The best!"
+									label={t("female")}
 								/>
 							</div>
 							<div className="application__radio-btn col-6">
@@ -92,7 +92,7 @@ const PersonalInfo = () => {
 									value="male"
 									labelPlacement="start"
 									control={<Radio />}
-									label="The best!"
+									label={t("male")}
 								/>
 							</div>
 						</RadioGroup>
@@ -103,11 +103,11 @@ const PersonalInfo = () => {
 							className="mb-4"
 							variant="outlined"
 						>
-							<InputLabel id="demo-simple-select-helper-label">Age</InputLabel>
+							<InputLabel id="demo-simple-select-helper-label">{t("maritalStatus")}</InputLabel>
 							<Select
 								labelId="demo-simple-select-helper-label"
 								id="demo-simple-select-helper"
-								label="Age"
+								label={t("maritalStatus")}
 								size="small"
 								className="m-width"
 								variant="outlined"

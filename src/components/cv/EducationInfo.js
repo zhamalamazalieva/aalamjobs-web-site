@@ -15,9 +15,9 @@ const EducationInfo = () => {
 	return (
 		<div>
 			<div className="application__section d-flex flex-column align-items-center m-width justify-content-between">
-				<h3 className="myText--large mb-2">{t("cv.EducationInfo")}</h3>
+				<h3 className="myText--large mb-2">{t("cv.educationInfo")}</h3>
                
-               <FormLabel component="legend">Add an education</FormLabel>	
+               <FormLabel component="legend">{t("addEducation")}</FormLabel>	
 				<AddEducation education={education} setEducation={setEducation}/>
              
 			</div>

@@ -19,8 +19,10 @@
 .cart{
     &__wrapper{
         padding: 20px;
-        box-shadow: 0px 0px 10px 0px $color-black;
+        // box-shadow: 0px 0px 10px 0px rgba($color:$color-black, $alpha: .4);
         width: 100%;
+        border-radius: 10px;
+        border: 1px solid $color-darkGreen;
         margin-bottom: 20px;
         &:last-child{
             margin-bottom: 0;

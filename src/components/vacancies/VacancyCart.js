@@ -9,7 +9,7 @@ const VacancyCart = (vacancies) => {
     return (
        <>
       
-            <div className="border-info p-4 d-flex flex-column cart__wrapper">
+            <div className="p-4 d-flex flex-column cart__wrapper">
             <h5 className="cart__title">po</h5>
             <span className="cart__company myText--small">vgbhj</span>
             <div className="">

@@ -1,4 +1,9 @@
 {
+    "apply":"Apply",
+    "share":"Share",
+    "sendCV":"send CV",
+
+
     "header":{
         "vacancies":"All Jobs",
         "myCv":"My CV",
@@ -37,11 +42,6 @@
     },
 
 
-    "apply":"Apply",
-    "share":"Share",
-    "sendCV":"send CV",
-
-
     "footer":{
         "aboutUs":"About us",
         "termsAndConditions":"Terms and Conditions",
@@ -53,11 +53,7 @@
     }
 ,
 
-    "vacancies":"Вакансии",
-    "addVacancy":"Добавить вакансию",
-    "listOfVacancies":"Список вакансий",
-    "vacancyInfo":"Информация о вакансии",
-    "payment":"Оплата",
+   
 
 
     "fullTimePermanent":"Постоянный полный рабочий день",
@@ -72,40 +68,23 @@
     "monthly":"раз в месяц",
 
 
-    "cv":"Резюме",
-    "addCv":"Добавить резюме",
+    "cv":{
+        "education":"Education",
+        "personalInfo":"Personal Info",
+        "contactInfo":"Contact Info",
+        "jobApplicationForm":"Job Application Form"
 
+    },
 
-
-    "listOfApplications":"Список резюме",
-    "lookingforJob":"Ищу работу",
-    "notLookingForJob":"Не ищу работу",
-    "applicants":"Соискатели",
 
     "countries":"Страны",
     "country":"Страна",
-    "countryName":"Название страны",
-    "countryNameInRussian":"Название страны на русском",
-    "countryNameInKyrgyz":"Название страны на кыргызском",
-    "countryCode":"Код страны",
-    "addNewCountry":"Добавить новую страну",
-
-
     "cities":"Города",
     "city":"Город",
-    "nameOfCity":"Название города",
-    "addNewCity":"Добавить новый город",
-    "nameOfCityInKyrgyz":"Название города на кыргызском",
-    "nameOfCityInEnglish":"Название города на английском",
-    "nameOfCityInRussian":"Название города на русском",
-
-
     "organizations":"Организации",
     "organization":"Организации",
-    "organizationName":"Название организации",
-    "addOrganization":"Добавить организацию",
-    "listOfOrganizations":"Список организаций",
 
+    
     "users":"Пользователи",
     "addUser":"Добавить пользователя",
     "profile":"Профиль",
@@ -115,11 +94,17 @@
     "firstName":"Имя",
     "fullname":"Имя пользователя",
     "lastName":"Фамилия",
+    "middleName":"Middle Name",
     "password":"Пароль",
     "username":"Аккаунт",
     "email":"Электронный адрес",
     "role":"Должность",
-
+    "birthDate":"Birth Date",
+    "vacancies":"Вакансии",
+    "addVacancy":"Добавить вакансию",
+    "listOfVacancies":"Список вакансий",
+    "vacancyInfo":"Информация о вакансии",
+    "payment":"Оплата",
     "currentPassword":"Текущий пароль",
     "newPassword":"Новый пароль",
     "confirmPassword":"Подверждение пароля",
