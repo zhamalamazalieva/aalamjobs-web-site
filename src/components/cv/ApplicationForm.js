@@ -9,22 +9,15 @@ import SwiperCore, {
 	Mousewheel,
 	Keyboard,
 } from "swiper/core"
-import TextField from "@material-ui/core/TextField"
-import { makeStyles } from "@material-ui/core/styles"
 import { useTranslation } from "react-i18next"
 import { Button } from "react-bootstrap"
-import Radio from "@material-ui/core/Radio"
-import RadioGroup from "@material-ui/core/RadioGroup"
-import FormLabel from "@material-ui/core/FormLabel"
-import FormControlLabel from "@material-ui/core/FormControlLabel"
-import Select from "@material-ui/core/Select"
-import MenuItem from "@material-ui/core/MenuItem"
-import InputLabel from "@material-ui/core/InputLabel"
-import FormControl from "@material-ui/core/FormControl"
 import PersonalInfo from './PersonalInfo'
 import ContactInfo from './ContactInfo'
 import EducationInfo from './EducationInfo'
 import LanguagesInfo from './LanguagesInfo'
+import WorkExperienceInfo from './WorkExperienceInfo'
+import AchievementsInfo from './AchievementsInfo'
+
 
 SwiperCore.use([Navigation, Pagination, Mousewheel, Keyboard])
 
@@ -52,12 +45,16 @@ const ApplicationForm = () => {
 				<SwiperSlide><ContactInfo/></SwiperSlide>
 				<SwiperSlide><EducationInfo/></SwiperSlide>
 				<SwiperSlide><LanguagesInfo/></SwiperSlide>
-				<div className="">
+				<SwiperSlide><WorkExperienceInfo/></SwiperSlide>
+				<SwiperSlide><AchievementsInfo/></SwiperSlide>
+
+
+				<div className="mt-4">
 					<Button variant="outline-secondary" className="prev pl-4 pr-4  mr-1">
-						Prev
+						{t("prev")}
 					</Button>
 					<Button variant="success" className="next pl-4 pr-4 ml-1">
-						Next
+						{t("next")}
 					</Button>
 				</div>
 			</Swiper>
