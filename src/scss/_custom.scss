@@ -216,4 +216,10 @@ li{
     cursor: pointer;
     background: none;
   }
-  
+
+.MuiOutlinedInput-input {
+    padding: 9.5px 10px !important;
+}
+.MuiInputLabel-outlined{
+    transform: translate(14px, 10px) scale(1);
+}

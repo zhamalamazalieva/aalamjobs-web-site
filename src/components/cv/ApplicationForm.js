@@ -17,6 +17,7 @@ import EducationInfo from './EducationInfo'
 import LanguagesInfo from './LanguagesInfo'
 import WorkExperienceInfo from './WorkExperienceInfo'
 import AchievementsInfo from './AchievementsInfo'
+import JobRequirements from './JobRequirements'
 
 
 SwiperCore.use([Navigation, Pagination, Mousewheel, Keyboard])
@@ -47,8 +48,7 @@ const ApplicationForm = () => {
 				<SwiperSlide><LanguagesInfo/></SwiperSlide>
 				<SwiperSlide><WorkExperienceInfo/></SwiperSlide>
 				<SwiperSlide><AchievementsInfo/></SwiperSlide>
-
-
+				<SwiperSlide><JobRequirements/></SwiperSlide>
 				<div className="mt-4">
 					<Button variant="outline-secondary" className="prev pl-4 pr-4  mr-1">
 						{t("prev")}
