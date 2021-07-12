@@ -17,7 +17,7 @@ const MePage = () => {
             <Col md="3" xs="12">
                 <SearchSideBar />
             </Col>
-            <Col md="9" xs="12">
+            <Col md="6" xs="12">
                 <SearchField />
                 <UserContent />
             </Col>

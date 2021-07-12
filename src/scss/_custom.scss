@@ -95,7 +95,7 @@ li{
     letter-spacing: 0.04em;
 }
 .myText--medium{
-    @include font($font-nuni, 0.8em, 600, 1.5);
+    @include font($font-nuni, 0.7em, 600, 1.5);
     letter-spacing: 0.04em;
 }
 .myText--xlarge{
@@ -103,7 +103,7 @@ li{
     letter-spacing: 0.04em;
 }
 .myText--large{
-    @include font($font-nuni, 0.7em, 600, 1.5);
+    @include font($font-nuni, 0.9em, 600, 1.5);
     letter-spacing: 0.04em;
 }
 .myText--danger{

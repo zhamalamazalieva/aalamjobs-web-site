@@ -6,6 +6,7 @@ import VacancyDetail from "./VacancyDetail"
 import ServerServiceContext from "../../contexts/ServerServiceContext"
 import FullSpinner from "../spinners/FullSpinner"
 import NoItems from "../noItems/NoItems"
+import Pagination from 'react-bootstrap/Pagination'
 
 const VacanciesContent = () => {
 	const { t } = useTranslation()
@@ -26,11 +27,21 @@ const VacanciesContent = () => {
 		setVacancyToShow(vacancy)
 	}, [])
 
-	console.log("vacancyToShow", vacancyToShow)
+	let active = currentPage;
+	console.log(pagesCount)
+let items = [];
+for (let number = 1; number <= 5; number++) {
+  items.push(
+    <Pagination.Item key={number} active={number === active}>
+      {number}
+    </Pagination.Item>,
+  );
+}
+
 	//FETCH_VACANCIES
 	const fetchVacancies = useCallback(async () => {
 		setIsLoading(true)
-		const { hasError, data } = await ServerService.getVacancies()
+		const { hasError, data } = await ServerService.getVacancies(currentPage)
 
 		if (hasError) {
 			console.log("Что-то пошло не так с сервером")
@@ -41,11 +52,12 @@ const VacanciesContent = () => {
 			setVacancyToShow(data?.results[0] || {})
 		}
 		setIsLoading(false)
-	}, [ServerService])
+	}, [ServerService, currentPage])
 
 	useEffect(() => {
 		fetchVacancies()
-	}, [fetchVacancies])
+	}, [fetchVacancies, currentPage])
+
 	return (
 		<div className="vacancy__wrapper">
 			<h1 className="myText--large color-blueGray text-center mb-3 text-uppercase">
@@ -58,7 +70,10 @@ const VacanciesContent = () => {
 					) : (
 						<>
 							{count ? (
+								<>
 								<VacancyCart vacancies={vacancies} showVacancy={showVacancy} vacancyToShow={vacancyToShow}/>
+								<Pagination size="sm">{items}</Pagination>
+								</>
 							) : (
 								<NoItems />
 							)}
