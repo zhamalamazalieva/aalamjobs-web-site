@@ -28,6 +28,7 @@ const ApplicationForm = () => {
 
 	return (
 		<div className="application__wrapper myBorder--secondary p-4">
+			<form>
 			<Swiper
 				slidesPerView={1}
 				// autoHeight={true}
@@ -47,8 +48,10 @@ const ApplicationForm = () => {
 				<SwiperSlide><EducationInfo/></SwiperSlide>
 				<SwiperSlide><LanguagesInfo/></SwiperSlide>
 				<SwiperSlide><WorkExperienceInfo/></SwiperSlide>
-				<SwiperSlide><AchievementsInfo/></SwiperSlide>
-				<SwiperSlide><JobRequirements/></SwiperSlide>
+				{/* <SwiperSlide><AchievementsInfo/></SwiperSlide> */}
+				<SwiperSlide><JobRequirements/>
+			
+				</SwiperSlide>
 				<div className="mt-4">
 					<Button variant="outline-secondary" className="prev pl-4 pr-4  mr-1">
 						{t("prev")}
@@ -58,6 +61,7 @@ const ApplicationForm = () => {
 					</Button>
 				</div>
 			</Swiper>
+			</form>
 		</div>
 	)
 }

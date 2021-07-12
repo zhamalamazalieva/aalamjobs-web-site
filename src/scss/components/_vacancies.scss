@@ -15,17 +15,40 @@
     &__nologo{
         width: 100%;
     }
+    &__item {
+        list-style-type: none;
+        font-size: 14px;
+        &::before {
+          content: "";
+          display: inline-block;
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          top: 50%;
+          left: 0;
+          background-color: $color-darkGray;
+          margin-right: 10px;
+
+        }
+      }
 }
+
+
 .cart{
     &__wrapper{
         padding: 20px;
-        // box-shadow: 0px 0px 10px 0px rgba($color:$color-black, $alpha: .4);
         width: 100%;
         border-radius: 10px;
-        border: 1px solid $color-darkGreen;
         margin-bottom: 20px;
+        cursor: pointer;
+        box-shadow: 0px 0px 5px 0px rgba($color:$color-black, $alpha: .4);
+
         &:last-child{
             margin-bottom: 0;
+        }
+
+        &:hover {
+            box-shadow: 0px 0px 10px 0px rgba($color:$color-darkGreen, $alpha: 0.5);
         }
     }
     &__title{
@@ -39,4 +62,10 @@
         stroke: $color-orange;
     }
  
+}
+.cart-border{
+    border: 1px solid $color-darkGreen;
+    box-shadow:none;
+
+
 }

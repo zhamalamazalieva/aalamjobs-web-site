@@ -91,7 +91,7 @@ li{
     letter-spacing: 0.04em;
 }
 .myText--xsmall{
-    @include font($font-nuni, 0.7em, 400, 1.5);
+    @include font($font-nuni, 0.6em, 400, 1.5);
     letter-spacing: 0.04em;
 }
 .myText--medium{
@@ -103,8 +103,15 @@ li{
     letter-spacing: 0.04em;
 }
 .myText--large{
-    @include font($font-nuni, 1em, 600, 1.5);
+    @include font($font-nuni, 0.7em, 600, 1.5);
     letter-spacing: 0.04em;
+}
+.myText--danger{
+    color: $color-red;
+    @include font($font-nuni, 0.7em, 400, 1.5);
+}
+.myText--bold{
+    font-weight: 800;
 }
 
 .myBorder--secondary{
@@ -221,5 +228,11 @@ li{
     padding: 9.5px 10px !important;
 }
 .MuiInputLabel-outlined{
-    transform: translate(14px, 10px) scale(1);
+    transform: translate(14px,0) scale(1);
+}
+.Mui-checked{
+    color:$color-darkGreen !important;
+}
+.myDropdownMenu{
+    width: 17em !important;
 }

@@ -1,7 +1,7 @@
 import Cookies from "js-cookie";
 
 export default class ServerService {
-  _baseApi = process.env.REACT_APP_BASE_API;
+  _baseApi = "http://165.227.143.167:9000"
 
   /**********************COUNTRIES************************/
   getCountries = async () => {

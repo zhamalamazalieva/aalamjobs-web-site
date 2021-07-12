@@ -1,7 +1,7 @@
 {
     "apply":"Apply",
     "share":"Share",
-    "sendCV":"send CV",
+    "sendCV":"Send CV",
 
 
     "header":{
@@ -22,10 +22,20 @@
         "employmentType":"Employment type",
         "country":"Country"
     },
+
     "vacancy":{
         "position":"Position",
         "company":"Company",
-        "allVacancies":"All Vacancies"
+        "allVacancies":"All Vacancies",
+        "schedule":"Schedule",
+        "employmentType":"Work Type",
+        "specialization":"Specialization",
+        "startDate":"Start Date",
+        "deadline":"Deadline",
+        "aboutUs":"About Us",
+        "description":"Description",
+        "jobResponsibilites":"Job Responsibilites"
+        
     },
     "login":{
         "password":"Password",

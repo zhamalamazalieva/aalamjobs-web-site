@@ -31,6 +31,7 @@ const JobRequirements = () => {
 		<div>
 			<div className="application__section d-flex flex-column align-items-center justify-content-between">
 				<h3 className="myText--large mb-2">{t("cv.jobRequirements")}</h3>
+				<div className="d-flex m-width">
 				<TextField
 					fullWidth
 					size="small"
@@ -39,25 +40,28 @@ const JobRequirements = () => {
 					variant="outlined"
 					className="mb-4"
 				/>
-				<Form.Group className="d-flex align-items-center m-width">
-					<Form.Control as="select" className="form-control">
-						<option selected hidden value={t("choose")}>
-							{t("choose")}
-						</option>
-						<option value={t("intermediate")}>{t("intermediate")}</option>
-						<option value={t("upperIntermediate")}>
-							{t("upperIntermediate")}
-						</option>
-						<option value={t("advanced")}>{t("advanced")}</option>
-						<option value={t("proficient")}>{t("proficient")}</option>
-					</Form.Control>
-				</Form.Group>
-				<Form.Group className="d-flex align-items-center m-width">
+			
                 <FormControl variant="outlined"className="m-width" >
-        <InputLabel htmlFor="outlined-age-native-simple">Age</InputLabel>
+        <InputLabel htmlFor="outlined-age-native-simple">{t("currency")}</InputLabel>
         <Select
           native
-          label="Age"
+          label="currency"
+          inputProps={{
+            name: 'age',
+            id: 'outlined-age-native-simple',
+          }}
+        >
+          <option aria-label="None" value="" />
+          <option value={10}>Ten</option>
+          <option value={20}>Twenty</option>
+          <option value={30}>Thirty</option>
+        </Select>
+      </FormControl></div>
+	  <FormControl variant="outlined"className="m-width mb-4" >
+        <InputLabel htmlFor="outlined-age-native-simple">{t("employmentType")}</InputLabel>
+        <Select
+          native
+          label="employmentType"
           inputProps={{
             name: 'age',
             id: 'outlined-age-native-simple',
@@ -69,32 +73,26 @@ const JobRequirements = () => {
           <option value={30}>Thirty</option>
         </Select>
       </FormControl>
-				</Form.Group>
+				
 				<TextField
 					fullWidth
 					size="small"
 					className="max-width"
-					label={t("middleName")}
+					label={t("positionWouldYouLikeToWork")}
 					variant="outlined"
 					className="mb-4"
 				/>
 				<TextField
 					fullWidth
+					type="date"
 					size="small"
 					className="max-width"
-					label={t("birthDate")}
+					label={t("theEarliestDateYouCanStartWorking")}
 					variant="outlined"
+					defaultValue="2017-05-24"
 					className="mb-4"
 				/>
-				<TextField
-					fullWidth
-					size="small"
-					className="max-width"
-					label={t("citizenship")}
-					variant="outlined"
-					className="mb-4"
-				/>
-				<FormLabel component="legend">{t("gender")}</FormLabel>
+			
 				<RadioGroup
 					aria-label="gender"
 					name="gender1"
@@ -105,43 +103,31 @@ const JobRequirements = () => {
 					<div className="application__radio-btn col-6">
 						<FormControlLabel
 							value="female"
-							labelPlacement="start"
+							labelPlacement="end"
 							control={<Radio />}
-							label={t("female")}
+							label={t("iNeedAComputer")}
 						/>
 					</div>
 					<div className="application__radio-btn col-6">
 						<FormControlLabel
 							value="male"
-							labelPlacement="start"
+							labelPlacement="end"
 							control={<Radio />}
-							label={t("male")}
+							label={t("IHaveAComputer")}
 						/>
 					</div>
 				</RadioGroup>
-				<FormControl
+				<TextField
 					fullWidth
+					multiline={true}
+					rows="5"
 					size="small"
-					className="m-width"
-					className="mb-4"
+					className="max-width"
+					label={t("profile")}
 					variant="outlined"
-				>
-					<InputLabel id="demo-simple-select-helper-label">
-						{t("maritalStatus")}
-					</InputLabel>
-					<Select
-						labelId="demo-simple-select-helper-label"
-						id="demo-simple-select-helper"
-						label={t("maritalStatus")}
-						size="small"
-						className="m-width"
-						variant="outlined"
-					>
-						<MenuItem value={10}>Ten</MenuItem>
-						<MenuItem value={20}>Twenty</MenuItem>
-						<MenuItem value={30}>Thirty</MenuItem>
-					</Select>
-				</FormControl>
+					className="mb-4"
+				/>
+			
 			</div>
 		</div>
 	)
