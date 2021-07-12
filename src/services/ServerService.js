@@ -254,7 +254,13 @@ export default class ServerService {
       },
     });
   };
-
+  /**************************SECTORS***************************/
+  getSectors = async () => {
+    return await this.doRequestAndParse(`${this._baseApi}/api/sectors/`, {
+      method: "GET",
+      headers: { Authorization: "Bearer " + getAccessToken() },
+    });
+  };
   /******************APPLICATIONS*************************/
   getApplications = async (page, searchInput) => {
     return await this.doRequestAndParse(

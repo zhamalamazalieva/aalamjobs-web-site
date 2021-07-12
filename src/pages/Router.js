@@ -1,6 +1,8 @@
 import React, {Suspense, lazy} from "react"
 import {Route, Switch, Redirect} from "react-router-dom"
 import FullSpinner from "../components/spinners/FullSpinner"
+import PrivateRoute from '../containers/PrivateRoute'
+
 
 const LoginPage = lazy(() => import('./LoginPage'))
 const Page404 = lazy(() => import('./Page404'))
@@ -26,18 +28,18 @@ export default function Router(){
         <Route exact path="/">
           <HomePage/>
         </Route>
-        <Route exact path="/applied">
+        <PrivateRoute exact path="/applied">
           <AppliedPage/>
-        </Route>
-        <Route exact path="/me">
+        </PrivateRoute>
+        <PrivateRoute exact path="/me">
           <MePage/>
-        </Route>
-        <Route exact path="/favourites">
+        </PrivateRoute>
+        <PrivateRoute exact path="/favourites">
           <FavouritesPage/>
-        </Route>
-        <Route exact path="/mycv">
+        </PrivateRoute>
+        <PrivateRoute exact path="/mycv">
           <CvPage/>
-        </Route>
+        </PrivateRoute>
         <Route>
           <Page404/>
         </Route>

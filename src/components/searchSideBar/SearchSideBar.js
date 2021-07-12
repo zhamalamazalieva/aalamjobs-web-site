@@ -12,7 +12,7 @@ import {
 import { useTranslation } from "react-i18next"
 import Select from "react-select"
 
-const SearchSideBar = () => {
+const SearchSideBar = ({cities, countries, sectors}) => {
 	const { t } = useTranslation()
 
 	return (
@@ -27,19 +27,21 @@ const SearchSideBar = () => {
 						className="react-select"
 						classNamePrefix="react-select"
 						placeholder="Turkey"
+						options={countries}
+						
 					/>
 				</Form.Group>
 				<Form.Group controlId="exampleForm.ControlInput1">
 					<Form.Label className="search__label myText--small">
 						{t("search.city")}
 					</Form.Label>
-					<Select className="react-select" classNamePrefix="react-select" />
+					<Select className="react-select" options={cities} classNamePrefix="react-select" />
 				</Form.Group>
 				<Form.Group controlId="exampleForm.ControlInput1">
 					<Form.Label className="search__label myText--small">
 						{t("search.industry")}
 					</Form.Label>
-					<Select className="react-select" classNamePrefix="react-select" />
+					<Select className="react-select" options={sectors} classNamePrefix="react-select" />
 				</Form.Group>
 				<Form.Group controlId="exampleForm.ControlInput1">
 					<Form.Label className="search__label myText--small">

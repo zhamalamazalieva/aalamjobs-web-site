@@ -6,11 +6,15 @@ import VacancyDetail from "./VacancyDetail"
 import ServerServiceContext from "../../contexts/ServerServiceContext"
 import FullSpinner from "../spinners/FullSpinner"
 import NoItems from "../noItems/NoItems"
-import Pagination from 'react-bootstrap/Pagination'
+import Pagination from "react-bootstrap/Pagination"
+import { getCurrentLanguage } from "../../localizaton/localication";
+
+
 
 const VacanciesContent = () => {
 	const { t } = useTranslation()
 	const ServerService = useContext(ServerServiceContext)
+	const selectedLanguage = getCurrentLanguage();
 
 	//STATES
 	const [isLoading, setIsLoading] = useState(false)
@@ -23,25 +27,128 @@ const VacanciesContent = () => {
 
 	const [vacancyToShow, setVacancyToShow] = useState(1)
 
+	const [currencies, setCurrencies] = useState([]);
+	const [selectedCurrency, setSelectedCurrency ]= useState({})
+
+	const [cities, setCities] = useState([]);
+	const [sectors, setSectors] = useState([]);
+	const [countries, setCountries] = useState([]);
+	const [fetchError, setFetchError] = useState(null);
+
+	 //FETCH_CITIES
+	 useEffect(() => {
+		const fetchCities = async () => {
+		  const { hasError, data } = await ServerService.getCities();
+		  if (hasError) {
+			setFetchError("Произошла ошибка при загрузке данных");
+		  } else {
+			setCities(data);
+		  }
+		};
+		fetchCities();
+	  }, [ServerService]);
+	
+	  //FETCH_COUNTRIES
+	  useEffect(() => {
+		const fetchCountries = async () => {
+		  const { hasError, data } = await ServerService.getCountries();
+		  if (hasError) {
+			setFetchError("Произошла ошибка при загрузке данных");
+		  } else {
+			setCountries(data.map((c) => ({ ...c, checked: false })));
+		  }
+		};
+		fetchCountries();
+	  }, [ServerService]);
+	
+	  //FETCH_SECTORS
+	  useEffect(() => {
+		const fetchSectors = async () => {
+		  const { hasError, data } = await ServerService.getSectors();
+		  if (hasError) {
+			setFetchError("Произошла ошибка при загрузке данных");
+		  } else {
+			setSectors(data);
+		  }
+		};
+		fetchSectors();
+	  }, [ServerService]);
+	
+	  const handleChange = (event, newValue) => {
+		setSalaryValue(newValue);
+	  };
+	
+		 //FETCH_CURRENCIES
+		 const fetchCurrencies = useCallback(async () => {
+		  setIsLoading(true);
+		  const { hasError, data } = await ServerService.getCurrencies();
+		  if (hasError) {
+			setFetchError("Ошибка при загрузке данных");
+		  } else {
+			const currency = await data.map((c) => ({
+			  value: c.id,
+			  label: c.name[selectedLanguage],
+			  sign: c.sign,
+			}));
+			setCurrencies(currency);
+		  }
+		  return null;
+		}, [ServerService, selectedLanguage]);
+	  
+		useEffect(() => {
+		  fetchCurrencies();
+		}, [ServerService, fetchCurrencies]);
+
+
+	//VACANCY_DETAIL
 	const showVacancy = useCallback(async (vacancy) => {
 		setVacancyToShow(vacancy)
 	}, [])
 
-	let active = currentPage;
-	console.log(pagesCount)
-let items = [];
-for (let number = 1; number <= 5; number++) {
-  items.push(
-    <Pagination.Item key={number} active={number === active}>
-      {number}
-    </Pagination.Item>,
-  );
-}
+	//VACANCY_FAVOURITES
+	const [favourites, setFavourites] = useState([])
+	const handleClickFavourites = (id) => {
+		if (!favourites.includes(id)) setFavourites(favourites.concat(id))
+		console.log(id)
+	}
+	const removeFavourites = (id) => {
+		let index = favourites.indexOf(id)
+		console.log(index)
+		let temp = [...favourites.slice(0, index), ...favourites.slice(index + 1)]
+		setFavourites(temp)
+	}
 
-	//FETCH_VACANCIES
+	// 	let active = currentPage;
+	// 	console.log(pagesCount)
+	// let items = [];
+	// for (let number = 1; number <= 5; number++) {
+	//   items.push(
+	//     <Pagination.Item key={number} active={number === active}>
+	//       {number}
+	//     </Pagination.Item>,
+	//   );
+	// }
+
+	//FILTER_VACANCIES
+	const [filterByCity, setFilterByCity] = useState([]);
+	const [filterByCountry, setFilterByCountry] = useState([]);
+	const [filterBySector, setFilterBySector] = useState([]);
+	const [filterBySalary, setFilterBySalary] = useState({});
+	const [allVacancies, setAllVacancies] = useState(false);
+	const [salaryValue, setSalaryValue] = React.useState([1000, 200000]);
+
+	
+	//FECTH_VACANCIES
 	const fetchVacancies = useCallback(async () => {
 		setIsLoading(true)
-		const { hasError, data } = await ServerService.getVacancies(currentPage)
+		const { hasError, data } = await ServerService.getVacancies(
+			currentPage,
+			filterByCity,
+			filterByCountry,
+			filterBySalary,
+			filterBySector,
+			allVacancies
+			)
 
 		if (hasError) {
 			console.log("Что-то пошло не так с сервером")
@@ -52,11 +159,75 @@ for (let number = 1; number <= 5; number++) {
 			setVacancyToShow(data?.results[0] || {})
 		}
 		setIsLoading(false)
-	}, [ServerService, currentPage])
+	}, [
+		ServerService,
+		currentPage,
+		filterByCity,
+		filterByCountry,
+		filterBySalary,
+		filterBySector,
+		allVacancies,
+	])
 
 	useEffect(() => {
 		fetchVacancies()
-	}, [fetchVacancies, currentPage])
+	}, [
+		fetchVacancies,
+		currentPage,
+		filterByCity,
+		filterByCountry,
+		filterBySalary,
+		filterBySector,
+		allVacancies,
+	
+	])
+
+
+	const reFetchVacancies = useCallback(async () => {
+		fetchVacancies();
+	  }, [fetchVacancies]);
+
+
+	   //FILTERS
+  useEffect(() => {
+    setFilterBySalary({
+      min: salaryValue[0],
+      max: salaryValue[1],
+      currency: selectedCurrency.value,
+    });
+    setAllVacancies(false);
+  }, [selectedCurrency, salaryValue]);
+
+  const selectedCity = (e) => {
+    setFilterByCity([...filterByCity, e.target.id]);
+  };
+
+  const selectedCountry = (e) => {
+    let find = filterByCountry.indexOf(e);
+    if (find > -1) {
+      filterByCountry.splice(find, 1);
+    } else {
+      filterByCountry.push(e);
+      setAllVacancies(false);
+    }
+    setFilterByCountry([...filterByCountry]);
+  };
+
+  const selectedSector = (e) => {
+    let find = filterBySector.indexOf(e);
+    if (find > -1) {
+      filterBySector.splice(find, 1);
+    } else {
+      filterBySector.push(e);
+      setAllVacancies(false);
+    }
+    setFilterBySector([...filterBySector]);
+  };
+  const onChangeAllVacancies = (e) => {
+    setAllVacancies(e.target.checked);
+    setFilterByCountry([]);
+    setFilterBySector([]);
+  };
 
 	return (
 		<div className="vacancy__wrapper">
@@ -71,8 +242,14 @@ for (let number = 1; number <= 5; number++) {
 						<>
 							{count ? (
 								<>
-								<VacancyCart vacancies={vacancies} showVacancy={showVacancy} vacancyToShow={vacancyToShow}/>
-								<Pagination size="sm">{items}</Pagination>
+									<VacancyCart
+										vacancies={vacancies}
+										showVacancy={showVacancy}
+										vacancyToShow={vacancyToShow}
+										favourites={favourites}
+										handleClickFavourites={handleClickFavourites}
+									/>
+									{/* <Pagination size="sm">{items}</Pagination> */}
 								</>
 							) : (
 								<NoItems />

@@ -57,9 +57,9 @@ const VacancyDetail = ({ vacancyToShow }) => {
 				<div>
 					<h5 className="cart__title">{vacancyToShow.title}</h5>
 					<span className="cart__location myText--xsmall">
-						{vacancyToShow.city && vacancyToShow.city.name[selectedLanguage]}
+						{vacancyToShow.city && vacancyToShow.city.name[selectedLanguage]}, 
 					</span>
-					{", "}
+				{" "}
 					<span className="cart__location myText--xsmall">
 						{vacancyToShow.city &&
 							vacancyToShow.city.country.name[selectedLanguage]}
@@ -95,28 +95,28 @@ const VacancyDetail = ({ vacancyToShow }) => {
 					{t("share")}
 				</Button>
 			</div>
-			<span className="myText--large">
+			<span className="myText--medium">
 				{t("vacancy.schedule")}: {vacancyToShow.schedule}{" "}
 			</span>
-			<span className="myText--large ">
+			<span className="myText--medium ">
 				{t("vacancy.employmentType")}:
 				{vacancyToShow.employment_type &&
 					vacancyToShow.employment_type.name[selectedLanguage]}
 			</span>
-			<span className="myText--large ">
+			<span className="myText--medium ">
 				{t("vacancy.specialization")}:{" "}
 				{vacancyToShow.specialization && vacancyToShow.specialization.name}
 			</span>
-			<span className="myText--large ">
+			<span className="myText--medium ">
 				{t("vacancy.startDate")}:{" "}
 				{vacancyToShow.start_date && getCurrentDate(vacancyToShow.start_date)}
 			</span>
-			<span className="myText--large ">
+			<span className="myText--medium ">
 				{t("vacancy.deadline")}:{" "}
 				{vacancyToShow.deadline && getCurrentDate(vacancyToShow.deadline)}
 			</span>
 			<div className="vacancy__section section mt-3">
-				<span className="section__titlemy myText--large">{t("vacancy.aboutUs")}</span>
+				<span className="section__titlemy myText--medium">{t("vacancy.aboutUs")}</span>
 				<p className="myText--xsmall">
 					About Us: We’re an exciting new start-up; an innovative digital
 					platform, with the goal of becoming the number one destination for
@@ -128,13 +128,13 @@ const VacancyDetail = ({ vacancyToShow }) => {
 				</p>
 			</div>
 			<div className="vacancy__section section mt-2">
-				<span className="section__title myText--large">{t("vacancy.description")}</span>
+				<span className="section__title myText--medium">{t("vacancy.description")}</span>
 				<p className="myText--xsmall">
 					{vacancyToShow.description && vacancyToShow.description}
 				</p>
 			</div>
 			<div className="vacancy__section section mt-2">
-				<span className="section__title myText--large">{t("vacancy.jobResponsibilites")}</span>
+				<span className="section__title myText--medium">{t("vacancy.jobResponsibilites")}</span>
 				<ul>
 					{vacancyToShow.responsibilities && vacancyToShow.responsibilities.map((i) => {
 						return(
