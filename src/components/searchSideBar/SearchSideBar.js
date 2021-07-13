@@ -1,20 +1,32 @@
-import React from "react"
+import React, { useState, useContext, useCallback, useEffect } from "react"
 import {
-	Col,
-	Row,
-	Image,
-	Label,
 	Form,
-	FormLabel,
-	FormGroup,
 	Button,
 } from "react-bootstrap"
 import { useTranslation } from "react-i18next"
 import Select from "react-select"
+import { getCurrentLanguage } from "../../localizaton/localication"
 
-const SearchSideBar = ({cities, countries, sectors}) => {
+const SearchSideBar = ({
+	cities, countries, sectors, currencies, selectedCity, setSelectedCity,
+	selectedCurrency,setSelectedCurrency,  selectedCountry,
+	setSelectedCountry, selectedSector, setSelectedSector
+	}) => {
 	const { t } = useTranslation()
+	const selectedLanguage = getCurrentLanguage()
+	console.log(currencies)
 
+	//FILTER_VACANCIES_STATES
+	const [filterByCity, setFilterByCity] = useState([])
+	const [filterByCountry, setFilterByCountry] = useState([])
+	const [filterBySector, setFilterBySector] = useState([])
+	const [filterBySalary, setFilterBySalary] = useState({})
+	const [allVacancies, setAllVacancies] = useState(false)
+	const [salaryValue, setSalaryValue] = React.useState([1000, 200000])
+	
+	console.log(cities)
+	console.log(selectedCity)
+	
 	return (
 		<div>
 			<Form className="search__wrapper">
@@ -28,6 +40,8 @@ const SearchSideBar = ({cities, countries, sectors}) => {
 						classNamePrefix="react-select"
 						placeholder="Turkey"
 						options={countries}
+						value={selectedCountry}
+						onChange={e => setSelectedCountry(e)}
 						
 					/>
 				</Form.Group>
@@ -35,25 +49,38 @@ const SearchSideBar = ({cities, countries, sectors}) => {
 					<Form.Label className="search__label myText--small">
 						{t("search.city")}
 					</Form.Label>
-					<Select className="react-select" options={cities} classNamePrefix="react-select" />
+					<Select
+					 className="react-select"
+					 classNamePrefix="react-select"
+					 options={cities} 
+					 value={selectedCity}
+					 onChange={e => setSelectedCity(e)}
+					 />
 				</Form.Group>
 				<Form.Group controlId="exampleForm.ControlInput1">
 					<Form.Label className="search__label myText--small">
-						{t("search.industry")}
+						{t("search.sectors")}
 					</Form.Label>
-					<Select className="react-select" options={sectors} classNamePrefix="react-select" />
-				</Form.Group>
-				<Form.Group controlId="exampleForm.ControlInput1">
-					<Form.Label className="search__label myText--small">
-						{t("search.speciality")}
-					</Form.Label>
-					<Select className="react-select" classNamePrefix="react-select" />
+					<Select className="react-select"
+					value={selectedSector}
+					onChange={e => setSelectedSector(e)}
+					options={sectors} 
+					classNamePrefix="react-select" />
 				</Form.Group>
 				<Form.Group controlId="exampleForm.ControlInput1">
 					<Form.Label className="search__label myText--small">
 						{t("search.salary")}
 					</Form.Label>
-					<Form.Control className="search__input" placeholder="500-1000" />
+					<Form.Group className="d-flex">
+					<Form.Control className="search__input mr-1" placeholder="min" />
+					<Form.Control className="search__input ml-1" placeholder="max" />
+					</Form.Group>
+					<Select className="react-select"
+					options={currencies} 
+					value={selectedCurrency}
+					onChange={e => setSelectedCurrency(e)}
+					classNamePrefix="react-select" />
+
 				</Form.Group>
 				<Form.Group controlId="exampleForm.ControlInput1">
 					<Form.Label className="search__label myText--small">

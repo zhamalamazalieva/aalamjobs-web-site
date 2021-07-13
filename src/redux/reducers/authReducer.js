@@ -15,7 +15,7 @@ import {
   const initialState = {
     accessToken: Cookies.get('access_token_aalam') || '',
     refreshToken: Cookies.get('refresh_token') || '',
-    isAuth: false,
+    isAuth:  Cookies.get('access_token_aalam') ? true : false,
     user: null,
     error: null,
     isUserLoading: true,

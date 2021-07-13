@@ -136,11 +136,15 @@ li{
     border: none;
 }
 .react-select__value-container{
-    font-size:0.7em;
+    font-size:0.6em;
     height: 100%;
 }
 .react-select .react-select__indicators{
     height: 100%;
+}
+.react-select .react-select__menu{
+    font-size: 0.6em;
+
 }
 
 .form-control:focus{

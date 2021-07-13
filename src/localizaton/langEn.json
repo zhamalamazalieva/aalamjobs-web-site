@@ -16,7 +16,7 @@
 
     "search":{
         "city":"City",
-        "industry":"Industry",
+        "sectors":"Sectors",
         "speciality":"Speciality",
         "salary":"Salary",
         "employmentType":"Employment type",
