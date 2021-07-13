@@ -192,8 +192,23 @@ export default class ServerService {
 
 
 
-
- 
+  /**********************FAVOURITES************************/
+  getVacancies = async () => {
+    let url = `${this._baseApi}/api/jobs/all/`;
+    return await this.doRequestAndParse(url, {
+      method: "GET",
+    });
+  };
+  createFavourites = async (job) => {
+    return await this.doRequestAndParse(`${this._baseApi}/api/jobs/favorites/`, {
+      method: "POST",
+      headers: {
+        Authorization: "Bearer " + getAccessToken(),
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(job),
+    });
+  };
 
 
 

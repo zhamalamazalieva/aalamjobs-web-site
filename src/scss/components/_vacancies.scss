@@ -61,6 +61,9 @@
         cursor: pointer;
         stroke: $color-orange;
     }
+    &__fav--active{
+        fill: $color-orange;
+    }
  
 }
 .cart-border{

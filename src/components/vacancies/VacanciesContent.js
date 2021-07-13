@@ -8,6 +8,8 @@ import FullSpinner from "../spinners/FullSpinner"
 import NoItems from "../noItems/NoItems"
 import Pagination from "react-bootstrap/Pagination"
 import { getCurrentLanguage } from "../../localizaton/localication";
+import ServerService from "../../services/ServerService"
+import { toastify } from '../../helpers/toast';
 
 
 
@@ -35,6 +37,7 @@ const VacanciesContent = () => {
 	const [countries, setCountries] = useState([]);
 	const [fetchError, setFetchError] = useState(null);
 
+	const [isAdded, setIsAdded] = useState(false)
 	 //FETCH_CITIES
 	 useEffect(() => {
 		const fetchCities = async () => {
@@ -106,11 +109,25 @@ const VacanciesContent = () => {
 	}, [])
 
 	//VACANCY_FAVOURITES
-	const [favourites, setFavourites] = useState([])
-	const handleClickFavourites = (id) => {
-		if (!favourites.includes(id)) setFavourites(favourites.concat(id))
-		console.log(id)
-	}
+	const [favourites, setFavourites] = useState("")
+	const handleClickFavourites = useCallback( async(job) => {
+		setIsLoading(true)
+
+		const { hasError } = await ServerService.createFavourites(
+			{job: job})
+		if( hasError ){
+			console.log("Произошла ошибка", hasError)
+			toastify("error", t("serverError"))
+		}
+		else{
+			toastify("success",t("successfullyAdded"))
+			setIsAdded(true)
+			setFavourites(job)
+		}
+		setIsLoading(false)
+	},[ServerService])
+
+
 	const removeFavourites = (id) => {
 		let index = favourites.indexOf(id)
 		console.log(index)
@@ -248,6 +265,7 @@ const VacanciesContent = () => {
 										vacancyToShow={vacancyToShow}
 										favourites={favourites}
 										handleClickFavourites={handleClickFavourites}
+										isAdded={isAdded}
 									/>
 									{/* <Pagination size="sm">{items}</Pagination> */}
 								</>
