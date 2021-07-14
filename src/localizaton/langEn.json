@@ -9,9 +9,13 @@
         "myCv":"My CV",
         "applied":"Applied",
         "me":"Me",
-        "favourites":"Favourites",
         "login":"Login",
-        "signUp":"Sign Up"
+        "signUp":"Sign Up",
+        "favourites":"Favourites",
+        "myCV":"My CV",
+        "logOut":"Log Out",
+        "support":"Support"
+        
     },
 
     "search":{
@@ -21,6 +25,10 @@
         "salary":"Salary",
         "employmentType":"Employment type",
         "country":"Country"
+    },
+
+    "user":{
+        "contactInformation":"Contact information"
     },
 
     "vacancy":{

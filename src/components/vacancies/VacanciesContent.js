@@ -132,6 +132,22 @@ const VacanciesContent = () => {
 		[ServerService]
 	)
 
+		//VACANCY_FAVOURITES	
+		const handleClickDeleteFavourites = useCallback(
+			async (job) => {
+				setIsLoading(true)
+				const { hasError } = await ServerService.deleteFavourites(job)
+				if (hasError) {
+					console.log("Произошла ошибка", hasError)
+					toastify("error", t(""))
+				} else {
+					toastify("success", t("successfullyAdded"))
+				}
+				setIsLoading(false)
+			},
+			[ServerService]
+		)
+
 	// 	let active = currentPage;
 	// 	console.log(pagesCount)
 	// let items = [];
@@ -201,6 +217,7 @@ const VacanciesContent = () => {
 										vacancyToShow={vacancyToShow}
 										favourites={favourites}
 										handleClickFavourites={handleClickFavourites}
+										handleClickDeleteFavourites={handleClickDeleteFavourites}
 									/>
 									{/* <Pagination size="sm">{items}</Pagination> */}
 								</>

@@ -10,49 +10,6 @@ export default class ServerService {
       headers: { Authorization: "Bearer " + getAccessToken() },
     });
   };
-  createCountry = async ({ name, country_code }) => {
-    return await this.doRequestAndParse(`${this._baseApi}/api/countries/`, {
-      method: "POST",
-      headers: {
-        Authorization: "Bearer " + getAccessToken(),
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        name,
-        country_code,
-      }),
-    });
-  };
-  updateCountry = async ({id, name}) => {
-    return await this.doRequestAndParse(
-      `${this._baseApi}/api/countries/${id}/`,
-      {
-        method: "PATCH",
-        headers: {
-          Authorization: "Bearer " + getAccessToken(),
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ name: name }),
-      }
-    );
-  };
-  deleteCountry = async (id) => {
-    const res = await fetch(`${this._baseApi}/api/countries/${id}/`, {
-      method: "DELETE",
-      headers: { Authorization: "Bearer " + getAccessToken() },
-    });
-    if (!res.ok) {
-      return {
-        hasError: true,
-        data: { detail: "Ошибка при удалении" },
-      };
-    } else {
-      return {
-        hasError: false,
-        data: { detail: "Успешно удалено" },
-      };
-    }
-  };
 
    /**********************CURRENCIES************************/
    getCurrencies = async () => {
@@ -61,48 +18,7 @@ export default class ServerService {
       headers: { Authorization: "Bearer " + getAccessToken() },
     });
   };
-  createCurrency = async ({ name , sign}) => {
-    return await this.doRequestAndParse(`${this._baseApi}/api/currencies/`, {
-      method: "POST",
-      headers: {
-        Authorization: "Bearer " + getAccessToken(),
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        name, sign
-      }),
-    });
-  };
-  updateCurrency = async ({id, name, sign}) => {
-    return await this.doRequestAndParse(
-      `${this._baseApi}/api/currencies/${id}/`,
-      {
-        method: "PATCH",
-        headers: {
-          Authorization: "Bearer " + getAccessToken(),
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ name: name, sign:sign}),
-      }
-    );
-  };
-  deleteCurrency = async (id) => {
-    const res = await fetch(`${this._baseApi}/api/currencies/${id}/`, {
-      method: "DELETE",
-      headers: { Authorization: "Bearer " + getAccessToken() },
-    });
-    if (!res.ok) {
-      return {
-        hasError: true,
-        data: { detail: "Ошибка при удалении" },
-      };
-    } else {
-      return {
-        hasError: false,
-        data: { detail: "Успешно удалено" },
-      };
-    }
-  };
+
   /***********************CITIES**************************/
   getCities = async () => {
     return await this.doRequestAndParse(`${this._baseApi}/api/cities/`, {
@@ -114,42 +30,6 @@ export default class ServerService {
       },
     });
   };
-  createCity = async (city) => {
-    return await this.doRequestAndParse(`${this._baseApi}/api/cities/`, {
-      method: "POST",
-      headers: {
-        Authorization: "Bearer " + getAccessToken(),
-        "Content-Type": "application/json",
-
-        Accept: "application/json",
-      },
-      body: JSON.stringify(city),
-    });
-  };
-  updateCity = async ({id, name}) => {
-    return await this.doRequestAndParse(`${this._baseApi}/api/cities/${id}/`, {
-      method: "PATCH",
-      headers: { Authorization: "Bearer " + getAccessToken() },
-      body: JSON.stringify({ name: name }),
-    });
-  };
-  deleteCity = async (id) => {
-    const res = await fetch(`${this._baseApi}/api/cities/${id}/`, {
-      method: "DELETE",
-      headers: { Authorization: "Bearer " + getAccessToken() },
-    });
-    if (!res.ok) {
-      return {
-        hasError: true,
-        data: { detail: "Ошибка при удалении" },
-      };
-    } else {
-      return {
-        hasError: false,
-        data: { detail: "Успешно удалено" },
-      };
-    }
-  };
 
   /*********************ORGANIZATIONS**********************/
   getOrganizations = async () => {
@@ -158,47 +38,9 @@ export default class ServerService {
       headers: { Authorization: "Bearer " + getAccessToken() },
     });
   };
-  createOrganization = async (organization) => {
-    return await this.doRequestAndParse(`${this._baseApi}/api/organizations/`, {
-      method: "POST",
-      headers: {
-        Authorization: "Bearer " + getAccessToken(),
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(organization),
-    });
-  };
-  updateOrganization = async ({
-    id,
-    name,
-    phone,
-    address,
-    country,
-    sectors,
-  }) => {
-    return await this.doRequestAndParse(
-      `${this._baseApi}/api/organizations/${id}/`,
-      {
-        method: "PATCH",
-        headers: {
-          Authorization: "Bearer " + getAccessToken(),
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ name, address, phone, sectors, country }),
-      }
-    );
-  };
-
-
 
 
   /**********************FAVOURITES************************/
-  getVacancies = async () => {
-    let url = `${this._baseApi}/api/jobs/all/`;
-    return await this.doRequestAndParse(url, {
-      method: "GET",
-    });
-  };
   createFavourites = async (job) => {
     return await this.doRequestAndParse(`${this._baseApi}/api/jobs/favorites/`, {
       method: "POST",
@@ -210,45 +52,12 @@ export default class ServerService {
     });
   };
 
-
-
-  
-
-
-  /**********************VACANCIES************************/
-  getVacancies = async () => {
-    let url = `${this._baseApi}/api/jobs/all/`;
-    return await this.doRequestAndParse(url, {
-      method: "GET",
-    });
-  };
-  createVacancy = async (job) => {
-    return await this.doRequestAndParse(`${this._baseApi}/api/jobs/post/`, {
-      method: "POST",
-      headers: {
-        Authorization: "Bearer " + getAccessToken(),
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(job),
-    });
-  };
-  updateVacancy = async (id, vacancy) => {
-    delete vacancy.extra_benefits;
-    return await this.doRequestAndParse(`${this._baseApi}/api/jobs/${id}/`, {
-      method: "PATCH",
-      headers: {
-        Authorization: "Bearer " + getAccessToken(),
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(vacancy),
-    });
-  };
-
-  deleteVacancy = async (id) => {
-    const res = await fetch(`${this._baseApi}/api/jobs/${id}/`, {
+  deleteFavourites = async (job) => {
+    const res = await fetch(`${this._baseApi}/api/jobs/favorites/${job}`, {
       method: "DELETE",
       headers: { Authorization: "Bearer " + getAccessToken() },
     });
+
     if (!res.ok) {
       return {
         hasError: true,
@@ -260,7 +69,26 @@ export default class ServerService {
         data: { detail: "Успешно удалено" },
       };
     }
+  }
+
+
+  /**********************VACANCIES************************/
+  getVacancies = async () => {
+    const tkn = getAccessToken()
+    let headers = {}
+    if(tkn){
+     headers = {
+        Authorization: "Bearer " + tkn
+      }
+    }
+    
+    let url = `${this._baseApi}/api/jobs/all/`;
+    return await this.doRequestAndParse(url, {
+      method: "GET",
+      headers: headers
+    });
   };
+
   getVacancyDetail = async (id) => {
     return await this.doRequestAndParse(`${this._baseApi}/api/jobs/${id}`, {
       method: "GET",
@@ -276,18 +104,7 @@ export default class ServerService {
       headers: { Authorization: "Bearer " + getAccessToken() },
     });
   };
-  /******************APPLICATIONS*************************/
-  getApplications = async (page, searchInput) => {
-    return await this.doRequestAndParse(
-      `${this._baseApi}/api/resumes/?page=${page}&search=${searchInput}`,
-      {
-        method: "GET",
-        headers: {
-          Authorization: "Bearer " + getAccessToken(),
-        },
-      }
-    );
-  };
+
   createApplication = async (cv) => {
     return await this.doRequestAndParse(`${this._baseApi}/api/resumes/`, {
       method: "POST",
@@ -296,14 +113,6 @@ export default class ServerService {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(cv),
-    });
-  };
-  getApplicationDetail = async (id) => {
-    return await this.doRequestAndParse(`${this._baseApi}/api/resumes/${id}`, {
-      method: "GET",
-      headers: {
-        Authorization: "Bearer " + getAccessToken(),
-      },
     });
   };
 
@@ -338,6 +147,7 @@ export default class ServerService {
       }),
     });
   };
+
   deleteUser = async (id) => {
     const res = await fetch(`${this._baseApi}/auth/users/${id}/`, {
       method: "DELETE",
@@ -363,23 +173,6 @@ export default class ServerService {
       headers: { Authorization: "Bearer " + getAccessToken() },
     });
   };
-  // createUser =  async ({ username, email, password, first_name, last_name, role}) => {
-  //   return await this.doRequestAndParse(`${this._baseApi}/auth/users/`,{
-  //     method:"POST",
-  //     headers:
-  //     { Authorization: "Bearer " + getAccessToken(),
-  //       "Content-Type":"application/json"
-  //     },
-  //     body:JSON.stringify({
-  //       username,
-  //       email,
-  //       password,
-  //       first_name,
-  //       last_name,
-  //       role
-  //     })
-  //   })
-  // }
   deleteClient = async (id) => {
     const res = await fetch(`${this._baseApi}/api/clients/${id}/`, {
       method: "DELETE",
@@ -400,13 +193,14 @@ export default class ServerService {
 
   /********************USERPROFILE******************************/
   getUser = async () => {
-    return await this.doRequestAndParse(`${this._baseApi}/auth/users/me/`, {
+    return await this.doRequestAndParse(`${this._baseApi}/api/auth/users/me/`, {
       method: "GET",
       headers: { Authorization: "Bearer " + getAccessToken() },
     });
   };
   updateUser = async (user) => {
-    return await this.doRequestAndParse(`${this._baseApi}/auth/users/me/`, {
+    console.log(user)
+    return await this.doRequestAndParse(`${this._baseApi}/api/auth/users/me/`, {
       method: "PATCH",
       headers: {
         Authorization: "Bearer " + getAccessToken(),
@@ -479,5 +273,6 @@ export default class ServerService {
 }
 const getAccessToken = () => {
   const token = Cookies.get("access_token_aalam");
+  console.log("token in Server", token)
   return token;
 };

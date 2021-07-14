@@ -5,7 +5,7 @@ import { getCurrentLanguage } from "../../localizaton/localication"
 import { formatDate } from "../../functions/Function"
 import { Link } from 'react-router-dom' 
 
-const VacancyCart = ({ vacancies, showVacancy, vacancyToShow, favourites, handleClickFavourites, isAdded }) => {
+const VacancyCart = ({ vacancies, showVacancy, vacancyToShow, favourites,setFavourites, handleClickFavourites,handleClickDeleteFavourites }) => {
 	const { t } = useTranslation()
 	const selectedLanguage = getCurrentLanguage()
 	
@@ -38,9 +38,10 @@ const VacancyCart = ({ vacancies, showVacancy, vacancyToShow, favourites, handle
 								{" "}
 								{formatDate(item.published_date)}
 							</span>
-							<div onClick={() => handleClickFavourites(item.id)}>
+							<div onClick={() => {
+								item.favorite ?	handleClickDeleteFavourites(item.id) : handleClickFavourites(item.id) }}>
 								<svg
-									className={`cart__fav ${item.id === favourites ? "cart__fav--active" : ""}`}
+									className={`cart__fav ${item.favorite ? "cart__fav--active" : "" }`}
 									width="20"
 									height="20"
 									viewBox="0 0 30 30"

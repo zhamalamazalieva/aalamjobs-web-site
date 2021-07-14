@@ -31,7 +31,7 @@ const UserContent = () => {
     return (
         <div>
         <UserAvatar user={user}/>
-        <UserInfo user={user}/>
+        <UserInfo user={user} setUser={setUser}/>
         </div>
     )
 }

@@ -24,9 +24,6 @@ const PersonalInfo = () => {
 	const { t } = useTranslation()
 	const [age, setAge] = React.useState("")
 
-	const handleChange = (event) => {
-		setAge(event.target.value)
-	}
   return(
     <div>
         	<div className="application__section d-flex flex-column align-items-center justify-content-between">
