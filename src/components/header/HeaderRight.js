@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react"
+import React, { useState, useContext, useCallback, useEffect } from "react"
 import { Row } from "react-bootstrap"
 import Dropdown from "react-bootstrap/Dropdown"
 import localization from "../../localizaton/localication"
@@ -7,16 +7,19 @@ import * as Constants from "../../constants/index"
 import chevron from "../../assets/icons/chevron.svg"
 import { useTranslation } from "react-i18next"
 import { Link } from "react-router-dom"
-import { useDispatch, useSelector } from "react-redux"
-import avatar from "../../../src/assets/img/will.jpg"
+import { useSelector } from "react-redux"
+import avatar from "../../../src/assets/img/user.png"
 import ConfirmLogout from "./HeaderLogOutModal"
+import ServerServiceContext from "../../contexts/ServerServiceContext"
 
 const HeaderRight = () => {
 	const { t } = useTranslation()
-
+	const ServerService = useContext(ServerServiceContext);
+  
 	//STATES
 	const [isLogoutModalOpen, setIsLogoutModalOpen] = useState(false)
-
+	const [isLoading, setIsLoading] = useState(false);
+    const [user, setUser] = useState("");
 	const currentLanguage = getCurrentLanguage()
 	const [selectedLanguage, setSelectedLanguage] = useState(currentLanguage)
 	const isAuth = useSelector((state) => state.auth.isAuth)
@@ -35,6 +38,23 @@ const HeaderRight = () => {
 		localStorage.setItem("lang", lang)
 		setSelectedLanguage(lang)
 	}
+
+	//FETCH_USER
+	const fetchUser = useCallback(async () => {
+        setIsLoading(true);
+        const { hasError, data } = await ServerService.getUser();
+        if (hasError) {
+          console.log("Ошибка с сервером", hasError);
+        } else {
+          setUser(data);
+        }
+        setIsLoading(false);
+      }, [ServerService]);
+
+	useEffect(() => {
+		fetchUser();
+	}, [fetchUser]);
+
 	return (
 		<Row className="bg-color--darkGreen d-flex justify-content-end align-items-center max-width">
 			<Dropdown>
@@ -88,7 +108,7 @@ const HeaderRight = () => {
 								className="header__img header__img--big mr-2"
 								alt="avatar"
 							/>
-							<span>Meerim Aitikeeva</span>
+							<span>{user.fullname}</span>
 						</Dropdown.Item>
 
 						<Dropdown.Item>

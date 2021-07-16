@@ -10,19 +10,10 @@ import Footer from "../components/footer/Footer"
 const MePage = () => {
     return (
         <>
-        <div className="bg-color--darkGreen">
-            <Header />
-        </div>
-        <Row className="myContainer mt-5 mb-5">
-            <Col md="3" xs="12">
-                <SearchSideBar />
-            </Col>
-            <Col md="6" xs="12">
-                <SearchField />
+      
+             
                 <UserContent />
-            </Col>
-        </Row>
-        <Footer />
+          
     </>
     )
 }

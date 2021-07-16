@@ -2,6 +2,16 @@
     "apply":"Apply",
     "share":"Share",
     "sendCV":"Send CV",
+    "logOut":"Log out",
+    "cancel":"Cancel",
+    "change":"Change",
+    "choose":"Choose",
+    "add":"Add",
+    "delete":"Delete",
+    "submit":"Submit",
+    "view":"View",
+    "pressEnterToAddTag":"Нажми enter, чтобы добавить тег",
+    "printCV":"Сохранить резюме",
 
 
     "header":{
@@ -14,7 +24,8 @@
         "favourites":"Favourites",
         "myCV":"My CV",
         "logOut":"Log Out",
-        "support":"Support"
+        "support":"Support",
+        "logoutMessage":"Are you sure to logout?"
         
     },
 
@@ -151,18 +162,7 @@
     "doYouHaveAnAccaunt":"Нет аккаунта",
     
 
-    "cancel":"Отмена",
-    "change":"Изменить",
-    "choose":"Выбрать",
-    "add":"Добавить",
-    "delete":"Удалить",
-    "changeDatas":"Изменить данные",
-    "submit":"Отправить",
-    "view":"Показать",
-    "rollUp":"Свернуть",
-    "showDetails":"Показать больше",
-    "pressEnterToAddTag":"Нажми enter, чтобы добавить тег",
-    "printCV":"Сохранить резюме",
+  
 
     
     "sector":"Сектор",

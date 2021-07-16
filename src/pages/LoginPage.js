@@ -14,14 +14,21 @@ const LoginPage = () => {
 	const dispatch = useDispatch();
 	const history = useHistory();
   
+	//STATES
     const isAuth = useSelector((state) => state.auth.isAuth);
     const error = useSelector((state) => state.auth.error);
+	const [isLoading, setIsLoading] = useState(false);
 
 	const [username, setUsername] = useState("")
 	const [password, setPassword] = useState("")
+
+
+	//SUBMIT
 	const onSubmit = (e) => {
+		setIsLoading(true);
 		e.preventDefault()
 		dispatch(login({username:username, password:password}));
+		setIsLoading(false);
 	  };
 
 	const [isModalOpen, setIsModalOpen] = useState(false)
@@ -55,9 +62,14 @@ const LoginPage = () => {
 					<Form.Group controlId="formBasicPassword">
 						<Form.Control type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder={t("login.password")} />
 					</Form.Group>
+					{ error && error.detail && (
+						<span className="text-danger">
+							{error.detail}
+						</span>
+					)}
 					<div className="d-flex justify-content-between align-items-center">
 					<Form.Group controlId="formBasicCheckbox color-lightGreen">
-						<Form.Check type="checkbox" label={t("login.rememberMe")} className="myText--small"/>
+						<Form.Check type="checkbox" label={t("login.rememberMe")} className="myText--small d-flex align-items-center"/>
 					</Form.Group>
 					<Button variant="success" className="myBtn myBtn--green myText--large" type="submit">
 						{t("login.login")}

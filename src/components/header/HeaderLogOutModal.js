@@ -23,13 +23,13 @@ const ConfirmLogout = ({ closeLogoutModal, isLogoutModalOpen }) => {
       aria-labelledby="contained-modal-title-vcenter"
       centered  className="p-2 modal-dialog-centered" show={isLogoutModalOpen} onHide={closeLogoutModal}>
         <Modal.Header closeButton>
-        <Col className="d-center"><span className="myText--large text-center mb-2">{t("Logout")}</span></Col>
+        <Col className="d-center"><span className="myText--large text-center mb-2">{t("logOut")}</span></Col>
 
         </Modal.Header>
         <Modal.Body className="p-2 " >
 
           <Row className="d-center flex-column">
-            <Col><p className="myText--xsmall text-center">{t("logoutMessage")}</p></Col>
+            <Col><p className="myText--large text-center">{t("header.logoutMessage")}</p></Col>
           </Row>
           
         </Modal.Body>
@@ -38,7 +38,7 @@ const ConfirmLogout = ({ closeLogoutModal, isLogoutModalOpen }) => {
             { isLoading ? (
                 <MiniSpinner/>
             ) : (
-                <Button variant="success" onClick={logoutHandler}>{t("logout")}</Button>
+                <Button variant="success" onClick={logoutHandler}>{t("logOut")}</Button>
             )}
             <Button variant="secondary" className="ml-2" onClick={() => closeLogoutModal()}>{t("cancel")}</Button>
           </Row>

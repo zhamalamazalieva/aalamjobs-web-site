@@ -6,7 +6,7 @@ import { getCurrentLanguage } from "../../localizaton/localication"
 import ServerServiceContext from "../../contexts/ServerServiceContext"
 import { getCurrentDate } from "../../functions/Function"
 
-const VacancyDetail = ({ vacancyToShow }) => {
+const VacancyDetail = ({ vacancyToShow, handleClickFavourites, handleClickDeleteFavourites, }) => {
 	const { t } = useTranslation()
 	const ServerService = useContext(ServerServiceContext)
 	const selectedLanguage = getCurrentLanguage()
@@ -31,7 +31,9 @@ const VacancyDetail = ({ vacancyToShow }) => {
 	}, [fetchVacancyDetail])
 
 	return (
-		<div className="p-4 d-flex flex-column vacancy__detail">
+		<>
+		{ vacancyToShow ?
+		 <div className="p-4 d-flex flex-column vacancy__detail">
 			<span className="myText--xsmall mb-2 d-flex justify-content-end">
 				{vacancyToShow.published_date && getCurrentDate(vacancyToShow.published_date)}
 			</span>
@@ -70,9 +72,16 @@ const VacancyDetail = ({ vacancyToShow }) => {
 			<span className="myText--large">{vacancyToShow.organization && vacancyToShow.organization.name}</span>
 			
 		
-			<div>
+			<div onClick={() => {
+									vacancyToShow.favorite
+										? handleClickDeleteFavourites(vacancyToShow.id)
+										: handleClickFavourites(vacancyToShow.id)
+								}}>
+
 								<svg
-									className="cart__fav"
+										className={`cart__fav ${
+											vacancyToShow.favorite ? "cart__fav--active" : ""
+										}`}
 									width="20"
 									height="20"
 									viewBox="0 0 30 30"
@@ -96,23 +105,27 @@ const VacancyDetail = ({ vacancyToShow }) => {
 				</Button>
 			</div>
 			<span className="myText--medium">
-				{t("vacancy.schedule")}: {vacancyToShow.schedule}{" "}
+				<span className="color-middleGray">{t("vacancy.schedule")}: </span> {vacancyToShow.schedule}{" "}
 			</span>
 			<span className="myText--medium ">
-				{t("vacancy.employmentType")}:
+			<span className="color-middleGray">{t("vacancy.employmentType")}: </span>
 				{vacancyToShow.employment_type &&
 					vacancyToShow.employment_type.name[selectedLanguage]}
 			</span>
 			<span className="myText--medium ">
-				{t("vacancy.specialization")}:{" "}
+			<span className="color-middleGray">	{t("vacancy.specialization")}: </span>
 				{vacancyToShow.specialization && vacancyToShow.specialization.name}
 			</span>
 			<span className="myText--medium ">
-				{t("vacancy.startDate")}:{" "}
+			<span className="color-middleGray">	{t("vacancy.sector")}: </span>
+				{vacancyToShow.specialization && vacancyToShow.specialization.sector.name}
+			</span>
+			<span className="myText--medium ">
+			<span className="color-middleGray">{t("vacancy.startDate")}: </span>
 				{vacancyToShow.start_date && getCurrentDate(vacancyToShow.start_date)}
 			</span>
 			<span className="myText--medium ">
-				{t("vacancy.deadline")}:{" "}
+			<span className="color-middleGray">{t("vacancy.deadline")}: </span>
 				{vacancyToShow.deadline && getCurrentDate(vacancyToShow.deadline)}
 			</span>
 			<div className="vacancy__section section mt-3">
@@ -122,9 +135,7 @@ const VacancyDetail = ({ vacancyToShow }) => {
 					platform, with the goal of becoming the number one destination for
 					aesthetic medicine. We aim to be the go-to site for consumers, a
 					tech-driven marketplace, and a cutting-edge e-commerce site, all in
-					one. With support the region’s premier experts in aesthetics, we
-					intend to change the industry’s landscape forever – and we’re moving
-					at speed.
+					one.
 				</p>
 			</div>
 			<div className="vacancy__section section mt-2">
@@ -146,6 +157,8 @@ const VacancyDetail = ({ vacancyToShow }) => {
 				</ul>
 			</div>
 		</div>
+		:""}
+		</>
 	)
 }
 export default VacancyDetail

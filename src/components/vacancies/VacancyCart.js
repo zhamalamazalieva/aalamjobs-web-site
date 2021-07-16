@@ -1,20 +1,29 @@
-import React, { useState, useCallback} from "react"
+import React, { useState, useCallback } from "react"
 import { useTranslation } from "react-i18next"
-import { Col, Row } from "react-bootstrap"
 import { getCurrentLanguage } from "../../localizaton/localication"
 import { formatDate } from "../../functions/Function"
-import { Link } from 'react-router-dom' 
 
-const VacancyCart = ({ vacancies, showVacancy, vacancyToShow, favourites,setFavourites, handleClickFavourites,handleClickDeleteFavourites }) => {
+const VacancyCart = ({
+	vacancies,
+	showVacancy,
+	vacancyToShow,
+	handleClickFavourites,
+	handleClickDeleteFavourites,
+}) => {
 	const { t } = useTranslation()
 	const selectedLanguage = getCurrentLanguage()
-	
 
 	return (
 		<>
-			{vacancies.map((item) => {
+			{
+			vacancies.map((item) => {
 				return (
-					<div className={`p-4 d-flex flex-column cart__wrapper ${vacancyToShow?.id === item.id ? 'cart-border' : ''}`} onClick={() => showVacancy(item)}>
+					<div
+						className={`p-4 d-flex flex-column cart__wrapper ${
+							vacancyToShow?.id === item.id ? "cart-border" : ""
+						}`}
+						onClick={() => showVacancy(item)}
+					>
 						<h5 className="cart__title">{item.title}</h5>
 						<span className="cart__company myText--small">
 							{item.organization.name}
@@ -31,17 +40,24 @@ const VacancyCart = ({ vacancies, showVacancy, vacancyToShow, favourites,setFavo
 						<span className="cart__salary myText--large myText--bold">
 							{item.salary && item.salary.max} -{" "}
 							{item.salary && item.salary.min}{" "}
-							{item.salary.currency && item.salary.currency.sign}
+							{item.currency && item.currency.sign}
 						</span>
 						<div className="d-flex justify-content-between align-items-center">
 							<span className="cart__date myText--xsmall">
 								{" "}
 								{formatDate(item.published_date)}
 							</span>
-							<div onClick={() => {
-								item.favorite ?	handleClickDeleteFavourites(item.id) : handleClickFavourites(item.id) }}>
+							<div
+								onClick={() => {
+									item.favorite
+										? handleClickDeleteFavourites(item.id)
+										: handleClickFavourites(item.id)
+								}}
+							>
 								<svg
-									className={`cart__fav ${item.favorite ? "cart__fav--active" : "" }`}
+									className={`cart__fav ${
+										item.favorite ? "cart__fav--active" : ""
+									}`}
 									width="20"
 									height="20"
 									viewBox="0 0 30 30"

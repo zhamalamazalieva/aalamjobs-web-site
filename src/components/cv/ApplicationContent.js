@@ -13,7 +13,7 @@ const ApplicationContent = () => {
 				{t("cv.jobApplicationForm")}
 			</h1>
 			<Row >
-				<Col md="12" >
+				<Col md="9" >
                 <Applicationform/> 
 				</Col>
 				

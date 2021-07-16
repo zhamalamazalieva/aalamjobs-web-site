@@ -1,7 +1,8 @@
 import React, {Suspense, lazy} from "react"
-import {Route, Switch, Redirect} from "react-router-dom"
+import {Route, Switch} from "react-router-dom"
 import FullSpinner from "../components/spinners/FullSpinner"
 import PrivateRoute from '../containers/PrivateRoute'
+import GlobalRoute from '../containers/GlobalRoute'
 
 
 const LoginPage = lazy(() => import('./LoginPage'))
@@ -25,9 +26,9 @@ export default function Router(){
         <Route exact path="/register">
           <SignUpPage/>
         </Route>
-        <Route exact path="/">
+        <GlobalRoute exact path="/">
           <HomePage/>
-        </Route>
+        </GlobalRoute>
         <PrivateRoute exact path="/applied">
           <AppliedPage/>
         </PrivateRoute>

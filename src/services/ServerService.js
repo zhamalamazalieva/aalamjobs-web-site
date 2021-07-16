@@ -7,7 +7,7 @@ export default class ServerService {
   getCountries = async () => {
     return await this.doRequestAndParse(`${this._baseApi}/api/countries/`, {
       method: "GET",
-      headers: { Authorization: "Bearer " + getAccessToken() },
+
     });
   };
 
@@ -15,19 +15,25 @@ export default class ServerService {
    getCurrencies = async () => {
     return await this.doRequestAndParse(`${this._baseApi}/api/currencies/`, {
       method: "GET",
-      headers: { Authorization: "Bearer " + getAccessToken() },
+
     });
+  };
+ 
+  /******************EMLOYMENT_TYPES**********************/
+  getEmploymentTypes = async () => {
+    return await this.doRequestAndParse(
+      `${this._baseApi}/api/types/employment/`,
+      {
+        method: "GET",
+      }
+    );
   };
 
   /***********************CITIES**************************/
   getCities = async () => {
     return await this.doRequestAndParse(`${this._baseApi}/api/cities/`, {
       method: "GET",
-      headers: {
-        Authorization: "Bearer " + getAccessToken(),
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
+
     });
   };
 
@@ -35,10 +41,16 @@ export default class ServerService {
   getOrganizations = async () => {
     return await this.doRequestAndParse(`${this._baseApi}/api/organizations/`, {
       method: "GET",
-      headers: { Authorization: "Bearer " + getAccessToken() },
+
     });
   };
 
+  /**************************SECTORS***************************/
+    getSectors = async () => {
+      return await this.doRequestAndParse(`${this._baseApi}/api/sectors/`, {
+        method: "GET",
+      });
+    };
 
   /**********************FAVOURITES************************/
   createFavourites = async (job) => {
@@ -71,9 +83,8 @@ export default class ServerService {
     }
   }
 
-
   /**********************VACANCIES************************/
-  getVacancies = async () => {
+  getVacancies = async (page, city, country, sector, employmentType) => { 
     const tkn = getAccessToken()
     let headers = {}
     if(tkn){
@@ -81,8 +92,20 @@ export default class ServerService {
         Authorization: "Bearer " + tkn
       }
     }
-    
-    let url = `${this._baseApi}/api/jobs/all/`;
+    let url = `${this._baseApi}/api/jobs/all/?page=${page}`;
+
+    if(city || city.length > 0){
+      url = url + `&city=[${city}]` || "";
+    }
+    if(country){
+      url = url + `&country=[${country}]` || "";
+    }
+    if(sector){
+      url = url + `&sector=[${sector}]` || "";
+    }
+    if(employmentType){
+      url = url + `&employment=[${employmentType}]` || "";
+    }
     return await this.doRequestAndParse(url, {
       method: "GET",
       headers: headers
@@ -97,13 +120,7 @@ export default class ServerService {
       },
     });
   };
-  /**************************SECTORS***************************/
-  getSectors = async () => {
-    return await this.doRequestAndParse(`${this._baseApi}/api/sectors/`, {
-      method: "GET",
-      headers: { Authorization: "Bearer " + getAccessToken() },
-    });
-  };
+
 
   createApplication = async (cv) => {
     return await this.doRequestAndParse(`${this._baseApi}/api/resumes/`, {
@@ -166,30 +183,6 @@ export default class ServerService {
     }
   };
 
-  /********************CLIENTS******************************/
-  getClients = async () => {
-    return await this.doRequestAndParse(`${this._baseApi}/api/users/clients/`, {
-      method: "GET",
-      headers: { Authorization: "Bearer " + getAccessToken() },
-    });
-  };
-  deleteClient = async (id) => {
-    const res = await fetch(`${this._baseApi}/api/clients/${id}/`, {
-      method: "DELETE",
-      headers: { Authorization: "Bearer " + getAccessToken() },
-    });
-    if (!res.ok) {
-      return {
-        hasError: true,
-        data: { detail: "Ошибка при удалении" },
-      };
-    } else {
-      return {
-        hasError: false,
-        data: { detail: "Успешно удалено" },
-      };
-    }
-  };
 
   /********************USERPROFILE******************************/
   getUser = async () => {
@@ -199,7 +192,6 @@ export default class ServerService {
     });
   };
   updateUser = async (user) => {
-    console.log(user)
     return await this.doRequestAndParse(`${this._baseApi}/api/auth/users/me/`, {
       method: "PATCH",
       headers: {
@@ -224,7 +216,6 @@ export default class ServerService {
       if (res.status !== 204) {
         hasError = true;
       }
-      console.log(hasError);
       return { hasError };
     } catch (err) {
       return { hasError: true };
@@ -242,12 +233,10 @@ export default class ServerService {
         },
         body: JSON.stringify({ email }),
       });
-      console.log("e:", email);
 
       if (res.status !== 204) {
         hasError = true;
       }
-      console.log(hasError);
       return { hasError };
     } catch (err) {
       return { hasError: true };
@@ -263,7 +252,6 @@ export default class ServerService {
       if (!res.ok) {
         hasError = true;
       }
-      console.log("hE in Server:", hasError);
       const data = await res.json();
       return { hasError, data };
     } catch (err) {
@@ -273,6 +261,5 @@ export default class ServerService {
 }
 const getAccessToken = () => {
   const token = Cookies.get("access_token_aalam");
-  console.log("token in Server", token)
   return token;
 };

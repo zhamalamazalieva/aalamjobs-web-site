@@ -9,11 +9,19 @@ import NoItems from "../noItems/NoItems"
 import Pagination from "react-bootstrap/Pagination"
 import { getCurrentLanguage } from "../../localizaton/localication"
 import { toastify } from "../../helpers/toast"
+import { useSelector } from "react-redux"
+
 
 const VacanciesContent = () => {
 	const { t } = useTranslation()
 	const ServerService = useContext(ServerServiceContext)
 	const selectedLanguage = getCurrentLanguage()
+
+	const city = useSelector(state => state.filter.city)
+	const country = useSelector(state => state.filter.country)
+	const sector = useSelector(state => state.filter.sector)
+	const employmentType = useSelector(state => state.filter.employmentType)
+
 
 	//STATES
 	const [isLoading, setIsLoading] = useState(false)
@@ -32,18 +40,9 @@ const VacanciesContent = () => {
 	const [cities, setCities] = useState([])
 	const [sectors, setSectors] = useState([])
 	const [countries, setCountries] = useState([])
-	
+
 	const [fetchError, setFetchError] = useState(null)
-
 	const [favourites, setFavourites] = useState("")
-
-	//FILTER_VACANCIES_STATES
-	const [filterByCity, setFilterByCity] = useState([])
-	const [filterByCountry, setFilterByCountry] = useState([])
-	const [filterBySector, setFilterBySector] = useState([])
-	const [filterBySalary, setFilterBySalary] = useState({})
-	const [allVacancies, setAllVacancies] = useState(false)
-	const [salaryValue, setSalaryValue] = React.useState([1000, 200000])
 
 
 	//FETCH_CITIES
@@ -85,9 +84,7 @@ const VacanciesContent = () => {
 		fetchSectors()
 	}, [ServerService])
 
-	const handleChange = (event, newValue) => {
-		setSalaryValue(newValue)
-	}
+
 
 	//FETCH_CURRENCIES
 	const fetchCurrencies = useCallback(async () => {
@@ -115,39 +112,6 @@ const VacanciesContent = () => {
 		setVacancyToShow(vacancy)
 	}, [])
 
-	//VACANCY_FAVOURITES	
-	const handleClickFavourites = useCallback(
-		async (job) => {
-			setIsLoading(true)
-			const { hasError } = await ServerService.createFavourites({ job: job })
-			if (hasError) {
-				console.log("Произошла ошибка", hasError)
-				toastify("error", t(""))
-			} else {
-				toastify("success", t("successfullyAdded"))
-				setFavourites(job)
-			}
-			setIsLoading(false)
-		},
-		[ServerService]
-	)
-
-		//VACANCY_FAVOURITES	
-		const handleClickDeleteFavourites = useCallback(
-			async (job) => {
-				setIsLoading(true)
-				const { hasError } = await ServerService.deleteFavourites(job)
-				if (hasError) {
-					console.log("Произошла ошибка", hasError)
-					toastify("error", t(""))
-				} else {
-					toastify("success", t("successfullyAdded"))
-				}
-				setIsLoading(false)
-			},
-			[ServerService]
-		)
-
 	// 	let active = currentPage;
 	// 	console.log(pagesCount)
 	// let items = [];
@@ -159,13 +123,12 @@ const VacanciesContent = () => {
 	//   );
 	// }
 
-	
 	//FECTH_VACANCIES
 	const fetchVacancies = useCallback(async () => {
 		setIsLoading(true)
 		const { hasError, data } = await ServerService.getVacancies(
-			currentPage,
-			filterByCity,			
+			currentPage, city, country, sector, employmentType
+			
 		)
 		if (hasError) {
 			console.log("Что-то пошло не так с сервером")
@@ -176,42 +139,64 @@ const VacanciesContent = () => {
 			setVacancyToShow(data?.results[0] || {})
 		}
 		setIsLoading(false)
-	}, [
-		ServerService,
-		currentPage,
-		filterByCity,
-	])
+	}, [currentPage, city, country,  sector, employmentType ])
 
 	useEffect(() => {
 		fetchVacancies()
-	}, [
-		fetchVacancies,
-		currentPage,
-		filterByCity,
-	])
+	}, [currentPage, city, country,  sector, employmentType])
 
-	const reFetchVacancies = useCallback(async () => {
-		fetchVacancies()
-	}, [fetchVacancies])
 
-	//FILTERS
+	//VACANCY_FAVOURITES
+	const handleClickFavourites = useCallback(
+		async (job) => {
+			setIsLoading(true)
+			const { hasError } = await ServerService.createFavourites({ job: job })
+			if (hasError) {
+				console.log("Произошла ошибка", hasError)
+				toastify("error", t(""))
+			} else {
+				toastify("success", t("successfullyAdded"))
+				vacancies.find((item) => item.id === job).favorite = true
+			}
+			setIsLoading(false)
+		},
+		[ServerService, vacancies]
+	)
 
+	//VACANCY_FAVOURITES
+	const handleClickDeleteFavourites = useCallback(
+		async (job) => {
+			setIsLoading(true)
+			const { hasError } = await ServerService.deleteFavourites(job)
+			if (hasError) {
+				console.log("Произошла ошибка", hasError)
+				toastify("error", t(""))
+			} else {
+				toastify("success", t("successfullyDeletedFromFav"))
+				vacancies.find((item) => item.id === job).favorite = false
+			}
+			setIsLoading(false)
+		},
+		[ServerService, vacancies]
+	)
 
 
 	return (
 		<div className="vacancy__wrapper">
 			<h1 className="myText--large color-blueGray text-center mb-3 text-uppercase">
-				{t("vacancy.allVacancies")}
+				{t("vacancy.allVacancies")} ({vacancies.length})
 			</h1>
-			<Row className="">
-				<Col md="6" className="">
-					{isLoading ? (
-						<FullSpinner />
-					) : (
-						<>
-							{count ? (
+			{ isLoading ? (
+				<FullSpinner/>
+			) : (
+					<>
+					{ count ? (
+						<Row className="">
+						<Col md="6" className="">
+						
 								<>
 									<VacancyCart
+										parent={"vacancy"}
 										vacancies={vacancies}
 										showVacancy={showVacancy}
 										vacancyToShow={vacancyToShow}
@@ -221,16 +206,18 @@ const VacanciesContent = () => {
 									/>
 									{/* <Pagination size="sm">{items}</Pagination> */}
 								</>
-							) : (
-								<NoItems />
-							)}
-						</>
-					)}
-				</Col>
-				<Col md="6">
-					<VacancyDetail vacancyToShow={vacancyToShow} />
-				</Col>
-			</Row>
+						
+						</Col>
+						<Col md="6">
+							<VacancyDetail vacancyToShow={vacancyToShow} />
+						</Col>
+					</Row>
+					): (
+						<NoItems/>
+					)} 
+					</>
+			)}
+			
 		</div>
 	)
 }

@@ -22,14 +22,13 @@ const UserContent = () => {
         setIsLoading(false);
       }, [ServerService]);
 
-      console.log(user)
 
   useEffect(() => {
     fetchUser();
   }, [fetchUser]);
 
     return (
-        <div>
+        <div className="col-9">
         <UserAvatar user={user}/>
         <UserInfo user={user} setUser={setUser}/>
         </div>

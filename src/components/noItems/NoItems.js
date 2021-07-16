@@ -17,8 +17,8 @@ const NoItems = () => {
         <Row className="justify-content-center">
           <Col md="6" className="mt-5 mb-5">
             <div className="d-flex flex-column align-items-center">
-              <h4 className="mb-2">{t("noItemsAfterSearch")}</h4>
-              <p className="text-muted float-left">{t("trytoChangeSearchFields")}</p>
+              <h4 className="myText--medium color-text text-center mb-2">{t("noItemsAfterSearch")}</h4>
+              <p className="myText--medium color-text text-center">{t("trytoChangeSearchFields")}</p>
             </div>
           </Col>
         </Row>
