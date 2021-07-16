@@ -12,6 +12,7 @@
     "view":"View",
     "pressEnterToAddTag":"Нажми enter, чтобы добавить тег",
     "printCV":"Сохранить резюме",
+    "advancedSearch":"Advanced Search",
 
 
     "header":{
@@ -35,11 +36,13 @@
         "speciality":"Speciality",
         "salary":"Salary",
         "employmentType":"Employment type",
-        "country":"Country"
+        "country":"Country",
+        "sector":"Sector"
     },
 
     "user":{
-        "contactInformation":"Contact information"
+        "contactInformation":"Contact information",
+        "profilePhoto":"Profile photo"
     },
 
     "vacancy":{

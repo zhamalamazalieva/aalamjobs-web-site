@@ -128,30 +128,29 @@ const FavouritesContent = () => {
 	//FECTH_VACANCIES
 	const fetchVacancies = useCallback(async () => {
 		setIsLoading(true)
-		const { hasError, data } = await ServerService.getVacancies(
-			currentPage,
-			filterByCity
-		)
+		const { hasError, data } = await ServerService.getFavourites()
 		if (hasError) {
 			console.log("Что-то пошло не так с сервером")
 		} else {
 			setPagesCount(data.num_pages)
 			setVacancies(data.results)
 			setCount(data.count)
+			setVacancyToShow(data?.results[0] || {})
+
 		}
 		setIsLoading(false)
-	}, [currentPage, filterByCity])
+	}, [ServerService ])
 
 	useEffect(() => {
 		fetchVacancies()
-	}, [currentPage, filterByCity])
+	}, [ServerService])
 
 
-	useEffect(() => {
-		setVacancies(vacancies => vacancies.filter(e => e.favorite))
-		setVacancyToShow(vacancies[0])
+	// useEffect(() => {
+	// 	setVacancies(vacancies => vacancies.filter(e => e.favorite))
+	// 	setVacancyToShow(vacancies[0])
 
-	}, [vacancies])
+	// }, [vacancies])
 	
 
 

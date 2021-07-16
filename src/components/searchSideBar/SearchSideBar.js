@@ -10,6 +10,9 @@ import {
 	updateCountry,
 	updateSector,
 	updateEmploymentType,
+	updateSalaryMax,
+	updateSalaryMin,
+	updateCurrency
 } from "../../redux/actions/filterActions"
 
 const SearchSideBar = () => {
@@ -22,29 +25,20 @@ const SearchSideBar = () => {
 	const [isLoading, setIsLoading] = useState(false)
 
 	const [currencies, setCurrencies] = useState([])
-	const [selectedCurrency, setSelectedCurrency] = useState("")
 
 	const [cities, setCities] = useState([])
-	const [selectedCity, setSelectedCity] = useState({})
 
 	const [countries, setCountries] = useState([])
-	const [selectedCountry, setSelectedCountry] = useState({})
 
 	const [sectors, setSectors] = useState([])
-	const [selectedSector, setSelectedSector] = useState({})
 
 	const [employmentTypes, setEmploymentTypes] = useState([])
-	const [selectedEmploymentType, setSelectedEmploymentType] = useState({})
 
 	const [fetchError, setFetchError] = useState(null)
 
-	//USE_SELECTORS
-	const stateCity = useSelector((state) => state.filter.city)
-	const stateCountry = useSelector((state) => state.filter.country)
-	const stateSector = useSelector((state) => state.filter.sector)
-	const stateEmploymentType = useSelector(
-		(state) => state.filter.employmentType
-	)
+	//USE_SELECTOR
+	const { selectedCity, selectedCountry, selectedSector, selectedEmploymentType, selectedCurrency, selectedSalaryMax, selectedSalaryMin } = useSelector(state => state.filter)
+
 
 	//FETCH_CITIES
 	const fetchCities = useCallback(async () => {
@@ -57,6 +51,7 @@ const SearchSideBar = () => {
 				value: c.id,
 				label: c.name[selectedLanguage],
 				country: c.country_name[selectedLanguage],
+				country:c.country
 			}))
 			setCities(city)
 		}
@@ -79,7 +74,6 @@ const SearchSideBar = () => {
 				label: c.name[selectedLanguage],
 			}))
 			setCountries(country)
-			country[0] && setSelectedCountry(country[0])
 		}
 		return null
 	}, [ServerService, selectedLanguage])
@@ -96,7 +90,6 @@ const SearchSideBar = () => {
 		} else {
 			const sec = data.map((s) => ({ value: s.id, label: s.name }))
 			setSectors(sec)
-			sec[0] && setSelectedSector(sec[0])
 		}
 		return null
 	}, [ServerService])
@@ -118,7 +111,6 @@ const SearchSideBar = () => {
 				sign: c.sign,
 			}))
 			setCurrencies(currency)
-			currency[0] && setSelectedCurrency(currency[0])
 		}
 		return null
 	}, [ServerService, selectedLanguage])
@@ -147,55 +139,15 @@ const SearchSideBar = () => {
 		fetchEmploymentTypes()
 	}, [ServerService, fetchEmploymentTypes])
 
-	// useEffect(() => {
-	// 	// setSelectedCity(
-	// 	// 	stateCity
-	// 	// 		? {
-	// 	// 				label: cities.filter((c) => c.value === stateCity)[0].label,
-	// 	// 				value: stateCity,
-	// 	// 		  }
-	// 	// 		: {
-	// 	// 				label: t("Select a city"),
-	// 	// 		  }
-	// 	// )
-	// 	setSelectedCountry(
-	// 		stateCountry
-	// 			? {
-	// 					label: countries.filter((c) => c.value === stateCountry)[0].label,
-	// 					value: stateCountry,
-	// 			  }
-	// 			: {
-	// 					label: t("Select a country"),
-	// 			  }
-	// 	)
-	// 	setSelectedSector(
-	// 		stateSector
-	// 			? {
-	// 					label: sectors.filter((c) => c.value === stateSector)[0].label,
-	// 					value: stateSector,
-	// 			  }
-	// 			: {
-	// 					label: t("Select a sector"),
-	// 			  }
-	// 	)
-	// 	setSelectedEmploymentType(
-	// 		stateEmploymentType
-	// 			? {
-	// 					label: employmentTypes.filter((c) => c.value === stateEmploymentType)[0].label,
-	// 					value: stateEmploymentType,
-	// 			  }
-	// 			: {
-	// 					label: t("Select an employment type"),
-	// 			  }
-	// 	)
-	// }, [stateCity, stateCountry, stateSector,stateEmploymentType ])
+
 
 	return (
 		<div>
 			<Form className="search__wrapper">
-				<span className="myText--small d-center color-blueGray">
+				<span className="myText--small mb-4 d-center color-blueGray">
 					{t("advancedSearch")}
 				</span>
+				
 				<Form.Group controlId="exampleForm.ControlInput1">
 					<Form.Label className="search__label myText--small">
 						{t("search.country")}
@@ -206,7 +158,7 @@ const SearchSideBar = () => {
 						placeholder="Turkey"
 						options={countries}
 						value={selectedCountry}
-						onChange={(e) => dispatch(updateCountry(e.value))}
+						onChange={(val) => dispatch(updateCountry(val))}
 					/>
 				</Form.Group>
 				<Form.Group controlId="exampleForm.ControlInput1">
@@ -216,9 +168,9 @@ const SearchSideBar = () => {
 					<Select
 						className="react-select"
 						classNamePrefix="react-select"
-						options={cities}
+						options={cities.filter((item) => item.country === selectedCountry.value)}
 						value={selectedCity}
-						onChange={(e) => dispatch(updateCity(e.value))}
+						onChange={(val) => dispatch(updateCity(val))}
 					/>
 				</Form.Group>
 				<Form.Group controlId="exampleForm.ControlInput1">
@@ -228,7 +180,7 @@ const SearchSideBar = () => {
 					<Select
 						className="react-select"
 						value={selectedSector}
-						onChange={(e) => dispatch(updateSector(e.value))}
+						onChange={(val) => dispatch(updateSector(val))}
 						options={sectors}
 						classNamePrefix="react-select"
 					/>
@@ -238,14 +190,14 @@ const SearchSideBar = () => {
 						{t("search.salary")}
 					</Form.Label>
 					<Form.Group className="d-flex">
-						<Form.Control className="search__input mr-1" placeholder="min" />
-						<Form.Control className="search__input ml-1" placeholder="max" />
+						<Form.Control className="search__input mr-1" type="number" placeholder="min" value={selectedSalaryMin} onChange={e => dispatch(updateSalaryMin(parseInt(e.target.value)))}/>
+						<Form.Control className="search__input ml-1" type="number" placeholder="max" value={selectedSalaryMax} onChange={e => dispatch(updateSalaryMax(parseInt(e.target.value)))}/>
 					</Form.Group>
 					<Select
 						className="react-select"
 						options={currencies}
 						value={selectedCurrency}
-						onChange={(e) => setSelectedCurrency(e)}
+						onChange={(val) => dispatch(updateCurrency(val))}
 						classNamePrefix="react-select"
 					/>
 				</Form.Group>
@@ -256,7 +208,7 @@ const SearchSideBar = () => {
 					<Select
 						className="react-select"
 						value={selectedEmploymentType}
-						onChange={(e) => dispatch(updateEmploymentType(e.value))}
+						onChange={(val) => dispatch(updateEmploymentType(val))}
 						options={employmentTypes}
 						classNamePrefix="react-select"
 					/>
@@ -266,7 +218,7 @@ const SearchSideBar = () => {
 					className="mt-3 myBorderRadius m-width"
 					type="submit"
 				>
-					{t("apply")}
+					{t("vacancy.allVacancies")}
 				</Button>
 			</Form>
 		</div>

@@ -53,6 +53,16 @@ export default class ServerService {
     };
 
   /**********************FAVOURITES************************/
+
+  getFavourites = async () => {
+    return await this.doRequestAndParse(`${this._baseApi}/api/jobs/favorites/all/`, {
+      method: "GET",
+      headers: {
+        Authorization: "Bearer " + getAccessToken(),
+     },
+
+    });
+  };
   createFavourites = async (job) => {
     return await this.doRequestAndParse(`${this._baseApi}/api/jobs/favorites/`, {
       method: "POST",
@@ -84,7 +94,7 @@ export default class ServerService {
   }
 
   /**********************VACANCIES************************/
-  getVacancies = async (page, city, country, sector, employmentType) => { 
+  getVacancies = async (page, city, country, sector, employmentType, filterBySalary) => { 
     const tkn = getAccessToken()
     let headers = {}
     if(tkn){
@@ -94,7 +104,7 @@ export default class ServerService {
     }
     let url = `${this._baseApi}/api/jobs/all/?page=${page}`;
 
-    if(city || city.length > 0){
+    if(city){
       url = url + `&city=[${city}]` || "";
     }
     if(country){
@@ -105,6 +115,9 @@ export default class ServerService {
     }
     if(employmentType){
       url = url + `&employment=[${employmentType}]` || "";
+    }
+    if (Object.keys(filterBySalary).length !== 0 && filterBySalary.currency) {
+      url = url + `&salary=${JSON.stringify(filterBySalary)}`;
     }
     return await this.doRequestAndParse(url, {
       method: "GET",
@@ -165,25 +178,7 @@ export default class ServerService {
     });
   };
 
-  deleteUser = async (id) => {
-    const res = await fetch(`${this._baseApi}/auth/users/${id}/`, {
-      method: "DELETE",
-      headers: { Authorization: "Bearer " + getAccessToken() },
-    });
-    if (!res.ok) {
-      return {
-        hasError: true,
-        data: { detail: "Ошибка при удалении" },
-      };
-    } else {
-      return {
-        hasError: false,
-        data: { detail: "Успешно удалено" },
-      };
-    }
-  };
-
-
+ 
   /********************USERPROFILE******************************/
   getUser = async () => {
     return await this.doRequestAndParse(`${this._baseApi}/api/auth/users/me/`, {
@@ -199,6 +194,15 @@ export default class ServerService {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(user),
+    });
+  };
+  updatePhoto = async (photo) => {
+    return await this.doRequestAndParse(`${this._baseApi}/api/auth/users/me/`, {
+      method: "PATCH",
+      headers: {
+        Authorization: "Bearer " + getAccessToken(),
+      },
+      body: JSON.stringify(photo),
     });
   };
 

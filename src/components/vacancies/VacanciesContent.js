@@ -17,12 +17,15 @@ const VacanciesContent = () => {
 	const ServerService = useContext(ServerServiceContext)
 	const selectedLanguage = getCurrentLanguage()
 
-	const city = useSelector(state => state.filter.city)
-	const country = useSelector(state => state.filter.country)
-	const sector = useSelector(state => state.filter.sector)
-	const employmentType = useSelector(state => state.filter.employmentType)
+	const { selectedCity, selectedCountry, selectedSector, selectedEmploymentType, selectedCurrency, selectedSalaryMin, selectedSalaryMax } = useSelector(state => state.filter)
 
+	const city = selectedCity.value
+	const country = selectedCountry.value
+	const sector = selectedSector.value
+	const employmentType = selectedEmploymentType.value
+	const currency = selectedCurrency.value
 
+	console.log(typeof(selectedSalaryMin))
 	//STATES
 	const [isLoading, setIsLoading] = useState(false)
 
@@ -32,10 +35,11 @@ const VacanciesContent = () => {
 	const [currentPage, setCurrentPage] = useState(1)
 	const [pagesCount, setPagesCount] = useState(1)
 
+	const [filterBySalary, setFilterBySalary] = useState({});
+
 	const [vacancyToShow, setVacancyToShow] = useState(1)
 
 	const [currencies, setCurrencies] = useState([])
-	const [selectedCurrency, setSelectedCurrency] = useState({})
 
 	const [cities, setCities] = useState([])
 	const [sectors, setSectors] = useState([])
@@ -122,12 +126,20 @@ const VacanciesContent = () => {
 	//     </Pagination.Item>,
 	//   );
 	// }
+	useEffect(() => {
+		setFilterBySalary({
+		  min: selectedSalaryMin,
+		  max: selectedSalaryMax,
+		  currency: currency,
+		});
+	  }, [currency, selectedSalaryMin, selectedSalaryMax]);
 
+	  
 	//FECTH_VACANCIES
 	const fetchVacancies = useCallback(async () => {
 		setIsLoading(true)
 		const { hasError, data } = await ServerService.getVacancies(
-			currentPage, city, country, sector, employmentType
+			currentPage, city, country, sector, employmentType, filterBySalary
 			
 		)
 		if (hasError) {
@@ -139,11 +151,11 @@ const VacanciesContent = () => {
 			setVacancyToShow(data?.results[0] || {})
 		}
 		setIsLoading(false)
-	}, [currentPage, city, country,  sector, employmentType ])
+	}, [currentPage, city, country,  sector, employmentType, filterBySalary ])
 
 	useEffect(() => {
 		fetchVacancies()
-	}, [currentPage, city, country,  sector, employmentType])
+	}, [currentPage, city, country,  sector, employmentType, filterBySalary])
 
 
 	//VACANCY_FAVOURITES

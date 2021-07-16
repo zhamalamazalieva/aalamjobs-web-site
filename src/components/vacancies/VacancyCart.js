@@ -38,8 +38,8 @@ const VacancyCart = ({
 							</span>
 						</div>
 						<span className="cart__salary myText--large myText--bold">
-							{item.salary && item.salary.max} -{" "}
-							{item.salary && item.salary.min}{" "}
+							{item.salary && item.salary.min} -{" "}
+							{item.salary && item.salary.max}{" "}
 							{item.currency && item.currency.sign}
 						</span>
 						<div className="d-flex justify-content-between align-items-center">

@@ -1,14 +1,27 @@
-import React from "react"
+import React, { useCallback, useState} from "react"
 import avatar from "../../assets/img/user.png"
-const UserAvatar = ({ user }) => {
+import UserAvaEditModal from "./UserAvaEditModal"
+
+const UserAvatar = () => {
+	const [isAvaEditModalOpen, setIsAvaEditModalOpen] = useState(false)
+
+	//MODALS
+	const openAvaEditModal = useCallback(async () => {
+		setIsAvaEditModalOpen(true)
+	}, [])
+	const closeAvaEditModal = useCallback(async () => {
+		setIsAvaEditModalOpen(false)
+	}, [])
+
+
 	return (
 		<div className="user__wrapper--top mb-4">
 			<div className="d-flex align-items-center">
-				<div className="user__img mr-4">
+				<div className="user__img mr-4" onClick={openAvaEditModal}>
 					<img src={avatar} alt="avatar-photo" />
 				</div>
 				<div className="myText--xlarge color-blueGray">
-					<span>Will Smith</span>
+					<span>hhhhhhh</span>
 					<div className="d-flex align-items-center">
 						<svg
 							className="mr-2"
@@ -28,6 +41,14 @@ const UserAvatar = ({ user }) => {
 					</div>
 				</div>
 			</div>
+			{isAvaEditModalOpen && (
+				<UserAvaEditModal
+					closeAvaEditModal={closeAvaEditModal}
+					isAvaEditModalOpen={isAvaEditModalOpen}
+					avatar={avatar}
+              
+				/>
+			)}
 		</div>
 	)
 }

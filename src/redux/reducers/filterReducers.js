@@ -1,16 +1,14 @@
-import {
-	UPDATE_CITY,
-	UPDATE_COUNTRY,
-	UPDATE_EMPLOYMENTYPE,
-	UPDATE_SECTOR,
-	UPDATE_SALARY,
-} from "../types/filterTypes"
+import { UPDATE_CITY, UPDATE_COUNTRY, UPDATE_SECTOR , UPDATE_EMPLOYMENTYPE, UPDATE_SALARY_MIN, UPDATE_SALARY_MAX, UPDATE_CURRENCY } from "../types/filterTypes";
+
 
 const initialState = {
-	city: "",
-	country: "",
-	sector: "",
-	employmentType: "",
+	selectedCity: {label:"Select a city"},
+	selectedCountry: {label:"Select a country"},
+	selectedSector: {label:"Select a sector"},
+	selectedEmploymentType: {label:"Select a employment type"},
+	selectedCurrency: { label:"Select a currency "},
+	selectedSalaryMin:null,
+	selectedSalaryMax:null,
 }
 
 export default function filterReducer(state = initialState, action) {
@@ -18,24 +16,42 @@ export default function filterReducer(state = initialState, action) {
 		case UPDATE_CITY:
 			return {
 				...state,
-				city: action.payload,
+				selectedCity: action.payload,
 			}
 		case UPDATE_COUNTRY: {
 			return {
 				...state,
-				country: action.payload,
+				selectedCountry: action.payload,
 			}
 		}
 		case UPDATE_SECTOR: {
 			return {
 				...state,
-				sector: action.payload,
+				selectedSector: action.payload,
 			}
 		}
 		case UPDATE_EMPLOYMENTYPE: {
 			return {
 				...state,
-				employmentType: action.payload,
+				selectedEmploymentType: action.payload,
+			}
+		}
+		case UPDATE_CURRENCY: {
+			return {
+				...state,
+				selectedCurrency: action.payload,
+			}
+		}
+		case UPDATE_SALARY_MAX: {
+			return {
+				...state,
+				selectedSalaryMax: action.payload,
+			}
+		}
+		case UPDATE_SALARY_MIN: {
+			return {
+				...state,
+				selectedSalaryMin: action.payload,
 			}
 		}
 		default:
