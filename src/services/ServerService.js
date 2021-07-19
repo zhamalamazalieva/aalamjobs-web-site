@@ -196,13 +196,13 @@ export default class ServerService {
       body: JSON.stringify(user),
     });
   };
-  updatePhoto = async (photo) => {
+  updateUserPhoto = async (photo) => {
     return await this.doRequestAndParse(`${this._baseApi}/api/auth/users/me/`, {
       method: "PATCH",
       headers: {
         Authorization: "Bearer " + getAccessToken(),
       },
-      body: JSON.stringify(photo),
+      body:photo
     });
   };
 

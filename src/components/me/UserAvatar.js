@@ -1,8 +1,8 @@
-import React, { useCallback, useState} from "react"
+import React, { useCallback, useState } from "react"
 import avatar from "../../assets/img/user.png"
 import UserAvaEditModal from "./UserAvaEditModal"
 
-const UserAvatar = () => {
+const UserAvatar = ({user}) => {
 	const [isAvaEditModalOpen, setIsAvaEditModalOpen] = useState(false)
 
 	//MODALS
@@ -13,15 +13,35 @@ const UserAvatar = () => {
 		setIsAvaEditModalOpen(false)
 	}, [])
 
-
 	return (
 		<div className="user__wrapper--top mb-4">
 			<div className="d-flex align-items-center">
 				<div className="user__img mr-4" onClick={openAvaEditModal}>
-					<img src={avatar} alt="avatar-photo" />
+					<img src={user.photo} alt="avatar-photo" />
+					<svg
+						width="40"
+						height="40"
+						viewBox="0 0 40 40"
+						fill="none"
+						xmlns="http://www.w3.org/2000/svg"
+						className="user__add-photo"
+					>
+						<path
+							d="M20 40C8.97156 40 0 31.0284 0 20C0 8.97156 8.97156 0 20 0C31.0284 0 40 8.97156 40 20C40 31.0284 31.0284 40 20 40ZM20 2.5C10.35 2.5 2.5 10.35 2.5 20C2.5 29.65 10.35 37.5 20 37.5C29.65 37.5 37.5 29.65 37.5 20C37.5 10.35 29.65 2.5 20 2.5Z"
+							fill="#ABAABD"
+						/>
+						<path
+							d="M28.75 21.25H11.25C10.56 21.25 10 20.69 10 20C10 19.31 10.56 18.75 11.25 18.75H28.75C29.44 18.75 30 19.31 30 20C30 20.69 29.44 21.25 28.75 21.25Z"
+							fill="#5A5A67"
+						/>
+						<path
+							d="M20 30C19.31 30 18.75 29.44 18.75 28.75V11.25C18.75 10.56 19.31 10 20 10C20.69 10 21.25 10.56 21.25 11.25V28.75C21.25 29.44 20.69 30 20 30Z"
+							fill="#5A5A67"
+						/>
+					</svg>
 				</div>
 				<div className="myText--xlarge color-blueGray">
-					<span>hhhhhhh</span>
+					<span>{user.fullname}</span>
 					<div className="d-flex align-items-center">
 						<svg
 							className="mr-2"
@@ -45,8 +65,7 @@ const UserAvatar = () => {
 				<UserAvaEditModal
 					closeAvaEditModal={closeAvaEditModal}
 					isAvaEditModalOpen={isAvaEditModalOpen}
-					avatar={avatar}
-              
+					user={user}
 				/>
 			)}
 		</div>

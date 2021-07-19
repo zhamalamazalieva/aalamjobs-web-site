@@ -13,6 +13,8 @@
     "pressEnterToAddTag":"Нажми enter, чтобы добавить тег",
     "printCV":"Сохранить резюме",
     "advancedSearch":"Advanced Search",
+    "noItemsAfterSearch":"No matching jobs found",
+    "trytoChangeSearchFields":"Try to change search fields",
 
 
     "header":{
@@ -42,7 +44,7 @@
 
     "user":{
         "contactInformation":"Contact information",
-        "profilePhoto":"Profile photo"
+        "profilePhoto":"Profile photo "
     },
 
     "vacancy":{
@@ -246,8 +248,7 @@
     "countriesAndCities":"Страны и города",
     "minSalary":"Мин. зарплата",
     "maxSalary":"Макс. зарплата",
-    "trytoChangeSearchFields":"Попробуйте изменить условия поиска",
-    "noItemsAfterSearch":"Поиск не дал результатов",
+
 
     "operator":"Оператор",
     "admin":"Администратор",
