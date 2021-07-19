@@ -4,12 +4,9 @@ import { useTranslation } from "react-i18next"
 import MiniSpinner from "../spinners/MiniSpinner"
 import ServerServiceContext from "../../contexts/ServerServiceContext"
 import { toastify } from "../../helpers/toast"
+import { updatePhoto } from "../../redux/actions/userAction"
 
-const UserAvaEditModal = ({
-	closeAvaEditModal,
-	isAvaEditModalOpen,
-	user,
-}) => {
+const UserAvaEditModal = ({ closeAvaEditModal, isAvaEditModalOpen, user }) => {
 	const { t } = useTranslation()
 	const ServerService = useContext(ServerServiceContext)
 

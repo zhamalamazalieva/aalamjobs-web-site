@@ -1,12 +1,14 @@
-import React, { useCallback, useState} from "react"
+import React, { useCallback, useState } from "react"
 import { useTranslation } from "react-i18next"
 import UserEditModal from "./UserEditModal"
+import { useSelector } from "react-redux"
 
-const UserInfo = ({ user, setUser }) => {
+const UserInfo = () => {
 	const { t } = useTranslation()
+	const { loggedUser } = useSelector((state) => state.user)
 
-    //STATES
-    const [isEditModalOpen, setIsEditModalOpen] = useState(false)
+	//STATES
+	const [isEditModalOpen, setIsEditModalOpen] = useState(false)
 
 	//MODALS
 	const openEditModal = useCallback(async () => {
@@ -16,7 +18,6 @@ const UserInfo = ({ user, setUser }) => {
 		setIsEditModalOpen(false)
 	}, [])
 
-
 	return (
 		<div className="user__wrapper--top color-blueGray">
 			<div className="d-flex justify-content-between align-items-center mb-4">
@@ -24,7 +25,7 @@ const UserInfo = ({ user, setUser }) => {
 					{t("user.contactInformation")}
 				</span>
 				<svg
-                onClick={openEditModal}
+					onClick={openEditModal}
 					width="24"
 					height="24"
 					viewBox="0 0 24 24"
@@ -42,30 +43,28 @@ const UserInfo = ({ user, setUser }) => {
 
 			<div className="d-flex">
 				<span className="user__label mr-3">{t("fullname")}:</span>
-				<span className="myText--small">{user.fullname}</span>
+				<span className="myText--small">{loggedUser.fullname}</span>
 			</div>
 			<div className="d-flex">
 				<span className="user__label mr-3">{t("email")}:</span>
-				<span className="myText--small">{user.email}</span>
+				<span className="myText--small">{loggedUser.email}</span>
 			</div>
-            <div className="d-flex">
+			<div className="d-flex">
 				<span className="user__label mr-3">{t("username")}:</span>
-				<span className="myText--small">{user.username}</span>
+				<span className="myText--small">{loggedUser.username}</span>
 			</div>
 			<div className="d-flex">
 				<span className="user__label mr-3">{t("phone")}:</span>
-				<span className="myText--small">{user.phone}</span>
+				<span className="myText--small">{loggedUser.phone}</span>
 			</div>
 			<div className="d-flex">
 				<span className="user__label mr-3">{t("address")}:</span>
-				<span className="myText--small">{user.address}</span>
+				<span className="myText--small">{loggedUser.address}</span>
 			</div>
-            {isEditModalOpen && (
+			{isEditModalOpen && (
 				<UserEditModal
 					closeEditModal={closeEditModal}
 					isEditModalOpen={isEditModalOpen}
-                    user={user}
-                    setUser={setUser}
 				/>
 			)}
 		</div>

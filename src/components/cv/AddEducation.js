@@ -2,10 +2,10 @@ import React, { useCallback, useEffect, useState } from "react"
 import TextField from "@material-ui/core/TextField"
 import { useTranslation } from "react-i18next"
 import FormLabel from "@material-ui/core/FormLabel"
-import { Col, Row, Form, FormControl } from "react-bootstrap"
+import { Form } from "react-bootstrap"
 import { makeStyles } from "@material-ui/core/styles"
-import Fab from '@material-ui/core/Fab';
-import AddIcon from '@material-ui/icons/Add';
+import Fab from "@material-ui/core/Fab"
+import AddIcon from "@material-ui/icons/Add"
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -65,7 +65,7 @@ const AddEducation = ({ education, setEducation }) => {
 
 	return (
 		<>
-			<Form onSubmit={onNewEducation} className="m-width">
+			<Form  className="m-width">
 				{education.map((a, index) => {
 					return (
 						<div
@@ -85,7 +85,7 @@ const AddEducation = ({ education, setEducation }) => {
 								value={education[index].institution}
 								onChange={(e) => onEducationInputsChange(index, e)}
 							/>
-                            <TextField
+							<TextField
 								className="m-width mb-2"
 								variant="outlined"
 								size="small"
@@ -97,7 +97,7 @@ const AddEducation = ({ education, setEducation }) => {
 								value={education[index].specialization}
 								onChange={(e) => onEducationInputsChange(index, e)}
 							/>
-                            <TextField
+							<TextField
 								className="m-width mb-2"
 								variant="outlined"
 								size="small"
@@ -109,7 +109,7 @@ const AddEducation = ({ education, setEducation }) => {
 								value={education[index].country}
 								onChange={(e) => onEducationInputsChange(index, e)}
 							/>
-                             <TextField
+							<TextField
 								className="m-width mb-2"
 								variant="outlined"
 								size="small"
@@ -121,35 +121,34 @@ const AddEducation = ({ education, setEducation }) => {
 								value={education[index].city}
 								onChange={(e) => onEducationInputsChange(index, e)}
 							/>
-                            <div className="mb-2 d-flex"> 
-                            <div  className="d-flex flex-column col "><FormLabel>{t("dateFrom")}</FormLabel>
-                            <TextField
-								className="m-width"
-								variant="outlined"
-								size="small"
-								type="date"
-								id={`education-date_from-${index}`}
-								name={`date_from`}
-								value={education[index].date_from}
-								onChange={(e) => onEducationInputsChange(index, e)}
-							/></div> 
-                            <div className="d-flex flex-column col">
-
-                        
-                               <FormLabel>{t("dateTo")}</FormLabel>
-                             <TextField
-								className="m-width"
-								variant="outlined"
-								size="small"
-								type="date"
-								id={`education-date_to-${index}`}
-								name={`date_to`}
-								value={education[index].date_to}
-								onChange={(e) => onEducationInputsChange(index, e)}
-							/>
-                                </div>
-							
-                            </div>
+							<div className="mb-2 d-flex">
+								<div className="d-flex flex-column col ">
+									<FormLabel>{t("dateFrom")}</FormLabel>
+									<TextField
+										className="m-width"
+										variant="outlined"
+										size="small"
+										type="date"
+										id={`education-date_from-${index}`}
+										name={`date_from`}
+										value={education[index].date_from}
+										onChange={(e) => onEducationInputsChange(index, e)}
+									/>
+								</div>
+								<div className="d-flex flex-column col">
+									<FormLabel>{t("dateTo")}</FormLabel>
+									<TextField
+										className="m-width"
+										variant="outlined"
+										size="small"
+										type="date"
+										id={`education-date_to-${index}`}
+										name={`date_to`}
+										value={education[index].date_to}
+										onChange={(e) => onEducationInputsChange(index, e)}
+									/>
+								</div>
+							</div>
 							<TextField
 								className="m-width mb-2"
 								variant="outlined"
@@ -165,14 +164,11 @@ const AddEducation = ({ education, setEducation }) => {
 					)
 				})}
 				<div className="d-flex justify-content-center">
-					
-						 <Fab type="submit" size="small" color="success" aria-label="add">
-        <AddIcon />
-      </Fab>
-	  </div>
+					<Fab onClick={onNewEducation} size="small" color="success" aria-label="add">
+						<AddIcon />
+					</Fab>
+				</div>
 			</Form>
-		
-
 		</>
 	)
 }

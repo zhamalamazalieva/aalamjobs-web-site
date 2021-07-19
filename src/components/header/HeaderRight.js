@@ -23,6 +23,7 @@ const HeaderRight = () => {
 	const currentLanguage = getCurrentLanguage()
 	const [selectedLanguage, setSelectedLanguage] = useState(currentLanguage)
 	const isAuth = useSelector((state) => state.auth.isAuth)
+	const { loggedUser } = useSelector(state => state.user)
 
 	//MODALS
 	const openLogoutModal = useCallback(async () => {
@@ -39,21 +40,6 @@ const HeaderRight = () => {
 		setSelectedLanguage(lang)
 	}
 
-	//FETCH_USER
-	const fetchUser = useCallback(async () => {
-        setIsLoading(true);
-        const { hasError, data } = await ServerService.getUser();
-        if (hasError) {
-          console.log("Ошибка с сервером", hasError);
-        } else {
-          setUser(data);
-        }
-        setIsLoading(false);
-      }, [ServerService]);
-
-	useEffect(() => {
-		fetchUser();
-	}, [fetchUser]);
 
 	return (
 		<Row className="bg-color--darkGreen d-flex justify-content-end align-items-center max-width">
@@ -97,18 +83,18 @@ const HeaderRight = () => {
 						className="header__lang-select d-flex align-items-center"
 					>
 						<div className="header__img">
-							<img src={avatar} className="header__img" alt="avatar" />
+							<img src={loggedUser.photo} className="header__img" alt="avatar" />
 						</div>
 						<img src={chevron} alt="chevron" className="header__chevron" />
 					</Dropdown.Toggle>
 					<Dropdown.Menu style={{ minWidth: "250px" }}>
 						<Dropdown.Item>
 							<img
-								src={avatar}
+								src={loggedUser.photo}
 								className="header__img header__img--big mr-2"
 								alt="avatar"
 							/>
-							<span>{user.fullname}</span>
+							<span>{loggedUser.fullname}</span>
 						</Dropdown.Item>
 
 						<Dropdown.Item>

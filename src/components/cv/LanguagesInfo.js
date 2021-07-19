@@ -6,15 +6,12 @@ import { Col, Row, Form, FormControl } from 'react-bootstrap'
 import AddLanguages from "./AddLanguages"
 
 
-const LanguagesInfo = () => {
+const LanguagesInfo = ({otherLanguages, setOtherLanguages}) => {
 	const { t } = useTranslation()
-    const [otherLanguages, setOtherLanguages] = useState([])
- 
-
 	return (
 		<div>
 			<div className="application__section d-flex flex-column align-items-center m-width justify-content-between">
-				<h3 className="myText--large mb-2">{t("cv.other_languagesInfo")}</h3>
+				<h3 className="myText--large mb-2 text-capitalize">{t("cv.languages")}</h3>
                 <TextField
 							fullWidth
 							size="small"
@@ -23,7 +20,7 @@ const LanguagesInfo = () => {
 							variant="outlined"
 							className="mb-4"
 						/>
-               <FormLabel component="legend">{t("addOther_languages")}</FormLabel>	
+               <span className="myText--small mb-3">{t("cv.addOther_languages")}</span>	
 				<AddLanguages otherLanguages={otherLanguages} setOtherLanguages={setOtherLanguages}/>
              
 			</div>

@@ -1,14 +1,7 @@
 import React, { useState } from "react"
-import TextField from "@material-ui/core/TextField"
 import { makeStyles } from "@material-ui/core/styles"
 import { useTranslation } from "react-i18next"
-import Radio from "@material-ui/core/Radio"
-import RadioGroup from "@material-ui/core/RadioGroup"
 import FormLabel from "@material-ui/core/FormLabel"
-import Select from "@material-ui/core/Select"
-import MenuItem from "@material-ui/core/MenuItem"
-import InputLabel from "@material-ui/core/InputLabel"
-import FormControl from "@material-ui/core/FormControl"
 import { WithContext as ReactTags } from "react-tag-input"
 
 const useStyles = makeStyles((theme) => ({
@@ -81,7 +74,9 @@ const AchievementsInfo = () => {
 	return (
 		<div>
 			<div className="application__section d-flex flex-column ">
-				<h3 className="myText--large mb-2 d-center">{t("cv.AchievementsAndLinks")}</h3>
+				<h3 className="myText--large mb-2 d-center">
+					{t("cv.AchievementsAndLinks")}
+				</h3>
 				<FormLabel>Please mention all your skills (optional)</FormLabel>
 				<ReactTags
 					className="m-width"
@@ -93,7 +88,7 @@ const AchievementsInfo = () => {
 					inputFieldPosition="top"
 					delimiters={delimiters}
 				/>
-				<FormLabel  className="mt-3">
+				<FormLabel className="mt-3">
 					Please mention your achievements: awards, certificates, recognition
 					letters (optional)
 				</FormLabel>
@@ -107,7 +102,9 @@ const AchievementsInfo = () => {
 					inputFieldPosition="top"
 					delimiters={delimiters}
 				/>
-				<FormLabel className="mt-3">Links related to your work experience (optional)</FormLabel>
+				<FormLabel className="mt-3">
+					Links related to your work experience (optional)
+				</FormLabel>
 				<ReactTags
 					tags={portfolioTags}
 					handleDelete={handleDeletePortfolio}

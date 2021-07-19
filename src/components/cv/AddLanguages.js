@@ -17,52 +17,52 @@ const useStyles = makeStyles((theme) => ({
 }))
 const AddLanguages = ({ otherLanguages, setOtherLanguages }) => {
 	const { t } = useTranslation()
-	const classes = useStyles()	
-	
-	  const onOtherLanguagesInputsChange = useCallback(
+	const classes = useStyles()
+
+	const onOtherLanguagesInputsChange = useCallback(
 		(idx, e) => {
-		  const add = { ...otherLanguages[idx], [e.target.name]: e.target.value };
-		  const before = otherLanguages.filter((a, i) => i < idx);
-		  const after = otherLanguages.filter((a, i) => i > idx);
-	
-		  const temp = [...before, add, ...after];
-	
-		  setOtherLanguages(temp);
+			const add = { ...otherLanguages[idx], [e.target.name]: e.target.value }
+			const before = otherLanguages.filter((a, i) => i < idx)
+			const after = otherLanguages.filter((a, i) => i > idx)
+
+			const temp = [...before, add, ...after]
+
+			setOtherLanguages(temp)
 		},
 		[otherLanguages]
-	  );
-	
-	  const onNewOtherLanguages = useCallback(
+	)
+
+	const onNewOtherLanguages = useCallback(
 		(e) => {
-		  e.preventDefault();
-		  const add = [...otherLanguages];
-		  add.push({
-			name: "",
-			writing: "",
-			reading: "",
-			listening: "",
-			talking: "",
-		  });
-		  setOtherLanguages(add);
+			e.preventDefault()
+			const add = [...otherLanguages]
+			add.push({
+				name: "",
+				writing: "",
+				reading: "",
+				listening: "",
+				talking: "",
+			})
+			setOtherLanguages(add)
 		},
 		[otherLanguages]
-	  );
-	  useEffect(() => {
+	)
+	useEffect(() => {
 		setOtherLanguages(
-		  otherLanguages.map((a) => ({
-			name: a.name,
-			writing: a.writing,
-			reading: a.reading,
-			talking: a.talking,
-			listening: a.listening,
-			id: a.id,
-		  }))
-		);
-	  }, []);
+			otherLanguages.map((a) => ({
+				name: a.name,
+				writing: a.writing,
+				reading: a.reading,
+				talking: a.talking,
+				listening: a.listening,
+				id: a.id,
+			}))
+		)
+	}, [])
 
 	return (
 		<>
-			<Form onSubmit={onNewOtherLanguages} className="m-width">
+			<Form className="m-width">
 				{otherLanguages.map((a, index) => {
 					return (
 						<div
@@ -125,7 +125,6 @@ const AddLanguages = ({ otherLanguages, setOtherLanguages }) => {
 								</Form.Control>
 							</Form.Group>
 							<Form.Group className="d-flex align-items-center ">
-
 								<FormLabel className="col-4">{t("listening")}</FormLabel>
 								<Form.Control
 									as="select"
@@ -147,34 +146,36 @@ const AddLanguages = ({ otherLanguages, setOtherLanguages }) => {
 								</Form.Control>
 							</Form.Group>
 							<Form.Group className="d-flex align-items-center ">
-
-<FormLabel className="col-4">{t("talking")}</FormLabel>
-<Form.Control
-	as="select"
-	className="form-control"
-	name={`talking`}
-	onChange={(e) => onOtherLanguagesInputsChange(index, e)}
-	id={`talking-${index}`}
-	value={otherLanguages[index].talking}
->
-	<option selected hidden value={t("choose")}>
-		{t("choose")}
-	</option>
-	<option value={t("intermediate")}>{t("intermediate")}</option>
-	<option value={t("upperIntermediate")}>
-		{t("upperIntermediate")}
-	</option>
-	<option value={t("advanced")}>{t("advanced")}</option>
-	<option value={t("proficient")}>{t("proficient")}</option>
-</Form.Control>
-</Form.Group>
-							
-							
+								<FormLabel className="col-4">{t("talking")}</FormLabel>
+								<Form.Control
+									as="select"
+									className="form-control"
+									name={`talking`}
+									onChange={(e) => onOtherLanguagesInputsChange(index, e)}
+									id={`talking-${index}`}
+									value={otherLanguages[index].talking}
+								>
+									<option selected hidden value={t("choose")}>
+										{t("choose")}
+									</option>
+									<option value={t("intermediate")}>{t("intermediate")}</option>
+									<option value={t("upperIntermediate")}>
+										{t("upperIntermediate")}
+									</option>
+									<option value={t("advanced")}>{t("advanced")}</option>
+									<option value={t("proficient")}>{t("proficient")}</option>
+								</Form.Control>
+							</Form.Group>
 						</div>
 					)
 				})}
 				<div className="d-flex justify-content-center mb-2">
-					<Fab type="submit" size="small" color="success" aria-label="add">
+					<Fab
+						onClick={onNewOtherLanguages}
+						size="small"
+						color="success"
+						aria-label="add"
+					>
 						<AddIcon />
 					</Fab>
 				</div>

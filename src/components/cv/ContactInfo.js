@@ -1,25 +1,18 @@
 import React from "react"
 import TextField from "@material-ui/core/TextField"
-// import { makeStyles } from "@material-ui/core/styles"
 import { useTranslation } from "react-i18next"
 
+const ContactInfo = ({ inputValues, setInputValues }) => {
 
-// const useStyles = makeStyles((theme) => ({
-// 	root: {
-// 		"& .MuiTextField-root": {
-// 			margin: theme.spacing(1),
-// 			minWidth: "100%",
-// 		},
-// 	},
-// }))
-const ContactInfo = () => {
-	// const classes = useStyles()
 	const { t } = useTranslation()
-	const [age, setAge] = React.useState("")
 
-	const handleChange = (event) => {
-		setAge(event.target.value)
+	const handleChange = (e) => {
+		setInputValues((inputValues) => ({
+			...inputValues,
+			[e.target.name]: e.target.value,
+		}))
 	}
+
 	return (
 		<div>
 			<div className="application__section d-flex flex-column align-items-center justify-content-between">
@@ -31,6 +24,10 @@ const ContactInfo = () => {
 					label={t("phone")}
 					variant="outlined"
 					className="mb-4"
+					type="tel"
+					name="phone"
+					value={inputValues.phone}
+					onChange={handleChange}
 				/>
 				<TextField
 					fullWidth
@@ -39,6 +36,10 @@ const ContactInfo = () => {
 					label={t("email")}
 					variant="outlined"
 					className="mb-4"
+					type="email"
+					name="email"
+					value={inputValues.email}
+					onChange={handleChange}
 				/>
 				<TextField
 					fullWidth
@@ -47,14 +48,9 @@ const ContactInfo = () => {
 					label={t("currentCountry")}
 					variant="outlined"
 					className="mb-4"
-				/>
-				<TextField
-					fullWidth
-					size="small"
-					className="max-width"
-					label={t("birthDate")}
-					variant="outlined"
-					className="mb-4"
+					name="currentCountry"
+					value={inputValues.currentCountry}
+					onChange={handleChange}
 				/>
 				<TextField
 					fullWidth
@@ -63,6 +59,9 @@ const ContactInfo = () => {
 					label={t("currentCity")}
 					variant="outlined"
 					className="mb-4"
+					name="currentCity"
+					value={inputValues.currentCity}
+					onChange={handleChange}
 				/>
 				<TextField
 					fullWidth
@@ -71,8 +70,11 @@ const ContactInfo = () => {
 					label={t("address")}
 					variant="outlined"
 					className="mb-4"
+					name="living_address"
+					value={inputValues.living_address}
+					onChange={handleChange}
 				/>
-				<div className="d-flex m-width">
+				<div className="d-flex mb-2 m-width">
 					<div className="mr-2">
 						<svg
 							style={{ borderRadius: "50%" }}
@@ -99,9 +101,12 @@ const ContactInfo = () => {
 						className="max-width "
 						label={t("whatsapp")}
 						variant="outlined"
+						name="whatsapp"
+						value={inputValues.whatsapp}
+						onChange={handleChange}
 					/>
 				</div>
-				<div className="d-flex m-width">
+				<div className="d-flex mb-2 m-width">
 					<div className="mr-2">
 						<svg
 							width="24"
@@ -158,9 +163,12 @@ const ContactInfo = () => {
 						className="max-width "
 						label={t("telegram")}
 						variant="outlined"
+						name="telegram"
+						value={inputValues.telegram}
+						onChange={handleChange}
 					/>
 				</div>
-				<div className="d-flex m-width">
+				<div className="d-flex mb-2 m-width">
 					<div className="mr-2">
 						<svg
 							width="24"
@@ -185,10 +193,12 @@ const ContactInfo = () => {
 						className="max-width "
 						label={t("twitter")}
 						variant="outlined"
+						name="twitter"
+						value={inputValues.twitter}
+						onChange={handleChange}
 					/>
 				</div>
-
-				<div className="d-flex m-width">
+				<div className="d-flex mb-2 m-width">
 					<div className="mr-2">
 						<svg
 							width="24"
@@ -220,11 +230,14 @@ const ContactInfo = () => {
 						className="max-width "
 						label={t("linkedin")}
 						variant="outlined"
+					
 					/>
 				</div>
-				<div className="d-flex m-width">
+				<div className="d-flex mb-2 m-width">
 					<div className="mr-2">
-						<svg
+						<svg	name="linkedin"
+						value={inputValues.linkedin}
+						onChange={handleChange}
 							width="24"
 							height="24"
 							viewBox="0 0 24 24"
@@ -248,11 +261,14 @@ const ContactInfo = () => {
 						label={t("facebok")}
 						variant="outlined"
 						className="mb-4"
+						name="facebok"
+						value={inputValues.facebok}
+						onChange={handleChange}
 					/>
 				</div>
 			</div>
 		</div>
-	)
+	) 
 }
 
 export default ContactInfo

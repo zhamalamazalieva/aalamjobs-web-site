@@ -12,10 +12,18 @@
     "view":"View",
     "pressEnterToAddTag":"Нажми enter, чтобы добавить тег",
     "printCV":"Сохранить резюме",
+
+
     "advancedSearch":"Advanced Search",
     "noItemsAfterSearch":"No matching jobs found",
     "trytoChangeSearchFields":"Try to change search fields",
 
+    "single":"Single",
+    "widow":"Widow",
+    "divorced":"Divorced",
+    "married":"Married",
+    "female":"Female",
+    "male":"Male",
 
     "header":{
         "vacancies":"All Jobs",
@@ -29,7 +37,6 @@
         "logOut":"Log Out",
         "support":"Support",
         "logoutMessage":"Are you sure to logout?"
-        
     },
 
     "search":{
@@ -106,7 +113,14 @@
         "education":"Education",
         "personalInfo":"Personal Info",
         "contactInfo":"Contact Info",
-        "jobApplicationForm":"Job Application Form"
+        "jobApplicationForm":"Job Application Form",
+        "workExperience":"Work Experience",
+        "languages":"Languages",
+        "jobRequirements":"Job Requirements",
+        "addWorkExperiences":"Add a work experience",
+        "addOther_languages":"Add an other language",
+        "addEducation":"Add an education"
+
 
     },
 
