@@ -26,7 +26,7 @@ const UserContent = () => {
 
 	useEffect(() => {
 		fetchUser()
-	}, [fetchUser])
+	}, [])
 
 	return (
 		<div className="col-9">

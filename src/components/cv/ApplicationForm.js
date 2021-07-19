@@ -85,13 +85,12 @@ const ApplicationForm = () => {
 			<form onSubmit={onSubmit}>
 				<Swiper
 					slidesPerView={1}
-					// autoHeight={true}
+					autoHeight={true}
 					pagination={{ clickable: true }}
 					navigation={{
 						nextEl: ".next",
 						prevEl: ".prev",
 					}}
-					scrollbar={{ draggable: true }}
 					className="d-center flex-column"
 					onReachEnd={() => {
 						setReachEnd(true)
