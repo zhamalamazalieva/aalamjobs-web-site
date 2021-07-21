@@ -52,7 +52,7 @@ const HeaderRight = () => {
 					<span className="text-capitalize">{selectedLanguage}</span>
 					<img src={chevron} alt="chevron" className="header__chevron" />
 				</Dropdown.Toggle>
-				<Dropdown.Menu>
+				<Dropdown.Menu  style={{ minWidth: "80px" }}>
 					<Dropdown.Item onClick={() => onClick(Constants.EN)}>
 						En
 					</Dropdown.Item>

@@ -4,8 +4,7 @@ import { useTranslation } from "react-i18next"
 import Radio from "@material-ui/core/Radio"
 import RadioGroup from "@material-ui/core/RadioGroup"
 import FormControlLabel from "@material-ui/core/FormControlLabel"
-import InputLabel from "@material-ui/core/InputLabel"
-import FormControl from "@material-ui/core/FormControl"
+import FormLabel from "@material-ui/core/FormLabel"
 import { getCurrentLanguage } from "../../localizaton/localication"
 import ServerServiceContext from "../../contexts/ServerServiceContext"
 import Select from "react-select"
@@ -50,9 +49,7 @@ const JobRequirements = ({
 		fetchCurrencies()
 	}, [ServerService, fetchCurrencies])
 
-	const reFetchCurrencies = useCallback(async () => {
-		await fetchCurrencies()
-	}, [fetchCurrencies])
+
 	const handleChange = (e) => {
 		setInputValues((inputValues) => ({
 			...inputValues,
@@ -86,12 +83,14 @@ const JobRequirements = ({
 				<h3 className="myText--large mb-2 text-capitalize">
 					{t("cv.jobRequirements")}
 				</h3>
-				<div className="d-flex m-width">
+				<div className="d-flex m-width flex-column">
+				<FormLabel className="">{t("expectedSalary")}</FormLabel>
+					<div className="d-flex">
 					<div className="width-50">
 						<TextField
 							fullWidth
 							size="small"
-							className="m-width mb-4"
+							className="m-width mb-4 swiper-no-swiping"
 							label={t("salary")}
 							variant="outlined"
 							name="salary"
@@ -108,6 +107,7 @@ const JobRequirements = ({
 							className="swiper-no-swiping m-width application__select "
 						/>
 					</div>
+					</div>
 				</div>
 				<Select
 					options={employmentTypes}
@@ -122,7 +122,7 @@ const JobRequirements = ({
 					className="max-width"
 					label={t("positionWouldYouLikeToWork")}
 					variant="outlined"
-					className="mb-4"
+					className="mb-4 swiper-no-swiping"
 					name="position"
 					value={inputValues.position}
 					onChange={handleChange}
@@ -135,7 +135,7 @@ const JobRequirements = ({
 					label={t("theEarliestDateYouCanStartWorking")}
 					variant="outlined"
 					defaultValue="2017-05-24"
-					className="mb-4"
+					className="mb-4 swiper-no-swiping"
 					name="date_can_start"
 					value={inputValues.date_can_start}
 					onChange={handleChange}
@@ -146,12 +146,12 @@ const JobRequirements = ({
 					name="hasComputer"
 					value={inputValues.hasComputer}
 					onChange={handleChange}
-					className="d-flex flex-row m-width mb-4"
+					className="d-flex flex-row m-width mb-4 swiper-no-swiping"
 					size="small"
 				>
 					<div className="application__radio-btn col-6">
 						<FormControlLabel
-							value="female"
+							value="false"
 							labelPlacement="end"
 							control={<Radio />}
 							label={t("iNeedAComputer")}
@@ -159,7 +159,7 @@ const JobRequirements = ({
 					</div>
 					<div className="application__radio-btn col-6">
 						<FormControlLabel
-							value="male"
+							value="true"
 							labelPlacement="end"
 							control={<Radio />}
 							label={t("iHaveAComputer")}
@@ -173,7 +173,7 @@ const JobRequirements = ({
 					size="small"
 					label={t("profile")}
 					variant="outlined"
-					className="mb-4 max-width"
+					className="mb-4 max-width swiper-no-swiping"
 					name="profile"
 					value={inputValues.profile}
 					onChange={handleChange}

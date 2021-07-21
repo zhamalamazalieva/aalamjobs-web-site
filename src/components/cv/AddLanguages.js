@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from "react"
 import TextField from "@material-ui/core/TextField"
 import { useTranslation } from "react-i18next"
 import FormLabel from "@material-ui/core/FormLabel"
-import { Col, Row, Form, FormControl, FormGroup } from "react-bootstrap"
+import {  Form } from "react-bootstrap"
 import { makeStyles } from "@material-ui/core/styles"
 import Fab from "@material-ui/core/Fab"
 import AddIcon from "@material-ui/icons/Add"
@@ -75,18 +75,18 @@ const AddLanguages = ({ otherLanguages, setOtherLanguages }) => {
 								variant="outlined"
 								size="small"
 								type="text"
-								label={t("firstName")}
-								id={`otherLanguages-institution-${index}`}
-								name={`institution`}
-								autoComplete="otherLanguages-institution"
-								value={otherLanguages[index].institution}
+								label={t("cv.language")}
+								id={`otherLanguages-name-${index}`}
+								name={`name`}
+								autoComplete="otherLanguages-name"
+								value={otherLanguages[index].name}
 								onChange={(e) => onOtherLanguagesInputsChange(index, e)}
 							/>
 							<Form.Group className="d-flex align-items-center ">
-								<FormLabel className="col-4">{t("writing")}</FormLabel>
+								<FormLabel className="col-4">{t("cv.writing")}</FormLabel>
 								<Form.Control
 									as="select"
-									className="form-control"
+									className="form-control application.select"
 									name={`writing`}
 									onChange={(e) => onOtherLanguagesInputsChange(index, e)}
 									id={`writing-${index}`}
@@ -95,7 +95,7 @@ const AddLanguages = ({ otherLanguages, setOtherLanguages }) => {
 									<option selected hidden value={t("choose")}>
 										{t("choose")}
 									</option>
-									<option value={t("intermediate")}>{t("intermediate")}</option>
+									<option className="myOptions" value={t("intermediate")}>{t("intermediate")}</option>
 									<option value={t("upperIntermediate")}>
 										{t("upperIntermediate")}
 									</option>
@@ -104,7 +104,7 @@ const AddLanguages = ({ otherLanguages, setOtherLanguages }) => {
 								</Form.Control>
 							</Form.Group>
 							<Form.Group className="d-flex align-items-center ">
-								<FormLabel className="col-4">{t("reading")}</FormLabel>
+								<FormLabel className="col-4">{t("cv.reading")}</FormLabel>
 								<Form.Control
 									as="select"
 									className="form-control"
@@ -125,7 +125,7 @@ const AddLanguages = ({ otherLanguages, setOtherLanguages }) => {
 								</Form.Control>
 							</Form.Group>
 							<Form.Group className="d-flex align-items-center ">
-								<FormLabel className="col-4">{t("listening")}</FormLabel>
+								<FormLabel className="col-4">{t("cv.listening")}</FormLabel>
 								<Form.Control
 									as="select"
 									className="form-control"
@@ -146,7 +146,7 @@ const AddLanguages = ({ otherLanguages, setOtherLanguages }) => {
 								</Form.Control>
 							</Form.Group>
 							<Form.Group className="d-flex align-items-center ">
-								<FormLabel className="col-4">{t("talking")}</FormLabel>
+								<FormLabel className="col-4">{t("cv.talking")}</FormLabel>
 								<Form.Control
 									as="select"
 									className="form-control"

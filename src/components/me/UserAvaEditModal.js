@@ -5,10 +5,13 @@ import MiniSpinner from "../spinners/MiniSpinner"
 import ServerServiceContext from "../../contexts/ServerServiceContext"
 import { toastify } from "../../helpers/toast"
 import { updatePhoto } from "../../redux/actions/userAction"
+import { useSelector } from "react-redux"
 
-const UserAvaEditModal = ({ closeAvaEditModal, isAvaEditModalOpen, user }) => {
+
+const UserAvaEditModal = ({ closeAvaEditModal, isAvaEditModalOpen }) => {
 	const { t } = useTranslation()
 	const ServerService = useContext(ServerServiceContext)
+	const { loggedUser } = useSelector(state => state.user)
 
 	//STATES
 	const [isLoading, setIsLoading] = useState(false)
@@ -92,10 +95,20 @@ const UserAvaEditModal = ({ closeAvaEditModal, isAvaEditModalOpen, user }) => {
 							</div>
 						</div>
 						<div className="mx-auto user__img mb-5">
-							<img
+							{ photo ? (
+								<img
 								src={photo && URL.createObjectURL(photo)}
+								className="user__ava"
 								alt="Profile Image"
 							/>
+							) : (
+								<img
+								src={loggedUser.photo}
+								alt="Profile Image"
+								className="user__ava"
+
+							/>
+							)}
 						</div>
 						<div className="d-flex justify-content-between">
 							<div>

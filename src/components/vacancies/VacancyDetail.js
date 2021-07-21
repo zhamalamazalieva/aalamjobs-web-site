@@ -13,7 +13,6 @@ const VacancyDetail = ({ vacancyToShow, handleClickFavourites, handleClickDelete
 	const { vacancyId } = useParams()
 	const [vacancy, setVacancy] = useState("")
 
-	const [vacancies, setVacancies] = useState([])
 	const [isLoading, setIsLoading] = useState(false)
 
 	const fetchVacancyDetail = useCallback(async () => {

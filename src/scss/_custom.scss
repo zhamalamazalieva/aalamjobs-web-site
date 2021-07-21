@@ -77,6 +77,39 @@ li{
 .m-width{
     width: 100%;
 }
+.m-width50{
+    width: 50%;
+}
+
+
+input{
+    font-family: $font-nuni !important;
+    font-size: 1em !important;
+    font-weight: 400 !important;
+    line-height: 1.5 !important;
+    color: $color-blueGray !important;
+}
+.myOptions{
+    font-family: $font-nuni !important;
+    font-size: 1em !important;
+    font-weight: 400 !important;
+    line-height: 1.5 !important;
+    color: $color-blueGray !important;
+}
+label{
+    font-family: $font-nuni !important;
+    font-weight: 400 !important;
+    line-height: 1.5 !important;
+    color: $color-middleGray !important;
+}
+
+select{
+    font-family: $font-nuni !important;
+    font-size: 1em !important;
+    font-weight: 400 !important;
+    line-height: 1.5 !important;
+    color: $color-blueGray !important;
+}
 .myBtn--white{
     padding: 3px 20px;
     outline: none;
@@ -150,6 +183,7 @@ li{
     border-radius: 10px;
     border: none;
 }
+
 .react-select__value-container{
     font-size:0.6em;
     height: 100%;
@@ -183,7 +217,7 @@ li{
     width: 100%;
     height: calc(1.5em + 0.75rem + 2px);
     padding: 0.375rem 0.75rem;
-    font-size: 0.875rem;
+    font-size: 0.7em !important;
     font-weight: 400;
     line-height: 1.5;
     background-clip: padding-box;
@@ -200,7 +234,7 @@ li{
   .ReactTags__selected span.ReactTags__tag {
     border: 1px solid #ddd;
     background: #eee;
-    font-size: 14px;
+    font-size: 0.7em !important;
     display: inline-block;
     padding: 6px;
     margin: 5px 5px 5px 0;
@@ -244,7 +278,7 @@ li{
   }
 
 .MuiOutlinedInput-input {
-    padding: 9.5px 10px !important;
+    padding: 12px 10px !important;
 }
 .MuiInputLabel-outlined{
     transform: translate(14px,0) scale(1);
@@ -255,3 +289,12 @@ li{
 .myDropdownMenu{
     width: 17em !important;
 }
+.css-1uccc91-singleValue{
+    color: $color-blueGray;
+}
+
+.Toastify__toast-body {
+    font-family: $font-nuni;
+    color: white;
+    font-size: 0.7em !important;
+  }

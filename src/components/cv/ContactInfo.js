@@ -20,7 +20,7 @@ const ContactInfo = ({ inputValues, setInputValues }) => {
 				<TextField
 					fullWidth
 					size="small"
-					className="max-width"
+					className="max-width swiper-no-swiping"
 					label={t("phone")}
 					variant="outlined"
 					className="mb-4"
@@ -32,7 +32,7 @@ const ContactInfo = ({ inputValues, setInputValues }) => {
 				<TextField
 					fullWidth
 					size="small"
-					className="max-width"
+					className="max-width swiper-no-swiping" 
 					label={t("email")}
 					variant="outlined"
 					className="mb-4"
@@ -44,7 +44,7 @@ const ContactInfo = ({ inputValues, setInputValues }) => {
 				<TextField
 					fullWidth
 					size="small"
-					className="max-width"
+					className="max-width swiper-no-swiping"
 					label={t("currentCountry")}
 					variant="outlined"
 					className="mb-4"
@@ -55,7 +55,7 @@ const ContactInfo = ({ inputValues, setInputValues }) => {
 				<TextField
 					fullWidth
 					size="small"
-					className="max-width"
+					className="max-width swiper-no-swiping"
 					label={t("currentCity")}
 					variant="outlined"
 					className="mb-4"
@@ -66,7 +66,7 @@ const ContactInfo = ({ inputValues, setInputValues }) => {
 				<TextField
 					fullWidth
 					size="small"
-					className="max-width"
+					className="max-width swiper-no-swiping"
 					label={t("address")}
 					variant="outlined"
 					className="mb-4"
@@ -98,7 +98,7 @@ const ContactInfo = ({ inputValues, setInputValues }) => {
 					<TextField
 						fullWidth
 						size="small"
-						className="max-width "
+						className="max-width swiper-no-swiping "
 						label={t("whatsapp")}
 						variant="outlined"
 						name="whatsapp"
@@ -160,7 +160,7 @@ const ContactInfo = ({ inputValues, setInputValues }) => {
 					<TextField
 						fullWidth
 						size="small"
-						className="max-width "
+						className="max-width swiper-no-swiping"
 						label={t("telegram")}
 						variant="outlined"
 						name="telegram"
@@ -190,7 +190,7 @@ const ContactInfo = ({ inputValues, setInputValues }) => {
 					<TextField
 						fullWidth
 						size="small"
-						className="max-width "
+						className="max-width swiper-no-swiping"
 						label={t("twitter")}
 						variant="outlined"
 						name="twitter"
@@ -227,7 +227,7 @@ const ContactInfo = ({ inputValues, setInputValues }) => {
 					<TextField
 						fullWidth
 						size="small"
-						className="max-width "
+						className="max-width swiper-no-swiping"
 						label={t("linkedin")}
 						variant="outlined"
 					
@@ -257,7 +257,7 @@ const ContactInfo = ({ inputValues, setInputValues }) => {
 					<TextField
 						fullWidth
 						size="small"
-						className="max-width "
+						className="max-width swiper-no-swiping"
 						label={t("facebok")}
 						variant="outlined"
 						className="mb-4"

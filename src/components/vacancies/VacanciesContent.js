@@ -25,7 +25,6 @@ const VacanciesContent = () => {
 	const employmentType = selectedEmploymentType.value
 	const currency = selectedCurrency.value
 
-	console.log(typeof(selectedSalaryMin))
 	//STATES
 	const [isLoading, setIsLoading] = useState(false)
 
@@ -157,6 +156,7 @@ const VacanciesContent = () => {
 		fetchVacancies()
 	}, [currentPage, city, country,  sector, employmentType, filterBySalary])
 
+	console.log(isLoading)
 
 	//VACANCY_FAVOURITES
 	const handleClickFavourites = useCallback(

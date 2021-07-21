@@ -21,6 +21,27 @@
     "positionWouldYouLikeToWork":"Position would you like to work",
     "iNeedAComputer":"I need a computer",
     "iHaveAComputer":"I have a computer",
+    "selectTheResumeLanguage":"Select the resume language",
+    "inEnglish":"In English",
+    "inRussian":"In Russian",
+    "firstName":"Firth name",
+    "lastName":"Last name",
+    "citizenship":"Citizenship",
+    "selectAGender":"Select a gender",
+    "selectAMaritalStatus":"Select a marital status",
+    "phone":"Phone Number",
+    "location":"Локация",
+    "company":"Компания",
+    "employmentType":"Employment type",
+    "email":"Email",
+    "from":"From",
+    "to":"To",
+    "address":"Address",
+    "expectedSalary":"Expected salary",
+    "currentCountry":"Current Country",
+    "currentCity":"Current City",
+    "salary":"Salary",
+
 
 
     "single":"Single",
@@ -29,6 +50,9 @@
     "married":"Married",
     "female":"Female",
     "male":"Male",
+
+    "next":"Next",
+    "prev":"Prev",
 
     "header":{
         "vacancies":"All Jobs",
@@ -122,11 +146,23 @@
         "workExperience":"Work Experience",
         "languages":"Languages",
         "jobRequirements":"Job Requirements",
-        "addWorkExperiences":"Add a work experience",
-        "addOther_languages":"Add an other language",
-        "addEducation":"Add an education"
-
-
+        "addWorkExperiences":"Click on the button to add work experience",
+        "addOther_languages":"Click on the button to add foreign language",
+        "addEducation":"Click on the button to add educaton",
+        "institution":"Institution",
+        "specialization":"Specialization",
+        "country":"Country",
+        "city":"City",
+        "dateFromEducation":"Date From",
+        "dateToEducation":"Date To",
+        "dateFromExp":"Date From",
+        "dateToExp":"Date To",
+        "mother_language":"Mother Language",
+        "language":"Language",
+        "listening":"Listening",
+        "talking":"Talking",
+        "writing":"Writing",
+        "reading":"Reading"
     },
 
 
@@ -144,13 +180,10 @@
     "listOfUsers":"Список пользователей",
     "dataOfUser":"Данные о пользователе",
     "createAccaunt":"Создать аккаунт",
-    "firstName":"Имя",
     "fullname":"Имя пользователя",
-    "lastName":"Фамилия",
     "middleName":"Middle Name",
     "password":"Пароль",
     "username":"Аккаунт",
-    "email":"Электронный адрес",
     "role":"Должность",
     "birthDate":"Birth Date",
     "vacancies":"Вакансии",
@@ -192,7 +225,6 @@
     "sector":"Сектор",
     "specialization":"Специализации",
     "position":"Позиция",
-    "salary":"Зарплата",
     "description":"Описание",
     "paymentType":"Способ оплаты",
     "startDate":"Начало работы",
@@ -203,26 +235,7 @@
     "schedule":"Расписание",
     "deadline":"Крайний срок подачи заявки",
  
-    "location":"Локация",
-    "company":"Компания",
-    "employmentType":"Вид работы",
-    "from":"от",
-    "to":"до",
-    "addSector":"Добавить сектор",
-    "listOfSectors":"Список секторов",
-    "specializations":"Специализации",
-    "addSpecialization":"Добавить специализацию",
-    "listOfSpecializations":"Список специальностей",
-    "addApplication":"Добавить резюме",
-    "updated":"Обновлено",
-    "age":"Возраст",
-    "gender":"Пол",
-    "livingAddress":"Адрес проживания",
-    "address":"Адрес",
-    "maritalStatus":"Семейное положение",
-    "phone":"Телефон",
-    "citizenship":"Гражданство",
-    "expectedSalary":"Ожид. зарплата",
+  
 
 
 

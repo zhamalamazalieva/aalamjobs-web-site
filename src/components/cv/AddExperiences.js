@@ -137,8 +137,8 @@ const AddExperiences = ({ experiences, setExperiences }) => {
 								onChange={(e) => onExperiencesInputsChange(index, e)}
 							/>
 							<div className="mb-2 d-flex">
-								<div className="d-flex flex-column col ">
-									<FormLabel>{t("dateFrom")}</FormLabel>
+								<div className="d-flex flex-column m-width50 ">
+									<FormLabel>{t("cv.dateFromExp")}</FormLabel>
 									<TextField
 										className="m-width"
 										variant="outlined"
@@ -150,8 +150,8 @@ const AddExperiences = ({ experiences, setExperiences }) => {
 										onChange={(e) => onExperiencesInputsChange(index, e)}
 									/>
 								</div>
-								<div className="d-flex flex-column col">
-									<FormLabel>{t("dateTo")}</FormLabel>
+								<div className="d-flex flex-column m-width50">
+									<FormLabel>{t("cv.dateToExp")}</FormLabel>
 									<TextField
 										className="m-width"
 										variant="outlined"

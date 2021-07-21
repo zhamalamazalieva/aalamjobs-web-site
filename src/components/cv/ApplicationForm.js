@@ -68,8 +68,19 @@ const ApplicationForm = () => {
 				telegram: inputValues.telegram,
 			},
 			education: education,
+			mother_language:inputValues.motherLanguage,
 			other_languages: otherLanguages,
 			experience: experiences,
+			date_can_start: inputValues.dateCanStart,
+			profile: inputValues.profile,
+			has_computer: inputValues.hasComputer,
+			position: inputValues.position,
+			hasComputer: inputValues.hasComputer,
+			salary: inputValues.salary,
+			currency: selectedCurrency.value,
+			employment_type: selectedEmploymentType.value,
+
+
 		})
 		if (hasError) {
 			console.log("Произошла ошибка", hasError)
@@ -80,12 +91,13 @@ const ApplicationForm = () => {
 		setIsLoading(false)
 	}
 
+	console.log(education)
 	return (
 		<div className="application__wrapper myBorder--secondary p-4">
 			<form onSubmit={onSubmit}>
 				<Swiper
 					slidesPerView={1}
-					autoHeight={true}
+					// autoHeight={true}
 					pagination={{ clickable: true }}
 					navigation={{
 						nextEl: ".next",
@@ -122,6 +134,8 @@ const ApplicationForm = () => {
 					</SwiperSlide>
 					<SwiperSlide>
 						<LanguagesInfo 
+						inputValues={inputValues}
+						setInputValues={setInputValues}
 						otherLanguages={otherLanguages}
 						setOtherLanguages={setOtherLanguages}
 						/>

@@ -52,7 +52,7 @@ const AddEducation = ({ education, setEducation }) => {
 	useEffect(() => {
 		setEducation(
 			education.map((a) => ({
-				name: a.institution,
+				institution: a.institution,
 				specialization: a.specialization,
 				country: a.country,
 				city: a.city,
@@ -78,7 +78,7 @@ const AddEducation = ({ education, setEducation }) => {
 								variant="outlined"
 								size="small"
 								type="text"
-								label={t("firstName")}
+								label={t("cv.institution")}
 								id={`education-institution-${index}`}
 								name={`institution`}
 								autoComplete="education-institution"
@@ -90,7 +90,7 @@ const AddEducation = ({ education, setEducation }) => {
 								variant="outlined"
 								size="small"
 								type="text"
-								label={t("specialization")}
+								label={t("cv.specialization")}
 								id={`education-specialization-${index}`}
 								name={`specialization`}
 								autoComplete="education-specialization"
@@ -102,7 +102,7 @@ const AddEducation = ({ education, setEducation }) => {
 								variant="outlined"
 								size="small"
 								type="text"
-								label={t("country")}
+								label={t("cv.country")}
 								id={`education-country-${index}`}
 								name={`country`}
 								autoComplete="education-country"
@@ -114,7 +114,7 @@ const AddEducation = ({ education, setEducation }) => {
 								variant="outlined"
 								size="small"
 								type="text"
-								label={t("city")}
+								label={t("cv.city")}
 								id={`education-city-${index}`}
 								name={`city`}
 								autoComplete="education-city"
@@ -122,8 +122,8 @@ const AddEducation = ({ education, setEducation }) => {
 								onChange={(e) => onEducationInputsChange(index, e)}
 							/>
 							<div className="mb-2 d-flex">
-								<div className="d-flex flex-column col ">
-									<FormLabel>{t("dateFrom")}</FormLabel>
+								<div className="d-flex flex-column m-width50">
+									<FormLabel>{t("cv.dateFromEducation")}</FormLabel>
 									<TextField
 										className="m-width"
 										variant="outlined"
@@ -135,9 +135,10 @@ const AddEducation = ({ education, setEducation }) => {
 										onChange={(e) => onEducationInputsChange(index, e)}
 									/>
 								</div>
-								<div className="d-flex flex-column col">
-									<FormLabel>{t("dateTo")}</FormLabel>
+								<div className="d-flex flex-column m-width50">
+									<FormLabel>{t("cv.dateToEducation")}</FormLabel>
 									<TextField
+										fullWidth
 										className="m-width"
 										variant="outlined"
 										size="small"

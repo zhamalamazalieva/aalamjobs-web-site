@@ -6,8 +6,11 @@ import { Col, Row, Form, FormControl } from 'react-bootstrap'
 import AddLanguages from "./AddLanguages"
 
 
-const LanguagesInfo = ({otherLanguages, setOtherLanguages}) => {
+const LanguagesInfo = ({otherLanguages, setOtherLanguages, inputValues, setInputValues}) => {
 	const { t } = useTranslation()
+	const handleChange = (e) => {
+		setInputValues(inputValues => ({...inputValues, [e.target.name]: e.target.value }))
+	}
 	return (
 		<div>
 			<div className="application__section d-flex flex-column align-items-center m-width justify-content-between">
@@ -16,9 +19,12 @@ const LanguagesInfo = ({otherLanguages, setOtherLanguages}) => {
 							fullWidth
 							size="small"
 							className="max-width"
-							label={t("mother_language")}
+							label={t("cv.mother_language")}
 							variant="outlined"
 							className="mb-4"
+							value={inputValues.motherLanguage}
+							name="motherLanguage"
+							onChange={handleChange}
 						/>
                <span className="myText--small mb-3">{t("cv.addOther_languages")}</span>	
 				<AddLanguages otherLanguages={otherLanguages} setOtherLanguages={setOtherLanguages}/>
