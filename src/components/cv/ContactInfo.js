@@ -20,10 +20,9 @@ const ContactInfo = ({ inputValues, setInputValues }) => {
 				<TextField
 					fullWidth
 					size="small"
-					className="max-width swiper-no-swiping"
+					className="max-width required__textfield mb-4 swiper-no-swiping"
 					label={t("phone")}
 					variant="outlined"
-					className="mb-4"
 					type="tel"
 					name="phone"
 					value={inputValues.phone}
@@ -32,10 +31,9 @@ const ContactInfo = ({ inputValues, setInputValues }) => {
 				<TextField
 					fullWidth
 					size="small"
-					className="max-width swiper-no-swiping" 
+					className="max-width required__textfield mb-4 swiper-no-swiping" 
 					label={t("email")}
 					variant="outlined"
-					className="mb-4"
 					type="email"
 					name="email"
 					value={inputValues.email}
@@ -44,10 +42,9 @@ const ContactInfo = ({ inputValues, setInputValues }) => {
 				<TextField
 					fullWidth
 					size="small"
-					className="max-width swiper-no-swiping"
+					className="max-width required__textfield mb-4 swiper-no-swiping"
 					label={t("currentCountry")}
 					variant="outlined"
-					className="mb-4"
 					name="currentCountry"
 					value={inputValues.currentCountry}
 					onChange={handleChange}
@@ -55,10 +52,9 @@ const ContactInfo = ({ inputValues, setInputValues }) => {
 				<TextField
 					fullWidth
 					size="small"
-					className="max-width swiper-no-swiping"
+					className="max-width required__textfield mb-4 swiper-no-swiping"
 					label={t("currentCity")}
 					variant="outlined"
-					className="mb-4"
 					name="currentCity"
 					value={inputValues.currentCity}
 					onChange={handleChange}
@@ -66,10 +62,9 @@ const ContactInfo = ({ inputValues, setInputValues }) => {
 				<TextField
 					fullWidth
 					size="small"
-					className="max-width swiper-no-swiping"
+					className="max-width required__textfield mb-4 swiper-no-swiping"
 					label={t("address")}
 					variant="outlined"
-					className="mb-4"
 					name="living_address"
 					value={inputValues.living_address}
 					onChange={handleChange}

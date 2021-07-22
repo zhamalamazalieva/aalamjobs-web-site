@@ -89,7 +89,7 @@ const AddExperiences = ({ experiences, setExperiences }) => {
 							style={{ borderRadius: 5, position: "relative" }}
 						>
 							<TextField
-								className="m-width mb-2"
+								className="m-width mb-2 required__textfield"
 								variant="outlined"
 								size="small"
 								type="text"
@@ -101,7 +101,7 @@ const AddExperiences = ({ experiences, setExperiences }) => {
 								onChange={(e) => onExperiencesInputsChange(index, e)}
 							/>
 							<TextField
-								className="m-width mb-2"
+								className="m-width mb-2 required__textfield"
 								variant="outlined"
 								size="small"
 								type="text"
@@ -113,7 +113,7 @@ const AddExperiences = ({ experiences, setExperiences }) => {
 								onChange={(e) => onExperiencesInputsChange(index, e)}
 							/>
 							<TextField
-								className="m-width mb-2"
+								className="m-width mb-2 required__textfield"
 								variant="outlined"
 								size="small"
 								type="text"
@@ -125,7 +125,7 @@ const AddExperiences = ({ experiences, setExperiences }) => {
 								onChange={(e) => onExperiencesInputsChange(index, e)}
 							/>
 							<TextField
-								className="m-width mb-2"
+								className="m-width mb-2 required__textfield"
 								variant="outlined"
 								size="small"
 								type="text"
@@ -164,6 +164,8 @@ const AddExperiences = ({ experiences, setExperiences }) => {
 									/>
 								</div>
 							</div>
+							<div>
+							<span className="required__textlabel">{t("cv.responsibilities")}</span>
 							<ReactTags
 								tags={skillsTags[index]}
 								handleDelete={(e) => handleDeleteSkills(e, index)}
@@ -172,6 +174,8 @@ const AddExperiences = ({ experiences, setExperiences }) => {
 								inputFieldPosition="top"
 								delimiters={delimiters}
 							/>
+							</div>
+						
 						</div>
 					)
 				})}

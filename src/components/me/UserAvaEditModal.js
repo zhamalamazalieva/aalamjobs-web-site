@@ -39,6 +39,7 @@ const UserAvaEditModal = ({ closeAvaEditModal, isAvaEditModalOpen }) => {
 		const { hasError } = await ServerService.updateUserPhoto(formData)
 		if (hasError) {
 			console.log("Произошла ошибка ", hasError)
+			toastify("error", t("tryAgain"))
 		} else {
 			toastify("success", t("successfullyEdited"))
 			closeAvaEditModal()
@@ -63,7 +64,7 @@ const UserAvaEditModal = ({ closeAvaEditModal, isAvaEditModalOpen }) => {
 							<div>
 								<svg
 									onClick={onSubmit}
-									className="mr-3"
+									className="mr-3 cursor-pointer"
 									width="30"
 									height="25"
 									viewBox="0 0 40 30"

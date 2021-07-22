@@ -71,7 +71,7 @@ const AddLanguages = ({ otherLanguages, setOtherLanguages }) => {
 							style={{ borderRadius: 5, position: "relative" }}
 						>
 							<TextField
-								className="m-width mb-2"
+								className="m-width mb-2 required__textfield"
 								variant="outlined"
 								size="small"
 								type="text"

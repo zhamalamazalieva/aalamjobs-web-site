@@ -56,7 +56,7 @@ const LoginPage = () => {
 				<Col >
 				<Form onSubmit={onSubmit}>
 					<Form.Group controlId="formBasicEmail">
-						<Form.Control value={username} onChange={e => setUsername(e.target.value)} placeholder={t("login.username")} />
+						<Form.Control  value={username} onChange={e => setUsername(e.target.value)} placeholder={t("login.username")} />
 					</Form.Group>
 
 					<Form.Group controlId="formBasicPassword">
@@ -76,7 +76,7 @@ const LoginPage = () => {
 					</Button>
 					</div>
 					<span className="myText--large color-lightGreen d-center mt-5" onClick={openModal}>{t("login.forgotPassword")}</span>
-					<span  className="myText--small color-text d-center mt-5">Don’t have account?<Link to="/register" className="login__link"> Sign up</Link></span>
+					<span  className="myText--small color-text d-center mt-5">Don’t have account?{" "}<Link to="/register" className="login__link"> Sign up</Link></span>
 					</Form>
 				</Col>
 			</Row>

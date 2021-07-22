@@ -37,13 +37,14 @@ const FooterTop = () => {
 					</ul>
 				</div>
 				<div className="col">
-					<ul>
-						<li className="myText--small footer__link">
+		
+						<span className="myText--small footer__link">
 							{t("footer.followUsOn")}
-						</li>
-						<li className="myText--small footer__link">
-							<ul className="d-flex ">
-								<li className="footer__social-links">
+						</span>
+			
+						
+							<div className="d-flex ">
+								<span className="footer__social-links">
 									<svg
 										width="24"
 										height="24"
@@ -60,8 +61,8 @@ const FooterTop = () => {
 											fill="white"
 										/>
 									</svg>
-								</li>
-								<li className="footer__social-links">
+								</span>
+								<span className="footer__social-links">
 									<svg
 										width="24"
 										height="24"
@@ -78,8 +79,8 @@ const FooterTop = () => {
 											fill="white"
 										/>
 									</svg>
-								</li>
-								<li className="footer__social-links">
+								</span>
+								<span className="footer__social-links">
 									<svg
 										width="24"
 										height="24"
@@ -103,10 +104,10 @@ const FooterTop = () => {
 											</clipPath>
 										</defs>
 									</svg>
-								</li>
-							</ul>
-						</li>
-					</ul>
+								</span>
+							</div>
+					
+				
 				</div>
                 <div className="col">
 					<ul>

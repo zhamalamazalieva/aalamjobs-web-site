@@ -156,8 +156,6 @@ const VacanciesContent = () => {
 		fetchVacancies()
 	}, [currentPage, city, country,  sector, employmentType, filterBySalary])
 
-	console.log(isLoading)
-
 	//VACANCY_FAVOURITES
 	const handleClickFavourites = useCallback(
 		async (job) => {
@@ -191,6 +189,8 @@ const VacanciesContent = () => {
 		},
 		[ServerService, vacancies]
 	)
+
+	const a = []
 
 
 	return (

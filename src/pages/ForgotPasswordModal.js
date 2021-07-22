@@ -1,15 +1,38 @@
-import React, { useCallback, useState } from "react"
-import { Modal, Row, Col, FormControl, Button, Form } from "react-bootstrap"
+import React, { useCallback, useState, useContext } from "react"
+import { Modal, Row, Col, Button, Form } from "react-bootstrap"
 import { useTranslation } from "react-i18next"
 import CheckEmail from "./CheckEmail"
+import { toastify } from '../helpers/toast'
+import ServerServiceContext from "../contexts/ServerServiceContext";
 
 const ForgotPasswordModal = ({ closeModal, isModalOpen }) => {
 	const { t } = useTranslation()
+	const ServerService = useContext(ServerServiceContext);
+
+	//STATES
+	const [isLoading, setIsLoading] = useState(false);
+	const [email, setEmail] = useState("")
 
 	const [checkEmail, setCheckEmail] = useState(true)
 	const openCheckEmail = useCallback(() => {
 		setCheckEmail(true)
 	})
+
+
+	const onSubmit = async (e) => {
+		e.preventDefault();
+		setIsLoading(true);
+		const { hasError, data } = await ServerService.resetPassword({email:email});
+		if (hasError) {
+		  console.log("Ошибка с сервером");
+		  toastify("error", t("Ошибка с сервером"));
+		} else {
+		  toastify("success", t("successfullySent"));
+		  openCheckEmail();
+		}
+		setIsLoading(false);
+	  };
+
 
 	return (
 		<>
@@ -30,12 +53,12 @@ const ForgotPasswordModal = ({ closeModal, isModalOpen }) => {
 						</Col>
 					</Row>
 					<Col>
-						<Form className="p-5">
+						<Form className="p-5" onSubmit={onSubmit}>
 							<Form.Group controlId="formBasicEmail">
-								<Form.Control type="email" placeholder={t("login.email")} />
+								<Form.Control value={email} onChange={e => setEmail(e.target.value)} required type="email" placeholder={t("login.email")} />
 							</Form.Group>
 
-							<Button variant="success" className="m-width" type="submit">
+							<Button variant="success" type="submit" className="m-width" type="submit">
 								{t("login.resetPassword")}
 							</Button>
 						</Form>

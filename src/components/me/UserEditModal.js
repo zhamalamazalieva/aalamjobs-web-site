@@ -19,7 +19,7 @@ const UserEditModal = ({ closeEditModal, isEditModalOpen }) => {
 	//STATES
 	const [isLoading, setIsLoading] = useState(false)
 	const [phone, setPhone] = useState("")
-	const [user, setUser] = useState("")
+	const [user, setUser] = useState(loggedUser)
 
 	const handleChange = (e) => {
 		setUser((user) => ({ ...user, [e.target.name]: e.target.value }))
@@ -29,16 +29,26 @@ const UserEditModal = ({ closeEditModal, isEditModalOpen }) => {
 	const onSubmit = async (e) => {
 		e.preventDefault()
 		setIsLoading(true)
-		const { hasError } = await ServerService.updateUser(user)
+		const formData = new FormData()
+		formData.append("fullname", user.fullname)
+		formData.append("username", user.username)
+		formData.append("address", user.address)
+		formData.append("email", user.email)
+		formData.append("phone", user.phone)
+		formData.append("city", user.city)
+		formData.append("country", user.country)
+
+		const { hasError } = await ServerService.updateUser(formData)
 		if (hasError) {
 			console.log("Произошла ошибка ", hasError)
 		} else {
 			toastify("success", t("successfullyEdited"))
 			closeEditModal()
 		}
+		setIsLoading(false)
+
 	}
 
-	console.log(user)
 	return (
 		<>
 			<Modal
@@ -52,7 +62,7 @@ const UserEditModal = ({ closeEditModal, isEditModalOpen }) => {
 				<Modal.Body className="p-4">
 					<form onSubmit={onSubmit}>
 						<Row className="mb-3">
-							<span>{t("contactInformation")}</span>
+							<span>{t("user.contactInformation")}</span>
 						</Row>
 						<Row className="">
 							<Col className="col-6">
@@ -60,9 +70,9 @@ const UserEditModal = ({ closeEditModal, isEditModalOpen }) => {
 									fullWidth
 									size="small"
 									name="fullName"
-									label={t("fullName")}
+									label={t("fullname")}
 									variant="outlined"
-									value={loggedUser.fullname}
+									value={user.fullname}
 									onChange={handleChange}
 									className="mb-4"
 								/>
@@ -76,7 +86,7 @@ const UserEditModal = ({ closeEditModal, isEditModalOpen }) => {
 									className="max-width"
 									label={t("Email")}
 									variant="outlined"
-									value={loggedUser.email}
+									value={user.email}
 									onChange={handleChange}
 									className="mb-4"
 								/>
@@ -91,7 +101,7 @@ const UserEditModal = ({ closeEditModal, isEditModalOpen }) => {
 									className="mb-4"
 									label={t("phone")}
 									variant="outlined"
-									value={loggedUser.phone}
+									value={user.phone}
 									onChange={handleChange}
 								/>
 							</Col>
@@ -104,7 +114,35 @@ const UserEditModal = ({ closeEditModal, isEditModalOpen }) => {
 									label={t("address")}
 									variant="outlined"
 									className="mb-4"
-									value={loggedUser.address}
+									value={user.address}
+									onChange={handleChange}
+									className="mb-4"
+								/>
+							</Col>
+						</Row>
+						<Row className="">
+							<Col className="col-6">
+								<TextField
+									fullWidth
+									name="city"
+									size="small"
+									className="mb-4"
+									label={t("city")}
+									variant="outlined"
+									value={user.city}
+									onChange={handleChange}
+								/>
+							</Col>
+							<Col className="col-6">
+								<TextField
+									fullWidth
+									size="small"
+									name="country"
+									className="max-width"
+									label={t("country")}
+									variant="outlined"
+									className="mb-4"
+									value={user.country}
 									onChange={handleChange}
 									className="mb-4"
 								/>

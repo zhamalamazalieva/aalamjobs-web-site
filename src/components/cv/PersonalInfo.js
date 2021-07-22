@@ -43,7 +43,7 @@ const PersonalInfo = ({
 					<Select
 						native
 						size="small"
-						className="m-width swiper-no-swiping"
+						className="m-width required__textselect swiper-no-swiping"
 						value={selectedLocale}
 						onChange={(e) => setSelectedLocale(e.target.value)}
 						label={t("selectTheResumeLanguage")}
@@ -61,10 +61,9 @@ const PersonalInfo = ({
 				<TextField
 					fullWidth
 					size="small"
-					className="max-width swiper-no-swiping myText--small"
+					className=" mb-4 required__textfield swiper-no-swiping "
 					label={t("firstName")}
 					variant="outlined"
-					className="mb-4"
 					name="firstName"
 					value={inputValues.firstName}
 					onChange={handleChange}
@@ -72,10 +71,9 @@ const PersonalInfo = ({
 				<TextField
 					fullWidth
 					size="small"
-					className="max-width swiper-no-swiping"
+					className="max-width mb-4 required__textfield  swiper-no-swiping"
 					label={t("lastName")}
 					variant="outlined"
-					className="mb-4"
 					name="lastName"
 					value={inputValues.lastName}
 					onChange={handleChange}
@@ -83,10 +81,9 @@ const PersonalInfo = ({
 				<TextField
 					fullWidth
 					size="small"
-					className="max-width swiper-no-swiping"
+					className="max-width mb-4 required__textfield  swiper-no-swiping"
 					label={t("middleName")}
 					variant="outlined"
-					className="mb-4"
 					name="middleName"
 					value={inputValues.middleName}
 					onChange={handleChange}
@@ -95,10 +92,9 @@ const PersonalInfo = ({
 					fullWidth
 					type="date"
 					size="small"
-					className="max-width swiper-no-swiping"
+					className="max-width required__textfield mb-4 swiper-no-swiping"
 					label={t("birthDate")}
 					variant="outlined"
-					className="mb-4"
 					name="birthDate"
 					defaultValue="1995-05-05"
 					value={inputValues.birthDate}
@@ -107,20 +103,22 @@ const PersonalInfo = ({
 				<TextField
 					fullWidth
 					size="small"
-					className="max-width swiper-no-swiping"
+					className="max-width mb-4 required__textfield swiper-no-swiping"
 					label={t("citizenship")}
 					variant="outlined"
-					className="mb-4"
 					name="citizenship"
 					value={inputValues.citizenship}
 					onChange={handleChange}
 				/>
-				<FormLabel component="legend" className="myText--small">{t("selectAGender")}</FormLabel>
+				<div className="m-width">
+
+		
+				<span className="required__textlabel">{t("selectAGender")}</span>
 				<RadioGroup
 					aria-label="gender"
 					name="gender"
 					onChange={handleChange}
-					className="d-flex flex-row m-width mb-4 swiper-no-swiping"
+					className="d-flex flex-row m-width  mb-4 swiper-no-swiping"
 					size="small"
 				>
 					<div className="application__radio-btn col-6">
@@ -140,6 +138,7 @@ const PersonalInfo = ({
 						/>
 					</div>
 				</RadioGroup>
+				</div>
 				<FormControl variant="outlined" className="m-width swiper-no-swiping">
 					<InputLabel htmlFor="outlined-age-native-simple">
 						{t("selectAMaritalStatus")}

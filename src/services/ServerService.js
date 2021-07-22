@@ -1,7 +1,8 @@
 import Cookies from "js-cookie";
 
 export default class ServerService {
-  _baseApi = "http://165.227.143.167:9000"
+  
+  _baseApi = "http://165.22.88.94:9000"
 
   /**********************COUNTRIES************************/
   getCountries = async () => {
@@ -191,9 +192,8 @@ export default class ServerService {
       method: "PATCH",
       headers: {
         Authorization: "Bearer " + getAccessToken(),
-        "Content-Type": "application/json",
       },
-      body: JSON.stringify(user),
+      body:user,
     });
   };
   updateUserPhoto = async (photo) => {
@@ -230,12 +230,12 @@ export default class ServerService {
   resetPassword = async (email) => {
     try {
       let hasError = false;
-      const res = await fetch(`${this._baseApi}/auth/users/reset_password/`, {
+      const res = await fetch(`${this._baseApi}/api/auth/users/reset_password/`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify(email),
       });
 
       if (res.status !== 204) {

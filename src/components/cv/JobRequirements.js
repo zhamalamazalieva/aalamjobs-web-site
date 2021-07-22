@@ -83,14 +83,14 @@ const JobRequirements = ({
 				<h3 className="myText--large mb-2 text-capitalize">
 					{t("cv.jobRequirements")}
 				</h3>
-				<div className="d-flex m-width flex-column">
-				<FormLabel className="">{t("expectedSalary")}</FormLabel>
-					<div className="d-flex">
+			
+					<div className="d-flex m-width">
 					<div className="width-50">
+					<span className="required__textlabel">{t("expectedSalary")}</span>
 						<TextField
 							fullWidth
 							size="small"
-							className="m-width mb-4 swiper-no-swiping"
+							className="m-width50 mb-4 swiper-no-swiping"
 							label={t("salary")}
 							variant="outlined"
 							name="salary"
@@ -99,7 +99,8 @@ const JobRequirements = ({
 						/>
 					</div>
 
-					<div className="width-50 ">
+					<div className="m-width50 ">
+					<span className="required__textlabel">{t("currency")}</span>
 						<Select
 							options={currencies}
 							value={selectedCurrency}
@@ -107,22 +108,24 @@ const JobRequirements = ({
 							className="swiper-no-swiping m-width application__select "
 						/>
 					</div>
-					</div>
+				
 				</div>
+				<div className="m-width">
+				<span className="required__textlabel" >{t("typeOfWork")}</span>
 				<Select
 					options={employmentTypes}
 					value={selectedEmploymentType}
 					onChange={(e) => setSelectedEmploymentType(e)}
 					className="swiper-no-swiping m-width mb-4 application__select "
 				/>
-
+</div>
 				<TextField
 					fullWidth
 					size="small"
 					className="max-width"
 					label={t("positionWouldYouLikeToWork")}
 					variant="outlined"
-					className="mb-4 swiper-no-swiping"
+					className="mb-4 required__textfield swiper-no-swiping"
 					name="position"
 					value={inputValues.position}
 					onChange={handleChange}
@@ -135,7 +138,7 @@ const JobRequirements = ({
 					label={t("theEarliestDateYouCanStartWorking")}
 					variant="outlined"
 					defaultValue="2017-05-24"
-					className="mb-4 swiper-no-swiping"
+					className="mb-4 required__textfield  swiper-no-swiping"
 					name="date_can_start"
 					value={inputValues.date_can_start}
 					onChange={handleChange}

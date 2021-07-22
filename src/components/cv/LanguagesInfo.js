@@ -18,10 +18,9 @@ const LanguagesInfo = ({otherLanguages, setOtherLanguages, inputValues, setInput
                 <TextField
 							fullWidth
 							size="small"
-							className="max-width"
+							className="max-width required__textfield mb-4"
 							label={t("cv.mother_language")}
 							variant="outlined"
-							className="mb-4"
 							value={inputValues.motherLanguage}
 							name="motherLanguage"
 							onChange={handleChange}

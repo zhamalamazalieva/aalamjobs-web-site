@@ -10,8 +10,9 @@
     "delete":"Delete",
     "submit":"Submit",
     "view":"View",
-    "pressEnterToAddTag":"Нажми enter, чтобы добавить тег",
-    "printCV":"Сохранить резюме",
+    "pressEnterToAddTag":"Press enter or next to add tag",
+    "printCV":"Print CV",
+    "save":"Save",
 
 
     "advancedSearch":"Advanced Search",
@@ -24,26 +25,34 @@
     "selectTheResumeLanguage":"Select the resume language",
     "inEnglish":"In English",
     "inRussian":"In Russian",
-    "firstName":"Firth name",
-    "lastName":"Last name",
+    "firstName":"Firth Name",
+    "lastName":"Last Name",
     "citizenship":"Citizenship",
-    "selectAGender":"Select a gender",
-    "selectAMaritalStatus":"Select a marital status",
-    "phone":"Phone Number",
-    "location":"Локация",
-    "company":"Компания",
-    "employmentType":"Employment type",
+    "selectAGender":"Gender",
+    "selectAMaritalStatus":"Marital Status",
+    "phone":"Phone",
+    "location":"Location",
+    "company":"Company",
+    "employmentType":"Employment Type",
+    "typeOfWork":"Type of Work",
     "email":"Email",
     "from":"From",
     "to":"To",
     "address":"Address",
-    "expectedSalary":"Expected salary",
+    "expectedSalary":"Expected Salary",
     "currentCountry":"Current Country",
     "currentCity":"Current City",
     "salary":"Salary",
-
-
-
+    "currency":"Currency",
+    "countries":"Countries",
+    "country":"Country",
+    "cities":"Cities",
+    "city":"City",
+    "position":"Position",
+    "organization":"Organization",
+    "profile":"Profile",
+    "fullname":"Full Name",
+    "username":"Username",
     "single":"Single",
     "widow":"Widow",
     "divorced":"Divorced",
@@ -73,14 +82,14 @@
         "sectors":"Sectors",
         "speciality":"Speciality",
         "salary":"Salary",
-        "employmentType":"Employment type",
+        "employmentType":"Employment Type",
         "country":"Country",
         "sector":"Sector"
     },
 
     "user":{
-        "contactInformation":"Contact information",
-        "profilePhoto":"Profile photo "
+        "contactInformation":"Contact Information",
+        "profilePhoto":"Profile Photo "
     },
 
     "vacancy":{
@@ -88,7 +97,7 @@
         "company":"Company",
         "allVacancies":"All Vacancies",
         "schedule":"Schedule",
-        "employmentType":"Work Type",
+        "employmentType":"Type of Work",
         "specialization":"Specialization",
         "startDate":"Start Date",
         "deadline":"Deadline",
@@ -107,7 +116,8 @@
         "email":"email",
         "checkEmail":"Pleace check your email",
         "signUp":"Sign Up",
-        "createPassword":"Create Password"
+        "createPassword":"Create Password",
+        "username":"Username"
         
     },
 
@@ -123,20 +133,6 @@
     }
 ,
 
-   
-
-
-    "fullTimePermanent":"Постоянный полный рабочий день",
-    "partTimePermanent":"Постоянный неполный рабочий день",
-    "fullTimeSeasonal":"Сезонный полный рабочий день",
-    "partTimeSeasonal":"Сезонный неполный рабочий день",
-    "casual":"Кадимки",
-    "hourly":"по часам",
-    "daily":"каждый день",
-    "weekly":"раз в недели",
-    "biweekly":"раз в две недели",
-    "monthly":"раз в месяц",
-
 
     "cv":{
         "education":"Education",
@@ -151,6 +147,7 @@
         "addEducation":"Click on the button to add educaton",
         "institution":"Institution",
         "specialization":"Specialization",
+        "achievementsAndSkills":"Achievements and Skills",
         "country":"Country",
         "city":"City",
         "dateFromEducation":"Date From",
@@ -162,132 +159,13 @@
         "listening":"Listening",
         "talking":"Talking",
         "writing":"Writing",
-        "reading":"Reading"
-    },
+        "reading":"Reading",
+        "responsibilities":"Responsibilities at work"
+    }
 
 
-    "countries":"Страны",
-    "country":"Страна",
-    "cities":"Города",
-    "city":"Город",
-    "organizations":"Организации",
-    "organization":"Организации",
-
-    
-    "users":"Пользователи",
-    "addUser":"Добавить пользователя",
-    "profile":"Профиль",
-    "listOfUsers":"Список пользователей",
-    "dataOfUser":"Данные о пользователе",
-    "createAccaunt":"Создать аккаунт",
-    "fullname":"Имя пользователя",
-    "middleName":"Middle Name",
-    "password":"Пароль",
-    "username":"Аккаунт",
-    "role":"Должность",
-    "birthDate":"Birth Date",
-    "vacancies":"Вакансии",
-    "addVacancy":"Добавить вакансию",
-    "listOfVacancies":"Список вакансий",
-    "vacancyInfo":"Информация о вакансии",
-    "payment":"Оплата",
-    "currentPassword":"Текущий пароль",
-    "newPassword":"Новый пароль",
-    "confirmPassword":"Подверждение пароля",
-    "passwordsDontMatch":"Пароли не совпадают",
-    "changePassword":"Изменить пароль",
+   
 
 
-    "list":"Список",
-    "settings":"Настройки",
-    "currency":"Валюта",    
-    "catalog":"Справочник",
-    "status":"Статус",
-
-
-    "logout":"Выйти",
-    "registration":"Регистрация",
-    "register":"Зарегистрируйтесь",
-    "signInToAccaunt":"Войти в свой аккаунт",
-    "signIn":"Войти",
-    "registerNow":"Зарегистрироваться сейчас",
-    "forgotPassword":"Забыли пароль?",
-    "returnToOriginalPosition":"Вернуть в исходное положение",
-    "resetPassword":"Сбросить пароль",
-    "messageForgotPassword":"Измените пароль, выполнив два простых шага",
-    "incorrectData":"Вы ввели неверные данные",
-    "doYouHaveAnAccaunt":"Нет аккаунта",
-    
-
-  
-
-    
-    "sector":"Сектор",
-    "specialization":"Специализации",
-    "position":"Позиция",
-    "description":"Описание",
-    "paymentType":"Способ оплаты",
-    "startDate":"Начало работы",
-    "responsibilities":"Обязанности",
-    "requirements":"Требования",
-    "cash":"Наличными",
-    "byBankTransfer":"Банковским переводом",
-    "schedule":"Расписание",
-    "deadline":"Крайний срок подачи заявки",
- 
-  
-
-
-
-    "addApplicant":"Добавить нового соискателя",
-    "listOfApplicants":"Список соискателей",
-    "dateJoined":"Был зарегистрирован",
-    "lastLogin":"Последний раз был",
-
-    
-    "successfullyCreated":"Успешно создано",
-    "successfullyDeleted":"Успешно удалено",
-    "successfullyEdited":"Успешно изменено",
-    "enableToEdit":"Можете внести изменения",
-    "confirmToDelete":"Вы уверены, что хотите удалить",
-    "confirmToLogout":"Вы уверены, что хотите выйти",
-    "failedToDelete":"Не удалось удалить",
-    "failedToCreate":"Не удалось создать",
-    "failedToEdit":"Не удалось изменить",
-
-
-    "employmentAndPaymentTypes":"Виды работы и оплаты",
-    "paymentTypes":"Способы оплаты",
-    "employmentTypes":"Виды работы",
-    "addNewPaymentType":"Добавить способ оплаты",
-    "addNewEmploymentType":"Добавить вид работы",
-
-    "employmentTypeInRussian":"На русском",
-    "employmentTypeInEnglish":"На английском",
-    "employmentTypeInKyrgyz":"На кыргызском",
-
-    "paymentTypeInRussian":"На русском",
-    "paymentTypeInEnglish":"На английском",
-    "paymentTypeInKyrgyz":"На кыргызском",
-
-
-    "allVacancies":"все вакансии",
-    "vacanciesForPeriod":"вакансии за период",
-    "bySalary":"По зарплате",
-    "byLocation":"По местоположению",
-    "bySector":"По сектору",
-    "searchBy":"Поиск по",
-    "countriesAndCities":"Страны и города",
-    "minSalary":"Мин. зарплата",
-    "maxSalary":"Макс. зарплата",
-
-
-    "operator":"Оператор",
-    "admin":"Администратор",
-    "employee":"Соискатель",
-    "recruiter":"Рекрутер",
-    "operators":"Операторы",
-    "admins":"Администраторы",
-    "recruiters":"Рекрутеры"
 
 } 

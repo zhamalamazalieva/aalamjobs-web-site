@@ -76,7 +76,6 @@ const SignUpPage = () => {
 						onChange={handleChange}
 						placeholder={t("email")}
 						onBlur={handleBlur}
-						autoComplete="username"
 						className={errors.email && touched.email ? "border-danger" : ""}
 						
 						/>
@@ -122,7 +121,7 @@ const SignUpPage = () => {
 					<Button variant="success" className="myBtn myBtn--green myText--large text-center" type="submit">
 						{t("login.signUp")}
 					</Button></Col>
-					<span  className="myText--small color-text d-center mt-5">Already a member?<Link className="login__link" to="/login">Login</Link> </span>
+					<span  className="myText--small color-text d-center mt-5">Already a member?{" "}<Link className="login__link" to="/login">Login</Link> </span>
 					</Form>
 					    )}
 						</Formik>

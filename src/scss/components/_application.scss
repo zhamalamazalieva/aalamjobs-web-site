@@ -11,6 +11,38 @@
 
     }
 }
+.required__textfield{
+    position: relative !important;
+    &::before{
+        content: url('../../assets/img/star.svg') !important;
+        position: absolute !important;
+        top:-10px !important;
+        right: 8px !important;
+    }
+}
+.required__textlabel{
+    font-size: 0.6em;
+    font-family: $font-nuni !important;
+    font-weight: 400 !important;
+    line-height: 1.5 !important;
+    color: $color-middleGray !important;
+    position: relative !important;
+    &::before{
+        content: url('../../assets/img/star.svg') !important;
+        position: absolute !important;
+        top:-5px !important;
+        right: -15px !important;
+    }
+}
+.required__textselect{
+    position: relative !important;
+    &::before{
+        content: url('../../assets/img/star.svg') !important;
+        position: absolute !important;
+        top:-2px !important;
+        right: 8px !important;
+    }
+}
 
 .swiper-container{
     padding: 5% 0 !important;

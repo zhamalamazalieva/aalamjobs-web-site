@@ -26,7 +26,7 @@ const UserAvatar = () => {
 				<div className="myText--xlarge color-blueGray">
 					<span>{loggedUser.fullname}</span>
 					<div className="d-flex align-items-center">
-						<svg
+						{ (loggedUser.country || loggedUser.city ) && <svg
 							className="mr-2"
 							width="18"
 							height="24"
@@ -39,8 +39,8 @@ const UserAvatar = () => {
 								fill="#5A5A67"
 							/>
 						</svg>
-
-						<span className="myText--small">Bishkek, Kyrgyzstan</span>
+ }
+						<span className="myText--small">{loggedUser.city && loggedUser.city}{", "}{loggedUser.country && loggedUser.country}</span>
 					</div>
 				</div>
 			</div>

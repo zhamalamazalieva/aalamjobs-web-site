@@ -17,7 +17,7 @@ import {
     const token = getState().auth.refreshToken;
     if (token) {
       const result = await doRequestAndParse(
-        `http://165.227.143.167:9000/api/auth/jwt/refresh/`,
+        `http://165.22.88.94:9000/api/auth/jwt/refresh/`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -41,7 +41,7 @@ import {
   
   //USERLOGIN
   export const login = ({username, password}) => async (dispatch) => {
-    const result = await doRequestAndParse(`http://165.227.143.167:9000/api/auth/jwt/create/`,
+    const result = await doRequestAndParse(`http://165.22.88.94:9000/api/auth/jwt/create/`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -64,7 +64,7 @@ import {
     toLogin
   ) => async (dispatch) => {
     const result = await doRequestAndParse(
-      `http://165.227.143.167:9000/api/auth/users/`,
+      `http://165.22.88.94:9000/api/auth/users/`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },

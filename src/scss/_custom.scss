@@ -84,14 +84,12 @@ li{
 
 input{
     font-family: $font-nuni !important;
-    font-size: 1em !important;
     font-weight: 400 !important;
     line-height: 1.5 !important;
     color: $color-blueGray !important;
 }
 .myOptions{
     font-family: $font-nuni !important;
-    font-size: 1em !important;
     font-weight: 400 !important;
     line-height: 1.5 !important;
     color: $color-blueGray !important;
@@ -105,7 +103,6 @@ label{
 
 select{
     font-family: $font-nuni !important;
-    font-size: 1em !important;
     font-weight: 400 !important;
     line-height: 1.5 !important;
     color: $color-blueGray !important;
@@ -185,7 +182,7 @@ select{
 }
 
 .react-select__value-container{
-    font-size:0.6em;
+    font-size:0.65em;
     height: 100%;
 }
 .react-select .react-select__indicators{
@@ -193,6 +190,7 @@ select{
 }
 .react-select .react-select__menu{
     font-size: 0.6em;
+    background-color: $color-white !important;
 
 }
 
@@ -200,6 +198,7 @@ select{
     border-color: $color-lightGreen;
     box-shadow: none;
 }
+
 .ReactTags__tags {
     position: relative;
     width: 100%;

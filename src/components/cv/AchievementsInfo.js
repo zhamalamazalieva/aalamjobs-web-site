@@ -1,28 +1,17 @@
-import React, { useState } from "react"
-import { makeStyles } from "@material-ui/core/styles"
+import React, { useState, useEffect } from "react"
 import { useTranslation } from "react-i18next"
 import FormLabel from "@material-ui/core/FormLabel"
 import { WithContext as ReactTags } from "react-tag-input"
 
-const useStyles = makeStyles((theme) => ({
-	root: {
-		"& .MuiTextField-root": {
-			margin: theme.spacing(1),
-			minWidth: "100%",
-		},
-	},
-}))
-const AchievementsInfo = () => {
-	const classes = useStyles()
+const AchievementsInfo = ({skills, setSkills, achievements, setAchievements, portfolio, setPortfolio}) => {
 	const { t } = useTranslation()
 
 	//KEYCODES
-	const KeyCodes = { dot: 190, enter: 13, next: 9 }
-	const delimiters = [KeyCodes.enter, KeyCodes.dot, KeyCodes.next]
+	const KeyCodes = {  enter: 13, next: 9 }
+	const delimiters = [KeyCodes.enter, KeyCodes.next]
 
 	//REACT_INPUT_TAGS_SKILLS
 	const [skillsTags, setSkillsTags] = useState([])
-	const skills = skillsTags.map((tag) => tag.text)
 	const handleAdditionSkills = (tag) => {
 		setSkillsTags((reqTags) => [...reqTags, tag])
 	}
@@ -38,7 +27,6 @@ const AchievementsInfo = () => {
 
 	//REACT_INPUT_TAGS_ACHIEVEMENTS
 	const [achievementsTags, setAchievementsTags] = useState([])
-	const achievements = achievementsTags.map((tag) => tag.text)
 	const handleAdditionAchievements = (tag) => {
 		setAchievementsTags((achievementsTags) => [...achievementsTags, tag])
 	}
@@ -56,7 +44,6 @@ const AchievementsInfo = () => {
 
 	//REACT_INPUT_TAGS_PORTFOLIO
 	const [portfolioTags, setPortfolioTags] = useState([])
-	const portfolio = portfolioTags.map((tag) => tag.text)
 	const handleAdditionPortfolio = (tag) => {
 		setPortfolioTags((portfolioTags) => [...portfolioTags, tag])
 	}
@@ -71,11 +58,18 @@ const AchievementsInfo = () => {
 		newPortfolioTags.splice(newPos, 0, tag)
 		setPortfolioTags(newPortfolioTags)
 	}
+
+	useEffect(() => {
+		setPortfolio(portfolioTags.map((tag) => tag.text))
+		setAchievements(achievementsTags.map((tag) => tag.text))
+		setSkills(skillsTags.map((tag) => tag.text))
+
+	}, [portfolioTags, skillsTags, achievementsTags])
 	return (
 		<div>
 			<div className="application__section d-flex flex-column ">
 				<h3 className="myText--large mb-2 d-center">
-					{t("cv.AchievementsAndLinks")}
+					{t("cv.achievementsAndSkills")}
 				</h3>
 				<FormLabel>Please mention all your skills (optional)</FormLabel>
 				<ReactTags
@@ -87,6 +81,8 @@ const AchievementsInfo = () => {
 					placeholder={t("pressEnterToAddTag")}
 					inputFieldPosition="top"
 					delimiters={delimiters}
+					autofocus={false}
+
 				/>
 				<FormLabel className="mt-3">
 					Please mention your achievements: awards, certificates, recognition
@@ -101,6 +97,8 @@ const AchievementsInfo = () => {
 					placeholder={t("pressEnterToAddTag")}
 					inputFieldPosition="top"
 					delimiters={delimiters}
+					autofocus={false}
+
 				/>
 				<FormLabel className="mt-3">
 					Links related to your work experience (optional)
@@ -113,6 +111,7 @@ const AchievementsInfo = () => {
 					placeholder={t("pressEnterToAddTag")}
 					inputFieldPosition="top"
 					delimiters={delimiters}
+					autofocus={false}
 				/>
 			</div>
 		</div>

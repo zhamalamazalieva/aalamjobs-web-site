@@ -38,11 +38,12 @@ const ApplicationForm = () => {
 	const [isEnd, setIsEnd] = useState(false)
 
 	const [education, setEducation] = useState([]);
+	const [skills, setSkills] = useState([])
+	const [achievements, setAchievements] = useState([])
+	const [portfolio, setPortfolio] = useState([]);
 	const [otherLanguages, setOtherLanguages] = useState([]);
 	const [experiences, setExperiences] = useState([]);
-	const [portfolio, setPortfolio] = useState([]);
   
-	console.log(education, experiences, otherLanguages)
 	//ONSUBMIT
 	var onSubmit = async (e) => {
 		e.preventDefault()
@@ -79,6 +80,9 @@ const ApplicationForm = () => {
 			salary: inputValues.salary,
 			currency: selectedCurrency.value,
 			employment_type: selectedEmploymentType.value,
+			skills:skills,
+			portfolio:portfolio,
+			achievements:achievements
 
 
 		})
@@ -146,7 +150,16 @@ const ApplicationForm = () => {
 						setExperiences={setExperiences}
 						/>
 					</SwiperSlide>
-					<SwiperSlide>{/* <AchievementsInfo/> */}</SwiperSlide>
+					<SwiperSlide>
+						<AchievementsInfo
+						skills={skills}
+						setSkills={setSkills}
+						achievements={achievements}
+						setAchievements={setAchievements}
+						portfolio={portfolio}
+						setPortfolio={setPortfolio}
+						/>
+						</SwiperSlide>
 					<SwiperSlide>
 						<JobRequirements 
 						inputValues={inputValues}

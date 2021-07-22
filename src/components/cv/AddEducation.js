@@ -74,7 +74,7 @@ const AddEducation = ({ education, setEducation }) => {
 							style={{ borderRadius: 5, position: "relative" }}
 						>
 							<TextField
-								className="m-width mb-2"
+								className="m-width required__textfield mb-2"
 								variant="outlined"
 								size="small"
 								type="text"
@@ -86,7 +86,7 @@ const AddEducation = ({ education, setEducation }) => {
 								onChange={(e) => onEducationInputsChange(index, e)}
 							/>
 							<TextField
-								className="m-width mb-2"
+								className="m-width required__textfield mb-2"
 								variant="outlined"
 								size="small"
 								type="text"
@@ -98,7 +98,7 @@ const AddEducation = ({ education, setEducation }) => {
 								onChange={(e) => onEducationInputsChange(index, e)}
 							/>
 							<TextField
-								className="m-width mb-2"
+								className="m-width required__textfield mb-2"
 								variant="outlined"
 								size="small"
 								type="text"
@@ -110,7 +110,7 @@ const AddEducation = ({ education, setEducation }) => {
 								onChange={(e) => onEducationInputsChange(index, e)}
 							/>
 							<TextField
-								className="m-width mb-2"
+								className="m-width required__textfield mb-2"
 								variant="outlined"
 								size="small"
 								type="text"
@@ -150,17 +150,7 @@ const AddEducation = ({ education, setEducation }) => {
 									/>
 								</div>
 							</div>
-							<TextField
-								className="m-width mb-2"
-								variant="outlined"
-								size="small"
-								type="file"
-								id={`education-file-${index}`}
-								name={`file`}
-								autoComplete="education-file"
-								value={education[index].file}
-								onChange={(e) => onEducationInputsChange(index, e)}
-							/>
+						
 						</div>
 					)
 				})}
