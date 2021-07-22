@@ -163,9 +163,9 @@ const VacanciesContent = () => {
 			const { hasError } = await ServerService.createFavourites({ job: job })
 			if (hasError) {
 				console.log("Произошла ошибка", hasError)
-				toastify("error", t(""))
+				toastify("error", t("failedToAdd"))
 			} else {
-				toastify("success", t("successfullyAdded"))
+				toastify("success", t("addedToFavourites"))
 				vacancies.find((item) => item.id === job).favorite = true
 			}
 			setIsLoading(false)
@@ -180,9 +180,9 @@ const VacanciesContent = () => {
 			const { hasError } = await ServerService.deleteFavourites(job)
 			if (hasError) {
 				console.log("Произошла ошибка", hasError)
-				toastify("error", t(""))
+				toastify("error", t("failedToDelete"))
 			} else {
-				toastify("success", t("successfullyDeletedFromFav"))
+				toastify("success", t("removedFromFavourites"))
 				vacancies.find((item) => item.id === job).favorite = false
 			}
 			setIsLoading(false)

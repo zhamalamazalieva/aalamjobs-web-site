@@ -63,6 +63,13 @@
     "next":"Next",
     "prev":"Prev",
 
+
+    "addedToFavourites":"Added to favourites",
+    "removedFromFavourites":"Removed from favourites",
+    "failedToDelete":"Failed to delete",
+    "failedToAdd":"Failed to add to favourites",
+
+
     "header":{
         "vacancies":"All Jobs",
         "myCv":"My CV",

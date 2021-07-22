@@ -136,6 +136,9 @@ export default class ServerService {
   };
 
 
+  
+
+
   createApplication = async (cv) => {
     return await this.doRequestAndParse(`${this._baseApi}/api/resumes/`, {
       method: "POST",
